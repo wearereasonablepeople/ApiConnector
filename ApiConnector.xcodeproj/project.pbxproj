@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */; };
 		CED9A7B51DC88D89005CE914 /* ApiConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */; };
 		CED9A7BC1DC88D89005CE914 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED9A7C91DC88E53005CE914 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7C81DC88E53005CE914 /* Alamofire.framework */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConnector.swift; sourceTree = "<group>"; };
 		CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ApiConnector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9A7AE1DC88D89005CE914 /* ApiConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiConnector.h; sourceTree = "<group>"; };
 		CED9A7AF1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				CED9A7AE1DC88D89005CE914 /* ApiConnector.h */,
 				CED9A7CA1DC89089005CE914 /* Router.swift */,
+				CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */,
 				CED9A7AF1DC88D89005CE914 /* Info.plist */,
 			);
 			path = ApiConnector;
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */,
 				CED9A7CB1DC89089005CE914 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +452,7 @@
 				CED9A7C11DC88D89005CE914 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CED9A7C21DC88D89005CE914 /* Build configuration list for PBXNativeTarget "ApiConnectorTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +461,7 @@
 				CED9A7C41DC88D89005CE914 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
