@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CED9A7B51DC88D89005CE914 /* ApiConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */; };
-		CED9A7BA1DC88D89005CE914 /* ApiConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7B91DC88D89005CE914 /* ApiConnectorTests.swift */; };
 		CED9A7BC1DC88D89005CE914 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED9A7C91DC88E53005CE914 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7C81DC88E53005CE914 /* Alamofire.framework */; };
 		CED9A7CB1DC89089005CE914 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CA1DC89089005CE914 /* Router.swift */; };
@@ -30,7 +29,6 @@
 		CED9A7AE1DC88D89005CE914 /* ApiConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiConnector.h; sourceTree = "<group>"; };
 		CED9A7AF1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED9A7B41DC88D89005CE914 /* ApiConnectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApiConnectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CED9A7B91DC88D89005CE914 /* ApiConnectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConnectorTests.swift; sourceTree = "<group>"; };
 		CED9A7BB1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED9A7C81DC88E53005CE914 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		CED9A7CA1DC89089005CE914 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				CED9A7CC1DC8920E005CE914 /* TestData.swift */,
-				CED9A7B91DC88D89005CE914 /* ApiConnectorTests.swift */,
 				CED9A7BB1DC88D89005CE914 /* Info.plist */,
 			);
 			path = ApiConnectorTests;
@@ -225,7 +222,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CED9A7BA1DC88D89005CE914 /* ApiConnectorTests.swift in Sources */,
 				CED9A7CD1DC8920E005CE914 /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
