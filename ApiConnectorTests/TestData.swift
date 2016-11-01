@@ -8,10 +8,11 @@
 
 import ApiConnector
 
+enum Environment: String, ApiEnvironment {
+    case test = "test.com"
+}
+
 enum Router: String, ApiRouter, ApiEnvironment {
-    typealias EnvironmentType = Router
-    
+    typealias EnvironmentType = Environment
     case me, pictures
-    
-    var host: String { return "testhost" }
 }
