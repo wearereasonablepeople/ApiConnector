@@ -8,11 +8,11 @@
 
 import Alamofire
 
-enum TestConnectorResponse {
+public enum TestConnectorResponse {
     case success(URLRequest, HTTPURLResponse, Data?)
     case failure(Error)
     
-    func validate(_ validation: DataRequest.Validation?) -> TestConnectorResponse {
+    public func validate(_ validation: DataRequest.Validation?) -> TestConnectorResponse {
         guard case let .success(request, response, data) = self else {
             return self
         }
