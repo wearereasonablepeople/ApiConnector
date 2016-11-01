@@ -8,20 +8,20 @@
 
 import Alamofire
 
-protocol ResponseProvider {
+public protocol ResponseProvider {
     static func response(for request: URLRequest) -> (HTTPURLResponse, Data?)
 }
 
-final class TestConnector<T: ResponseProvider>: DataRequestType {
+public final class TestConnector<T: ResponseProvider>: DataRequestType {
     let validation: DataRequest.Validation?
     let request: URLRequest
     let completionHandler: ((Data?, Error?) -> Void)?
     
-    static func dataRequest(with request: URLRequest) -> TestConnector {
+    public static func dataRequest(with request: URLRequest) -> TestConnector {
         return .init(request: request)
     }
     
-    init(request: URLRequest, validation: DataRequest.Validation? = nil, completionHandler: ((Data?, Error?) -> Void)? = nil) {
+    public init(request: URLRequest, validation: DataRequest.Validation? = nil, completionHandler: ((Data?, Error?) -> Void)? = nil) {
         self.completionHandler = completionHandler
         self.request = request
         self.validation = validation
@@ -49,7 +49,7 @@ final class TestConnector<T: ResponseProvider>: DataRequestType {
         }
     }
     
-    func validate() -> TestConnector {
+    public func validate() -> TestConnector {
         return validate({ request, response, data -> Request.ValidationResult in
             let code = response.statusCode
             switch code {
@@ -62,15 +62,15 @@ final class TestConnector<T: ResponseProvider>: DataRequestType {
         })
     }
     
-    func validate(_ validation: @escaping DataRequest.Validation) -> TestConnector {
+    public func validate(_ validation: @escaping DataRequest.Validation) -> TestConnector {
         return .init(request: request, validation: validation)
     }
     
-    func cancel() {
+    public func cancel() {
         //Does nothing
     }
     
-    func responseData(completionHandler: @escaping (Data?, Error?) -> Void) -> TestConnector {
+    public func responseData(completionHandler: @escaping (Data?, Error?) -> Void) -> TestConnector {
         return .init(request: request, validation: validation, completionHandler: completionHandler)
     }
 }
