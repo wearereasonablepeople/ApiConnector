@@ -1,0 +1,11 @@
+language: objective-c
+osx_image: xcode8
+
+before_install:
+  - carthage bootstrap --verbose
+
+script:
+  - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector  -destination 'platform=iOS Simulator,name=iPhone 6'
+
+notifications:
+  email: true
