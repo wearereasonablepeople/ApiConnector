@@ -16,7 +16,38 @@ protocol ApiEnvironment {
     static var `default`: Self { get }
 }
 
+protocol ApiRouter {
+    associatedtype Environment: ApiEnvironment
+    
+    var path: String { get }
+    var queryItems: [URLQueryItem]? { get }
+    var method: HTTPMethod { get }
+    
+    func url(for environment: Environment) -> URL
+}
+
 extension ApiEnvironment {
     var scheme: String { return "http" }
     var port: Int { return 80 }
+}
+
+extension ApiRouter {
+    var queryItems: [URLQueryItem]? { return nil }
+    var method: HTTPMethod { return .get }
+    
+    func url(for environment: Environment) -> URL {
+        var components = URLComponents()
+        
+        components.scheme = environment.scheme
+        components.host = environment.host
+        components.port = environment.port
+        components.path = path
+        components.queryItems = queryItems
+        
+        guard let url = components.url else {
+            fatalError("URL components are not valid")
+        }
+        
+        return url
+    }
 }
