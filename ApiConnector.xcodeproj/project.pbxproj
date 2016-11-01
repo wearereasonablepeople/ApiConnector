@@ -10,6 +10,7 @@
 		CED9A7B51DC88D89005CE914 /* ApiConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */; };
 		CED9A7BA1DC88D89005CE914 /* ApiConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7B91DC88D89005CE914 /* ApiConnectorTests.swift */; };
 		CED9A7BC1DC88D89005CE914 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CED9A7C91DC88E53005CE914 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7C81DC88E53005CE914 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		CED9A7B41DC88D89005CE914 /* ApiConnectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApiConnectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9A7B91DC88D89005CE914 /* ApiConnectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConnectorTests.swift; sourceTree = "<group>"; };
 		CED9A7BB1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED9A7C81DC88E53005CE914 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED9A7C91DC88E53005CE914 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +59,7 @@
 				CED9A7AD1DC88D89005CE914 /* ApiConnector */,
 				CED9A7B81DC88D89005CE914 /* ApiConnectorTests */,
 				CED9A7AC1DC88D89005CE914 /* Products */,
+				CED9A7C71DC88E53005CE914 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +88,14 @@
 				CED9A7BB1DC88D89005CE914 /* Info.plist */,
 			);
 			path = ApiConnectorTests;
+			sourceTree = "<group>";
+		};
+		CED9A7C71DC88E53005CE914 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CED9A7C81DC88E53005CE914 /* Alamofire.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +161,7 @@
 					CED9A7AA1DC88D88005CE914 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = VLLVL72AJ4;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					CED9A7B31DC88D89005CE914 = {
@@ -322,18 +335,25 @@
 		CED9A7C01DC88D89005CE914 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = VLLVL72AJ4;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ApiConnector/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks ${SRCROOT}/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wearereasonablepeople.ApiConnector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,15 +361,21 @@
 		CED9A7C11DC88D89005CE914 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = VLLVL72AJ4;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ApiConnector/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks ${SRCROOT}/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wearereasonablepeople.ApiConnector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
