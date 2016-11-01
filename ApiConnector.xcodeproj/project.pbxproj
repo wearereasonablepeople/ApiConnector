@@ -65,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE2EDD141DC8EA2A00D2D7E7 /* TestConnector */ = {
+			isa = PBXGroup;
+			children = (
+				CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */,
+			);
+			name = TestConnector;
+			sourceTree = "<group>";
+		};
 		CED9A7A11DC88D88005CE914 = {
 			isa = PBXGroup;
 			children = (
@@ -90,7 +98,7 @@
 				CED9A7AE1DC88D89005CE914 /* ApiConnector.h */,
 				CED9A7CA1DC89089005CE914 /* Router.swift */,
 				CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */,
-				CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */,
+				CE2EDD141DC8EA2A00D2D7E7 /* TestConnector */,
 				CED9A7AF1DC88D89005CE914 /* Info.plist */,
 			);
 			path = ApiConnector;
