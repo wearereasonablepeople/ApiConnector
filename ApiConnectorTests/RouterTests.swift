@@ -15,4 +15,8 @@ class RouterTests: XCTestCase {
         XCTAssertEqual(Router.pictures.url(for: .test).absoluteString, "http://test.com:80/pictures")
     }
     
+    func testRouterMethod() {
+        XCTAssertEqual(Router.me.method, .get)
+    }
+    
 }
