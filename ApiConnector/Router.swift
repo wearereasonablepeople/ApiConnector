@@ -55,3 +55,9 @@ public extension ApiRouter where Self: RawRepresentable, Self.RawValue == String
         return "/\(rawValue)"
     }
 }
+
+public extension ApiEnvironment where Self: RawRepresentable, Self.RawValue == String {
+    public var host: String {
+        return rawValue
+    }
+}
