@@ -12,8 +12,6 @@ protocol ApiEnvironment {
     var host: String { get }
     var scheme: String { get }
     var port: Int { get }
-    
-    static var `default`: Self { get }
 }
 
 protocol ApiRouter {
