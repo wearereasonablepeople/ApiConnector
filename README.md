@@ -1,6 +1,9 @@
 # ApiConnector
 Framework for convenient Connection to Api.
 
+
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/wearereasonablepeople/ApiConnector.svg?branch=master)](https://travis-ci.org/wearereasonablepeople/ApiConnector)
+
 ##Router
 Framework allows to create routers to describe the endpoints used for API connection.
 
