@@ -13,6 +13,7 @@
 		CED9A7CB1DC89089005CE914 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CA1DC89089005CE914 /* Router.swift */; };
 		CED9A7CD1DC8920E005CE914 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CC1DC8920E005CE914 /* TestData.swift */; };
 		CED9A7CF1DC89744005CE914 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CE1DC89744005CE914 /* RouterTests.swift */; };
+		CED9A7D01DC8A1AC005CE914 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7C81DC88E53005CE914 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED9A7B51DC88D89005CE914 /* ApiConnector.framework in Frameworks */,
+				CED9A7D01DC8A1AC005CE914 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +360,7 @@
 				INFOPLIST_FILE = ApiConnector/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks ${SRCROOT}/Carthage/Build/iOS";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wearereasonablepeople.ApiConnector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -385,7 +387,7 @@
 				INFOPLIST_FILE = ApiConnector/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks ${SRCROOT}/Carthage/Build/iOS";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wearereasonablepeople.ApiConnector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -398,8 +400,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = VLLVL72AJ4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ApiConnectorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wearereasonablepeople.ApiConnectorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -411,8 +417,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = VLLVL72AJ4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ApiConnectorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wearereasonablepeople.ApiConnectorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
