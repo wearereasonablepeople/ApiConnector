@@ -11,6 +11,7 @@
 		CED9A7BA1DC88D89005CE914 /* ApiConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7B91DC88D89005CE914 /* ApiConnectorTests.swift */; };
 		CED9A7BC1DC88D89005CE914 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED9A7C91DC88E53005CE914 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7C81DC88E53005CE914 /* Alamofire.framework */; };
+		CED9A7CB1DC89089005CE914 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CA1DC89089005CE914 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		CED9A7B91DC88D89005CE914 /* ApiConnectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConnectorTests.swift; sourceTree = "<group>"; };
 		CED9A7BB1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED9A7C81DC88E53005CE914 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		CED9A7CA1DC89089005CE914 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				CED9A7AE1DC88D89005CE914 /* ApiConnector.h */,
+				CED9A7CA1DC89089005CE914 /* Router.swift */,
 				CED9A7AF1DC88D89005CE914 /* Info.plist */,
 			);
 			path = ApiConnector;
@@ -211,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED9A7CB1DC89089005CE914 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +392,7 @@
 		CED9A7C31DC88D89005CE914 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = VLLVL72AJ4;
 				INFOPLIST_FILE = ApiConnectorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -400,6 +405,7 @@
 		CED9A7C41DC88D89005CE914 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = VLLVL72AJ4;
 				INFOPLIST_FILE = ApiConnectorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
