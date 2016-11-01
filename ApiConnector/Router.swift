@@ -49,3 +49,9 @@ public extension ApiRouter {
         return url
     }
 }
+
+public extension ApiRouter where Self: RawRepresentable, Self.RawValue == String {
+    public var path: String {
+        return rawValue
+    }
+}
