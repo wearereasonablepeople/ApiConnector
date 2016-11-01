@@ -12,7 +12,7 @@ enum Environment: String, ApiEnvironment {
     case test = "test.com"
 }
 
-enum Router: String, ApiRouter, ApiEnvironment {
+enum Router: String, ApiRouter {
     typealias EnvironmentType = Environment
     case me, pictures
 }
