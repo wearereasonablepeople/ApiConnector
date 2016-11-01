@@ -15,13 +15,13 @@ public protocol ApiEnvironment {
 }
 
 public protocol ApiRouter {
-    associatedtype Environment: ApiEnvironment
+    associatedtype EnvironmentType: ApiEnvironment
     
     var path: String { get }
     var queryItems: [URLQueryItem]? { get }
     var method: HTTPMethod { get }
     
-    func url(for environment: Environment) -> URL
+    func url(for environment: EnvironmentType) -> URL
 }
 
 public extension ApiEnvironment {
@@ -33,7 +33,7 @@ public extension ApiRouter {
     public var queryItems: [URLQueryItem]? { return nil }
     public var method: HTTPMethod { return .get }
     
-    public func url(for environment: Environment) -> URL {
+    public func url(for environment: EnvironmentType) -> URL {
         var components = URLComponents()
         
         components.scheme = environment.scheme
