@@ -9,7 +9,7 @@
 import Alamofire
 
 protocol DataRequestType {
-    static func dataRequest(with url: URLRequest) -> Self
+    static func dataRequest(with request: URLRequest) -> Self
     
     func validate() -> Self
     func validate(_ validation: @escaping Alamofire.DataRequest.Validation) -> Self
