@@ -57,3 +57,8 @@ extension Post: JSONModelType {
         return [.title: title, .description: description]
     }
 }
+
+extension Post: Equatable {}
+func == (lhs: Post, rhs: Post) -> Bool {
+    return lhs.title == rhs.title && lhs.description == rhs.description
+}
