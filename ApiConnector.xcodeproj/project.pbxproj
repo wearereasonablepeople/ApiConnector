@@ -10,6 +10,7 @@
 		CE27167D1DC9FCE300571670 /* ApiConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */; };
 		CE27167F1DCA105400571670 /* AlamofireExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167E1DCA105400571670 /* AlamofireExtension.swift */; };
 		CE2716811DCA11EB00571670 /* AlamofireDataRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */; };
+		CE2716831DCA1F6C00571670 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2716821DCA1F6C00571670 /* RxSwift.framework */; };
 		CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */; };
 		CE2EDCEC1DC8D4DB00D2D7E7 /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */; };
 		CE2EDD131DC8E55700D2D7E7 /* TestConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */; };
@@ -38,6 +39,7 @@
 		CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConnectionTests.swift; sourceTree = "<group>"; };
 		CE27167E1DCA105400571670 /* AlamofireExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtension.swift; sourceTree = "<group>"; };
 		CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireDataRequestTests.swift; sourceTree = "<group>"; };
+		CE2716821DCA1F6C00571670 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConnector.swift; sourceTree = "<group>"; };
 		CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnector.swift; sourceTree = "<group>"; };
 		CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorTests.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED9A7C91DC88E53005CE914 /* Alamofire.framework in Frameworks */,
+				CE2716831DCA1F6C00571670 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +136,7 @@
 		CED9A7C71DC88E53005CE914 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE2716821DCA1F6C00571670 /* RxSwift.framework */,
 				CED9A7C81DC88E53005CE914 /* Alamofire.framework */,
 			);
 			name = Frameworks;
