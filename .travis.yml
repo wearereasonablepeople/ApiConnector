@@ -2,7 +2,7 @@ language: objective-c
 osx_image: xcode8
 
 before_install:
-  - carthage bootstrap --verbose
+  - carthage bootstrap --verbose --platform iOS
 
 script:
   - open -a "simulator" --args -CurrentDeviceUDID A84965FC-070D-4EAF-83E8-84FFE99F5866
