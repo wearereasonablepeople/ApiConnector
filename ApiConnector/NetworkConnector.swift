@@ -50,3 +50,14 @@ public extension ApiConnectionType {
         return Request.dataRequest(with: request(with: data, at: endpoint, headers: headers))
     }
 }
+
+public struct NetworkConnector<T: DataRequestType, E: ApiRouter>: ApiConnectionType {
+    public typealias Request = T
+    public typealias Router = E
+    
+    public let environment: Router.EnvironmentType
+    
+    public init(environment: Router.EnvironmentType) {
+        self.environment = environment
+    }
+}
