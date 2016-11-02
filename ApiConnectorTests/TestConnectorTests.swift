@@ -30,6 +30,23 @@ class TestConnectorTests: XCTestCase {
         }
     }
     
+    func testSuccessfulProviderResponse() {
+        struct SuccessResponseProvider: ResponseProvider {
+            static func response(for request: URLRequest) -> TestConnectorResponse {
+                return successResponse(for: request, with: 200, data: TestData.testBodyData)
+            }
+        }
+
+        let connector = TestConnector<SuccessResponseProvider>.dataRequest(with: TestData.request)
+        let responseExpectation = expectation(description: "SuccessMockResponse")
+
+        _ = connector.validate().responseData { data, error in
+            XCTAssertNil(error)
+            XCTAssertEqual(data, TestData.testBodyData)
+            responseExpectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 2.0)
     }
     
 }
