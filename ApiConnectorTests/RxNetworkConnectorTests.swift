@@ -22,4 +22,17 @@ class RxNetworkConnectorTests: XCTestCase {
         observable.dispose()
     }
     
+    func testApiObservableFailure() {
+        let successExpectation = expectation(description: "ApiObservableExpectation")
+        let observable = TestApiConnection().requestData(with: nil, at: .me, headers: nil).validate({ _,_,_ in
+            .failure(TestsError.defaultError)
+        }).responseObservable().subscribe(onError: { error in
+            XCTAssertEqual(error as? TestsError, .defaultError)
+            successExpectation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 2.0)
+        observable.dispose()
+    }
+    
 }
