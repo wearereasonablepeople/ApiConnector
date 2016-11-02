@@ -21,4 +21,13 @@ public enum TestConnectorResponse {
         }
         return .failure(error)
     }
+    
+    public var completionValue: (Data?, Error?) {
+        switch self {
+        case let .success(_, _, data):
+            return (data, nil)
+        case let .failure(error):
+            return (nil, error)
+        }
+    }
 }
