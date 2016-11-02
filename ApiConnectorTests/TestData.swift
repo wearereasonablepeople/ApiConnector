@@ -7,6 +7,7 @@
 //
 
 import ApiConnector
+import SwiftyJSONModel
 
 enum Environment: String, ApiEnvironment {
     case test = "test.com"
@@ -22,6 +23,7 @@ struct TestData {
     static let request = URLRequest(url: url)
     
     static let testBodyData = "TestString".data(using: .utf8)
+    static let defaultPost = Post(title: "testTitle", description: "TestDescription")
 }
 
 enum TestsError: Error {
@@ -41,4 +43,24 @@ struct TestApiConnection: ApiConnectionType {
     typealias Router = TestRouter
     
     let environment: Environment = .test
+}
+
+struct Post {
+    let title: String
+    let description: String
+}
+
+extension Post: JSONModelType {
+    enum PropertyKey: String {
+        case title, description
+    }
+    
+    init(object: JSONObject<PropertyKey>) throws {
+        title = try object.value(for: .title)
+        description = try object.value(for: .description)
+    }
+    
+    var dictValue: [PropertyKey : JSONRepresentable] {
+        return [.title: title, .description: description]
+    }
 }
