@@ -19,6 +19,7 @@
 		CE27168D1DCA305300571670 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2716891DCA304800571670 /* SwiftyJSON.framework */; };
 		CE27168E1DCA305300571670 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27168A1DCA304800571670 /* SwiftyJSONModel.framework */; };
 		CE2716901DCA336B00571670 /* JSONModelNetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27168F1DCA336B00571670 /* JSONModelNetworkConnector.swift */; };
+		CE2716921DCA379F00571670 /* JSONModelNetworkConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716911DCA379F00571670 /* JSONModelNetworkConnectorTests.swift */; };
 		CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */; };
 		CE2EDCEC1DC8D4DB00D2D7E7 /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */; };
 		CE2EDD131DC8E55700D2D7E7 /* TestConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */; };
@@ -53,6 +54,7 @@
 		CE2716891DCA304800571670 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CE27168A1DCA304800571670 /* SwiftyJSONModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSONModel.framework; path = Carthage/Build/iOS/SwiftyJSONModel.framework; sourceTree = "<group>"; };
 		CE27168F1DCA336B00571670 /* JSONModelNetworkConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModelNetworkConnector.swift; sourceTree = "<group>"; };
+		CE2716911DCA379F00571670 /* JSONModelNetworkConnectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModelNetworkConnectorTests.swift; sourceTree = "<group>"; };
 		CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConnector.swift; sourceTree = "<group>"; };
 		CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnector.swift; sourceTree = "<group>"; };
 		CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorTests.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */,
 				CE2716861DCA238E00571670 /* RxNetworkConnectorTests.swift */,
 				CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */,
+				CE2716911DCA379F00571670 /* JSONModelNetworkConnectorTests.swift */,
 				CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */,
 				CE2EDD191DC9E22200D2D7E7 /* TestConnectorResponseTests.swift */,
 				CED9A7BB1DC88D89005CE914 /* Info.plist */,
@@ -294,6 +297,7 @@
 			files = (
 				CE2716811DCA11EB00571670 /* AlamofireDataRequestTests.swift in Sources */,
 				CE2EDD1A1DC9E22200D2D7E7 /* TestConnectorResponseTests.swift in Sources */,
+				CE2716921DCA379F00571670 /* JSONModelNetworkConnectorTests.swift in Sources */,
 				CED9A7CF1DC89744005CE914 /* RouterTests.swift in Sources */,
 				CED9A7CD1DC8920E005CE914 /* TestData.swift in Sources */,
 				CE27167D1DC9FCE300571670 /* ApiConnectionTests.swift in Sources */,
