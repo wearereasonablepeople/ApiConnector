@@ -16,3 +16,8 @@ enum Router: String, ApiRouter {
     typealias EnvironmentType = Environment
     case me, pictures
 }
+
+struct TestData {
+    static let url = URL(string: "https://google.com")!
+    static let request = URLRequest(url: url)
+}
