@@ -9,7 +9,7 @@
 import Alamofire
 
 public protocol ResponseProvider {
-    static func response(for request: URLRequest) -> (HTTPURLResponse, Data?)
+    static func response(for request: URLRequest) -> TestConnectorResponse
 }
 
 public final class TestConnector<T: ResponseProvider>: DataRequestType {
