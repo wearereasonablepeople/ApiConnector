@@ -62,10 +62,9 @@ class TestConnectorResponseTests: XCTestCase {
     }
     
     func testCompletionValue() {
-        let testData = "TestString".data(using: .utf8)
-        let successCompletion = TestConnectorResponse.success(TestData.request, response(with: 200), testData).completionValue
+        let successCompletion = TestConnectorResponse.success(TestData.request, response(with: 200), TestData.testBodyData).completionValue
         
-        XCTAssertEqual(successCompletion.0, testData)
+        XCTAssertEqual(successCompletion.0, TestData.testBodyData)
         XCTAssertNil(successCompletion.1)
         
         let errorCompletion = TestConnectorResponse.failure(CustomError.testError).completionValue

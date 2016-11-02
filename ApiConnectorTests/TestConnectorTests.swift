@@ -19,12 +19,11 @@ class TestConnectorTests: XCTestCase {
         }
         
         let code = 200
-        let testData = "TestString".data(using: .utf8)
-        let successResponse = TestProvider.successResponse(for: TestData.request, with: 200, data: testData)
+        let successResponse = TestProvider.successResponse(for: TestData.request, with: 200, data: TestData.testBodyData)
         
         if case let .success(resultRequest, response, data) = successResponse {
             XCTAssertEqual(resultRequest, TestData.request)
-            XCTAssertEqual(data, testData)
+            XCTAssertEqual(data, TestData.testBodyData)
             XCTAssertEqual(response.statusCode, code)
         } else {
             XCTFail()
