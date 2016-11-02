@@ -31,21 +31,8 @@ public final class TestConnector<T: ResponseProvider>: DataRequestType {
     private func startIfPossible() {
         guard let completionHandler = completionHandler else { return }
         DispatchQueue.global().async {
-            let response = T.response(for: self.request)
-            let validationResult = self.validation?(self.request, response.0, response.1) ?? .success
-            let data: Data?
-            let error: Error?
-            
-            switch validationResult {
-            case .success:
-                data = response.1
-                error = nil
-            case let .failure(validationError):
-                data = nil
-                error = validationError
-            }
-            
-            completionHandler(data, error)
+            let response = T.response(for: self.request).validate(self.validation).completionValue
+            completionHandler(response.0, response.1)
         }
     }
     
