@@ -12,6 +12,10 @@ import ApiConnector
 
 class TestConnectorResponseTests: XCTestCase {
     
+    enum CustomError: Error {
+        case testError
+    }
+    
     let defaultValidation: DataRequest.Validation = { request, response, data -> Request.ValidationResult in
         let code = response.statusCode
         switch code {
@@ -51,14 +55,22 @@ class TestConnectorResponseTests: XCTestCase {
     }
     
     func testValidationOfAlreadyFailedResponse() {
-        enum CustomError: Error {
-            case testError
-        }
-        
         let response = TestConnectorResponse.failure(CustomError.testError)
         if case let .failure(error) = response.validate(defaultValidation) {
             XCTAssertEqual(error as? CustomError, .testError)
         }
+    }
+    
+    func testCompletionValue() {
+        let testData = "TestString".data(using: .utf8)
+        let successCompletion = TestConnectorResponse.success(TestData.request, response(with: 200), testData).completionValue
+        
+        XCTAssertEqual(successCompletion.0, testData)
+        XCTAssertNil(successCompletion.1)
+        
+        let errorCompletion = TestConnectorResponse.failure(CustomError.testError).completionValue
+        XCTAssertNil(errorCompletion.0)
+        XCTAssertEqual(errorCompletion.1 as? CustomError, .testError)
     }
     
     func response(with code: Int) -> HTTPURLResponse {
