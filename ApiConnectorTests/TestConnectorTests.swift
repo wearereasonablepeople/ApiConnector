@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Alamofire
 import ApiConnector
 
 class TestConnectorTests: XCTestCase {
@@ -46,6 +47,29 @@ class TestConnectorTests: XCTestCase {
             responseExpectation.fulfill()
         }
 
+        waitForExpectations(timeout: 2.0)
+    }
+    
+    func testFailProviderResponse() {
+        struct SuccessResponseProvider: ResponseProvider {
+            static func response(for request: URLRequest) -> TestConnectorResponse {
+                return successResponse(for: request, with: 401, data: TestData.testBodyData)
+            }
+        }
+        
+        let connector = TestConnector<SuccessResponseProvider>.dataRequest(with: TestData.request)
+        let responseExpectation = expectation(description: "SuccessMockResponse")
+        
+        _ = connector.validate().responseData { data, error in
+            if let error = error as? AFError, case let .responseValidationFailed(reason: reason) = error, case let .unacceptableStatusCode(code: code) = reason {
+                XCTAssertEqual(code, 401)
+            } else {
+                XCTFail()
+            }
+            XCTAssertNil(data)
+            responseExpectation.fulfill()
+        }
+        
         waitForExpectations(timeout: 2.0)
     }
     
