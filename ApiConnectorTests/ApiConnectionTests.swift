@@ -12,7 +12,7 @@ import XCTest
 class ApiConnectionTests: XCTestCase {
     
     func testRequestCreation() {
-        let request = TestApiConnection().requestData(with: TestData.testBodyData, at: .me, headers: nil).request
+        let request = TestApiConnection<SuccessProvider>(environment: .test).requestData(with: TestData.testBodyData, at: .me, headers: nil).request
         var expectedRequest = try! URLRequest(url: Router.me.url(for: .test), method: Router.me.method, headers: nil)
         expectedRequest.httpBody = TestData.testBodyData
         

@@ -7,6 +7,7 @@
 //
 
 import ApiConnector
+import SwiftyJSONModel
 
 enum Environment: String, ApiEnvironment {
     case test = "test.com"
@@ -22,23 +23,42 @@ struct TestData {
     static let request = URLRequest(url: url)
     
     static let testBodyData = "TestString".data(using: .utf8)
+    static let defaultPost = Post(title: "testTitle", description: "TestDescription")
 }
 
 enum TestsError: Error {
     case defaultError
 }
 
-typealias TestRouter = Router
+struct SuccessProvider: ResponseProvider {
+    static func response(for request: URLRequest) -> TestConnectorResponse {
+        return successResponse(for: request, with: 200, data: TestData.testBodyData)
+    }
+}
 
-struct TestApiConnection: ApiConnectionType {
-    struct SuccessResponseProvider: ResponseProvider {
-        static func response(for request: URLRequest) -> TestConnectorResponse {
-            return successResponse(for: request, with: 200, data: TestData.testBodyData)
-        }
+typealias TestApiConnection<Provider: ResponseProvider> = NetworkConnector<TestConnector<Provider>, Router>
+
+struct Post {
+    let title: String
+    let description: String
+}
+
+extension Post: JSONModelType {
+    enum PropertyKey: String {
+        case title, description
     }
     
-    typealias Request = TestConnector<SuccessResponseProvider>
-    typealias Router = TestRouter
+    init(object: JSONObject<PropertyKey>) throws {
+        title = try object.value(for: .title)
+        description = try object.value(for: .description)
+    }
     
-    let environment: Environment = .test
+    var dictValue: [PropertyKey : JSONRepresentable] {
+        return [.title: title, .description: description]
+    }
+}
+
+extension Post: Equatable {}
+func == (lhs: Post, rhs: Post) -> Bool {
+    return lhs.title == rhs.title && lhs.description == rhs.description
 }
