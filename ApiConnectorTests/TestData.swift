@@ -16,3 +16,14 @@ enum Router: String, ApiRouter {
     typealias EnvironmentType = Environment
     case me, pictures
 }
+
+struct TestData {
+    static let url = URL(string: "https://google.com")!
+    static let request = URLRequest(url: url)
+    
+    static let testBodyData = "TestString".data(using: .utf8)
+}
+
+enum TestsError: Error {
+    case defaultError
+}
