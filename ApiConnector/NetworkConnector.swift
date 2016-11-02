@@ -8,7 +8,7 @@
 
 import Alamofire
 
-protocol DataRequestType {
+public protocol DataRequestType {
     static func dataRequest(with request: URLRequest) -> Self
     
     func validate() -> Self
@@ -18,7 +18,7 @@ protocol DataRequestType {
     func responseData(completionHandler: @escaping (Data?, Error?) -> Void) -> Self
 }
 
-protocol ApiConnectionType {
+public protocol ApiConnectionType {
     associatedtype Request: DataRequestType
     associatedtype Router: ApiRouter
     
@@ -29,10 +29,10 @@ protocol ApiConnectionType {
     func requestData(with data: Data?, at endpoint: Router, headers: HTTPHeaders?) -> Request
 }
 
-extension ApiConnectionType {
-    var defaultHeaders: HTTPHeaders? { return nil }
+public extension ApiConnectionType {
+    public var defaultHeaders: HTTPHeaders? { return nil }
     
-    func request(with data: Data?, at endpoint: Router, headers: HTTPHeaders?) -> URLRequest {
+    public func request(with data: Data?, at endpoint: Router, headers: HTTPHeaders?) -> URLRequest {
         do {
             let requestHeaders = headers ?? defaultHeaders
             let url = endpoint.url(for: environment)
@@ -46,7 +46,7 @@ extension ApiConnectionType {
         }
     }
     
-    func requestData(with data: Data?, at endpoint: Router, headers: HTTPHeaders?) -> Request {
+    public func requestData(with data: Data?, at endpoint: Router, headers: HTTPHeaders?) -> Request {
         return Request.dataRequest(with: request(with: data, at: endpoint, headers: headers))
     }
 }
