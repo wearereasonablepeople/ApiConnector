@@ -27,3 +27,18 @@ struct TestData {
 enum TestsError: Error {
     case defaultError
 }
+
+typealias TestRouter = Router
+
+struct TestApiConnection: ApiConnectionType {
+    struct SuccessResponseProvider: ResponseProvider {
+        static func response(for request: URLRequest) -> TestConnectorResponse {
+            return successResponse(for: request, with: 200, data: TestData.testBodyData)
+        }
+    }
+    
+    typealias Request = TestConnector<SuccessResponseProvider>
+    typealias Router = TestRouter
+    
+    let environment: Environment = .test
+}

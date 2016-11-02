@@ -10,20 +10,6 @@ import XCTest
 @testable import ApiConnector
 
 class ApiConnectionTests: XCTestCase {
-    typealias TestRouter = Router
-    
-    struct TestApiConnection: ApiConnectionType {
-        struct SuccessResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> TestConnectorResponse {
-                return successResponse(for: request, with: 200, data: TestData.testBodyData)
-            }
-        }
-        
-        typealias Request = TestConnector<SuccessResponseProvider>
-        typealias Router = TestRouter
-        
-        let environment: Environment = .test
-    }
     
     func testRequestCreation() {
         let request = TestApiConnection().requestData(with: TestData.testBodyData, at: .me, headers: nil).request
