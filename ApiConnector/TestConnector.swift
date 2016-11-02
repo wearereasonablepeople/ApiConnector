@@ -10,6 +10,14 @@ import Alamofire
 
 public protocol ResponseProvider {
     static func response(for request: URLRequest) -> TestConnectorResponse
+    static func successResponse(for request: URLRequest, with code: Int, data: Data?) -> TestConnectorResponse
+}
+
+public extension ResponseProvider {
+    static func successResponse(for request: URLRequest, with code: Int, data: Data?) -> TestConnectorResponse {
+        let httpResponse = HTTPURLResponse(url: request.url!, statusCode: code, httpVersion: nil, headerFields: nil)!
+        return .success(request, httpResponse, data)
+    }
 }
 
 public final class TestConnector<T: ResponseProvider>: DataRequestType {
