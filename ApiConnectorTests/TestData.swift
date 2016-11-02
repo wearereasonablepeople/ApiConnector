@@ -21,3 +21,7 @@ struct TestData {
     static let url = URL(string: "https://google.com")!
     static let request = URLRequest(url: url)
 }
+
+enum TestsError: Error {
+    case defaultError
+}
