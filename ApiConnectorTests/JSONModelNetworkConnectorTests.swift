@@ -24,7 +24,7 @@ class JSONModelNetworkConnectorTests: XCTestCase {
         
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let post = TestData.defaultPost
-        let postObservable: Observable<Post> = Connection(environment: .test).requestObservable(with: post, at: .pictures, headers: nil)
+        let postObservable: Observable<Post> = Connection(environment: .test).requestObservable(with: post, at: .pictures)
         let disposable = postObservable.subscribe(onNext: { newPost in
             XCTAssertEqual(post, newPost)
             postExpactation.fulfill()
@@ -45,7 +45,7 @@ class JSONModelNetworkConnectorTests: XCTestCase {
         
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let posts = [TestData.defaultPost]
-        let postObservable: Observable<[Post]> = Connection(environment: .test).requestObservable(with: posts.jsonRepresantable, at: .pictures, headers: nil)
+        let postObservable: Observable<[Post]> = Connection(environment: .test).requestObservable(with: posts.jsonRepresantable, at: .pictures)
         let disposable = postObservable.subscribe(onNext: { newPosts in
             XCTAssertEqual(posts, newPosts)
             postExpactation.fulfill()
