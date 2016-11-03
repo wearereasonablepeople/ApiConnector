@@ -68,7 +68,7 @@ The framework provides a convenient way for making requests to API with given Ro
 
 ```swift
 //Here is our Post Model
-struct Post: JSONObjectInitializable {
+struct Post: JSONModelType {
     enum PropertyKey: String {
         case title, description
     }
@@ -79,6 +79,10 @@ struct Post: JSONObjectInitializable {
     init(object: JSONObject<PropertyKey>) throws {
         title = try object.value(for: .title)
         description = try object.value(for: .description)
+    }
+    
+    var dictValue: [PropertyKey : JSONRepresentable] {
+        return [.title: title, .description: description]
     }
 }
 
