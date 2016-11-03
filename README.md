@@ -125,3 +125,34 @@ let disposable = posts.subscribe(onNext: { posts in
     print(error)
 })
 ```
+
+##Mocking Requests
+The most powerfull feature of this framework is that it is really easy to mock requests for the purpose of `Unit Testing` without running any external processes and changing any code base.
+
+The reason why `ApiConnection<Provider: DataRequestType>` is generic is to allow plugging in mock `Connection Provider`. As we saw above, for the real requests we would use `Alamofire.DataRequest` as a `Provider` for `ApiConnection`. Alamofire would make the real requests to the real servers.
+
+For `Unit Test` requests, we can use provided by the Framework `TestConnector` provider type. The only thing it does, is asks you for `Response` for the given `Request` and returns it to the `APIConnectionType`.
+
+**Example of mocking same posts request:**
+
+```swift
+// Convenience typealias to save space :)
+typealias TestConnection<T: ResponseProvider> = ApiConnection<TestConnector<T>>
+
+// This is our type that provides reponse for given request
+struct PostsResponseProvider: ResponseProvider {
+    static func response(for request: URLRequest) -> TestConnectorResponse {
+        let posts: [Post] = //Here we create mock list of posts
+        let postsData = try? posts.jsonRepresantable.jsonValue.rawData()
+        
+        return successResponse(for: request, with: 200, data: postsData)
+    }
+}
+
+// We provide TestConnector with our PostsResponseProvider and wait for the magic to happen )))
+let postsDisposable = TestConnection<PostsResponseProvider>().allPosts(for: Date()).subscribe(onNext: { posts in
+    print(posts)
+}, onError: { error in
+    print(error)
+})
+```
