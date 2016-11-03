@@ -6,6 +6,11 @@ Framework for convenient Connection to Api.
 [![Build Status](https://travis-ci.org/wearereasonablepeople/ApiConnector.svg?branch=master)](https://travis-ci.org/wearereasonablepeople/ApiConnector)
 [![codecov](https://codecov.io/gh/wearereasonablepeople/ApiConnector/branch/master/graph/badge.svg)](https://codecov.io/gh/wearereasonablepeople/ApiConnector)
 
+## Table of contents
+1. [Router](#router)
+2. [API Connection](#api-connection)
+3. [Mocking Requests](#mocking-requests)
+
 ##Router
 Framework allows to create routers to describe the endpoints used for API connection.
 
