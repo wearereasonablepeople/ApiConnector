@@ -104,3 +104,20 @@ let postsDisposable = Connection().allPosts(for: Date()).subscribe(onNext: { pos
     print(error)
 })
 ```
+
+###Default Network Connector
+
+If you don't really want to create your own `APIConnectionType` class, you can use the default `NetworkConnector` type for making requests
+
+**Example of getting posts with `NetworkConnector`:**
+
+```swift
+typealias Connection = NetworkConnector<Alamofire.DataRequest, Router>
+
+let posts: Observable<[Post]> = Connection(environment: .test).requestObservable(at: .posts(for: Date()))
+let disposable = posts.subscribe(onNext: { posts in
+    print(posts)
+}, onError: { error in
+    print(error)
+})
+```
