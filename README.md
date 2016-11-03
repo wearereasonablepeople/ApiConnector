@@ -29,9 +29,9 @@ enum Router: ApiRouter {
     
     var path: String {
         switch self {
-        case .auth: return "auth"
-        case .me: return "me"
-        case .posts(_): return "posts"
+        case .auth: return "/auth"
+        case .me: return "/me"
+        case .posts(_): return "/posts"
         }
     }
     
