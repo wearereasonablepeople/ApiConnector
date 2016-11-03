@@ -98,13 +98,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE2EDD141DC8EA2A00D2D7E7 /* TestConnector */ = {
+		CE2716A71DCB2C5800571670 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				CED9A7CA1DC89089005CE914 /* Router.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		CE2716A81DCB2C6200571670 /* NetworkConnector */ = {
+			isa = PBXGroup;
+			children = (
+				CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */,
+				CE2716841DCA206900571670 /* RxNetworkConnector.swift */,
+				CE27168F1DCA336B00571670 /* JSONModelNetworkConnector.swift */,
+			);
+			name = NetworkConnector;
+			sourceTree = "<group>";
+		};
+		CE2EDD141DC8EA2A00D2D7E7 /* Connectors */ = {
+			isa = PBXGroup;
+			children = (
+				CE27167E1DCA105400571670 /* AlamofireExtension.swift */,
 				CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */,
 				CE2EDD151DC8EAEB00D2D7E7 /* TestConnectorResponse.swift */,
 			);
-			name = TestConnector;
+			name = Connectors;
 			sourceTree = "<group>";
 		};
 		CED9A7A11DC88D88005CE914 = {
@@ -130,12 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				CED9A7AE1DC88D89005CE914 /* ApiConnector.h */,
-				CED9A7CA1DC89089005CE914 /* Router.swift */,
-				CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */,
-				CE2716841DCA206900571670 /* RxNetworkConnector.swift */,
-				CE27168F1DCA336B00571670 /* JSONModelNetworkConnector.swift */,
-				CE27167E1DCA105400571670 /* AlamofireExtension.swift */,
-				CE2EDD141DC8EA2A00D2D7E7 /* TestConnector */,
+				CE2716A71DCB2C5800571670 /* Router */,
+				CE2716A81DCB2C6200571670 /* NetworkConnector */,
+				CE2EDD141DC8EA2A00D2D7E7 /* Connectors */,
 				CED9A7AF1DC88D89005CE914 /* Info.plist */,
 			);
 			path = ApiConnector;
