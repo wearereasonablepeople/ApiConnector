@@ -94,6 +94,7 @@ class ApiConnection<Provider: DataRequestType>: ApiConnectionType {
     }
 }
 
+//Convenient typealias to save space :)
 typealias Connection = ApiConnection<Alamofire.DataRequest>
 
 //The to get all posts
