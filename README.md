@@ -59,3 +59,47 @@ And then we can get the url for specific `endpoint` like this:
 let url = Router.me.url(for: .test)
 print(url.absoluteString) //prints http://mytestserver.com:80/me
 ```
+
+##API Connection
+
+The framework provides a convenient way for making requests to API with given Router. You can use the completion handler of the created requests but framework also provides observables that create `JSON` or models that that conform to [SwiftyJSONModel](https://github.com/alickbass/SwiftyJSONModel) protocols.
+
+**Example of possible ApiConnector:**
+
+```swift
+//Here is our Post Model
+struct Post: JSONObjectInitializable {
+    enum PropertyKey: String {
+        case title, description
+    }
+    
+    let title: String
+    let description: String
+    
+    init(object: JSONObject<PropertyKey>) throws {
+        title = try object.value(for: .title)
+        description = try object.value(for: .description)
+    }
+}
+
+// And here is our ApiConnection Type
+class ApiConnection<Provider: DataRequestType>: ApiConnectionType {
+    typealias RouterType = Router
+    typealias RequestType = Provider
+    
+    let environment: Environment = .test
+    
+    func allPosts(for date: Date) -> Observable<[Post]> {
+        return requestObservable(at: .posts(for: date))
+    }
+}
+
+typealias Connection = ApiConnection<Alamofire.DataRequest>
+
+//The to get all posts
+let postsDisposable = Connection().allPosts(for: Date()).subscribe(onNext: { posts in
+    print(posts)
+}, onError: { error in
+    print(error)
+})
+```
