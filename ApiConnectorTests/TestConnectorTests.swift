@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SwiftyJSON
 import Alamofire
 import ApiConnector
 
@@ -20,11 +21,11 @@ class TestConnectorTests: XCTestCase {
         }
         
         let code = 200
-        let successResponse = TestProvider.successResponse(for: TestData.request, with: 200, data: TestData.testBodyData)
+        let successResponse = TestProvider.successResponse(for: TestData.request, with: 200, jsonObject: TestData.defaultPost)
         
         if case let .success(resultRequest, response, data) = successResponse {
             XCTAssertEqual(resultRequest, TestData.request)
-            XCTAssertEqual(data, TestData.testBodyData)
+            XCTAssertEqual(data.flatMap({ JSON(data: $0) }), TestData.defaultPost.jsonValue)
             XCTAssertEqual(response.statusCode, code)
         } else {
             XCTFail()
