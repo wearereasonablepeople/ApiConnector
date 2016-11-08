@@ -148,9 +148,8 @@ typealias TestConnection<T: ResponseProvider> = ApiConnection<TestConnector<T>>
 struct PostsResponseProvider: ResponseProvider {
     static func response(for request: URLRequest) -> TestConnectorResponse {
         let posts: [Post] = //Here we create mock list of posts
-        let postsData = try? posts.jsonRepresantable.jsonValue.rawData()
         
-        return successResponse(for: request, with: 200, data: postsData)
+        return successResponse(for: request, with: 200, jsonObject: posts.jsonRepresantable)
     }
 }
 
