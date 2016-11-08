@@ -6,7 +6,8 @@
 //  Copyright © 2016 WeAreReasonablePeople. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
+import SwiftyJSONModel
 
 public protocol ResponseProvider {
     static func response(for request: URLRequest) -> TestConnectorResponse
@@ -17,5 +18,13 @@ public extension ResponseProvider {
     public static func successResponse(for request: URLRequest, with code: Int, data: Data?) -> TestConnectorResponse {
         let httpResponse = HTTPURLResponse(url: request.url!, statusCode: code, httpVersion: nil, headerFields: nil)!
         return .success(request, httpResponse, data)
+    }
+    
+    public static func successResponse(for request: URLRequest, with code: Int, json: JSON?) -> TestConnectorResponse {
+        return successResponse(for: request, with: code, data: json.flatMap({ try? $0.rawData() }))
+    }
+    
+    public static func successResponse(for request: URLRequest, with code: Int, jsonObject: JSONRepresentable?) -> TestConnectorResponse {
+        return successResponse(for: request, with: code, json: jsonObject?.jsonValue)
     }
 }
