@@ -14,7 +14,7 @@ public protocol ResponseProvider {
 }
 
 public extension ResponseProvider {
-    static func successResponse(for request: URLRequest, with code: Int, data: Data?) -> TestConnectorResponse {
+    public static func successResponse(for request: URLRequest, with code: Int, data: Data?) -> TestConnectorResponse {
         let httpResponse = HTTPURLResponse(url: request.url!, statusCode: code, httpVersion: nil, headerFields: nil)!
         return .success(request, httpResponse, data)
     }
