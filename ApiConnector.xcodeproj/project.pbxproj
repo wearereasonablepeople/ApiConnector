@@ -119,11 +119,27 @@
 		CE2EDD141DC8EA2A00D2D7E7 /* Connectors */ = {
 			isa = PBXGroup;
 			children = (
+				CE39199E1DD218DF006D1DFB /* Alamofire */,
+				CE39199F1DD218E8006D1DFB /* Test */,
+			);
+			name = Connectors;
+			sourceTree = "<group>";
+		};
+		CE39199E1DD218DF006D1DFB /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
 				CE27167E1DCA105400571670 /* AlamofireExtension.swift */,
+			);
+			name = Alamofire;
+			sourceTree = "<group>";
+		};
+		CE39199F1DD218E8006D1DFB /* Test */ = {
+			isa = PBXGroup;
+			children = (
 				CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */,
 				CE2EDD151DC8EAEB00D2D7E7 /* TestConnectorResponse.swift */,
 			);
-			name = Connectors;
+			name = Test;
 			sourceTree = "<group>";
 		};
 		CED9A7A11DC88D88005CE914 = {
