@@ -53,7 +53,7 @@ extension Post: JSONModelType {
         description = try object.value(for: .description)
     }
     
-    var dictValue: [PropertyKey : JSONRepresentable] {
+    var dictValue: [PropertyKey : JSONRepresentable?] {
         return [.title: title, .description: description]
     }
 }
