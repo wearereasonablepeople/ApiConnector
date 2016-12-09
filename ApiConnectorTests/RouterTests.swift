@@ -11,8 +11,8 @@ import XCTest
 class RouterTests: XCTestCase {
     
     func testRouterUrlCreation() {
-        XCTAssertEqual(Router.me.url(for: .test).absoluteString, "http://test.com:80/me")
-        XCTAssertEqual(Router.pictures.url(for: .test).absoluteString, "http://test.com:80/pictures")
+        XCTAssertEqual(Router.me.url(for: .test).absoluteString, "http://test.com/me")
+        XCTAssertEqual(Router.pictures.url(for: .test).absoluteString, "http://test.com/pictures")
     }
     
     func testRouterMethod() {
