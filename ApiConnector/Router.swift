@@ -11,7 +11,7 @@ import Alamofire
 public protocol ApiEnvironment {
     var host: String { get }
     var scheme: String { get }
-    var port: Int { get }
+    var port: Int? { get }
 }
 
 public protocol ApiRouter {
@@ -26,7 +26,7 @@ public protocol ApiRouter {
 
 public extension ApiEnvironment {
     public var scheme: String { return "http" }
-    public var port: Int { return 80 }
+    public var port: Int? { return nil }
 }
 
 public extension ApiRouter {
