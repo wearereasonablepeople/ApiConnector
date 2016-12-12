@@ -54,4 +54,17 @@ class JSONModelNetworkConnectorTests: XCTestCase {
         waitForExpectations(timeout: 2)
         disposable.dispose()
     }
+    
+    func testVoidObservable() {
+        typealias Connection = TestApiConnection<SuccessProvider>
+        
+        let successExpactation = expectation(description: "SuccessVoidExpactation")
+        let voidObservable: Observable<Void> = Connection(environment: .test).requestObservable(at: .pictures)
+        let disposable = voidObservable.subscribe(onNext: {
+            successExpactation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 2)
+        disposable.dispose()
+    }
 }
