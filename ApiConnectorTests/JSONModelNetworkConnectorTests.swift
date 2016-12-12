@@ -12,16 +12,15 @@ import SwiftyJSON
 import RxSwift
 
 class JSONModelNetworkConnectorTests: XCTestCase {
+    typealias Connection = TestApiConnection<PostResponseProvider>
+    
+    struct PostResponseProvider: ResponseProvider {
+        static func response(for request: URLRequest) -> TestConnectorResponse {
+            return successResponse(for: request, with: 200, data: request.httpBody)
+        }
+    }
     
     func testModelRequest() {
-        typealias Connection = TestApiConnection<PostResponseProvider>
-        
-        struct PostResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> TestConnectorResponse {
-                return successResponse(for: request, with: 200, data: request.httpBody)
-            }
-        }
-        
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let post = TestData.defaultPost
         let postObservable: Observable<Post> = Connection(environment: .test).requestObservable(with: post, at: .pictures)
@@ -35,14 +34,6 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     }
     
     func testArrayOfModelsRequest() {
-        typealias Connection = TestApiConnection<PostResponseProvider>
-        
-        struct PostResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> TestConnectorResponse {
-                return successResponse(for: request, with: 200, data: request.httpBody)
-            }
-        }
-        
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let posts = [TestData.defaultPost]
         let postObservable: Observable<[Post]> = Connection(environment: .test).requestObservable(with: posts.jsonRepresantable, at: .pictures)
@@ -56,10 +47,8 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     }
     
     func testVoidObservable() {
-        typealias Connection = TestApiConnection<SuccessProvider>
-        
         let successExpactation = expectation(description: "SuccessVoidExpactation")
-        let voidObservable: Observable<Void> = Connection(environment: .test).requestObservable(at: .pictures)
+        let voidObservable: Observable<Void> = TestApiConnection<SuccessProvider>(environment: .test).requestObservable(at: .pictures)
         let disposable = voidObservable.subscribe(onNext: {
             successExpactation.fulfill()
         })
