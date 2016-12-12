@@ -46,6 +46,19 @@ class JSONModelNetworkConnectorTests: XCTestCase {
         disposable.dispose()
     }
     
+    func testJSONObservable() {
+        let postExpactation = expectation(description: "ModelRequestExpectation")
+        let post = TestData.defaultPost
+        let jsonObservable: Observable<JSON> = Connection(environment: .test).requestObservable(with: post, at: .pictures)
+        let disposable = jsonObservable.subscribe(onNext: { postJSON in
+            XCTAssertEqual(post.jsonValue, postJSON)
+            postExpactation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 2)
+        disposable.dispose()
+    }
+    
     func testVoidObservable() {
         let successExpactation = expectation(description: "SuccessVoidExpactation")
         let voidObservable: Observable<Void> = TestApiConnection<SuccessProvider>(environment: .test).requestObservable(at: .pictures)

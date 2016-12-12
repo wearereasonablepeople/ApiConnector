@@ -49,4 +49,8 @@ public extension ApiConnectionType {
     public func requestObservable(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<Void> {
         return requestData(with: model, at: endpoint, headers: headers).validate().observable()
     }
+    
+    public func requestObservable(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<JSON> {
+        return requestData(with: model, at: endpoint, headers: headers).validate().jsonObservable()
+    }
 }
