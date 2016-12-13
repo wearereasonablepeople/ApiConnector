@@ -28,7 +28,9 @@ public final class TestConnector<T: ResponseProvider>: DataRequestType {
         guard let completionHandler = completionHandler else { return }
         DispatchQueue.global().async {
             let response = T.response(for: self.request).validate(self.validation).completionValue
-            completionHandler(response.0, response.1)
+            DispatchQueue.main.async {
+                completionHandler(response.0, response.1)
+            }
         }
     }
     
