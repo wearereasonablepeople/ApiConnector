@@ -39,18 +39,18 @@ public extension ApiConnectionType {
     }
     
     public func requestObservable<T: JSONInitializable>(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<T> {
-        return requestData(with: model, at: endpoint, headers: headers).validate().modelObservable()
+        return validate(request: requestData(with: model, at: endpoint, headers: headers)).modelObservable()
     }
     
     public func requestObservable<T: JSONInitializable>(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<[T]> {
-        return requestData(with: model, at: endpoint, headers: headers).validate().modelObservable()
+        return validate(request: requestData(with: model, at: endpoint, headers: headers)).modelObservable()
     }
     
     public func requestObservable(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<Void> {
-        return requestData(with: model, at: endpoint, headers: headers).validate().observable()
+        return validate(request: requestData(with: model, at: endpoint, headers: headers)).observable()
     }
     
     public func requestObservable(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<JSON> {
-        return requestData(with: model, at: endpoint, headers: headers).validate().jsonObservable()
+        return validate(request: requestData(with: model, at: endpoint, headers: headers)).jsonObservable()
     }
 }
