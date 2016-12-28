@@ -24,13 +24,16 @@ public protocol ApiConnectionType {
     
     var environment: RouterType.EnvironmentType { get }
     var defaultHeaders: HTTPHeaders? { get }
+    var defaultValidation: Alamofire.DataRequest.Validation? { get }
     
     func request(with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> URLRequest
     func requestData(with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> RequestType
+    func validate(request: RequestType) -> RequestType
 }
 
 public extension ApiConnectionType {
     public var defaultHeaders: HTTPHeaders? { return nil }
+    public var defaultValidation: Alamofire.DataRequest.Validation? { return nil }
     
     public func request(with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> URLRequest {
         do {
@@ -48,6 +51,14 @@ public extension ApiConnectionType {
     
     public func requestData(with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> RequestType {
         return RequestType.dataRequest(with: request(with: data, at: endpoint, headers: headers))
+    }
+    
+    public func validate(request: RequestType) -> RequestType {
+        if let validation = defaultValidation {
+            return request.validate(validation)
+        } else {
+            return request.validate()
+        }
     }
 }
 
