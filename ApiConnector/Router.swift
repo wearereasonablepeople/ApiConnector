@@ -10,7 +10,7 @@ import Alamofire
 
 public protocol ApiEnvironment {
     var host: String { get }
-    var scheme: String { get }
+    var scheme: Scheme { get }
     var port: Int? { get }
 }
 
@@ -25,7 +25,7 @@ public protocol ApiRouter {
 }
 
 public extension ApiEnvironment {
-    public var scheme: String { return "http" }
+    public var scheme: Scheme { return .http }
     public var port: Int? { return nil }
 }
 
@@ -36,7 +36,7 @@ public extension ApiRouter {
     public func url(for environment: EnvironmentType) -> URL {
         var components = URLComponents()
         
-        components.scheme = environment.scheme
+        components.scheme = environment.scheme.rawValue
         components.host = environment.host
         components.port = environment.port
         components.path = path
