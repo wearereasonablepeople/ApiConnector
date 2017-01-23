@@ -41,7 +41,7 @@ public extension ApiRouter {
         components.scheme = environment.scheme.rawValue
         components.host = environment.host
         components.port = environment.port
-        components.path = path.pathValue
+        components.path = defaultPath.with(path).pathValue
         components.queryItems = queryItems
         
         guard let url = components.url else {
@@ -54,7 +54,7 @@ public extension ApiRouter {
 
 public extension ApiRouter where Self: RawRepresentable, Self.RawValue == String {
     public var path: RoutePath {
-        return defaultPath + .init(rawValue)
+        return .init(rawValue)
     }
 }
 
