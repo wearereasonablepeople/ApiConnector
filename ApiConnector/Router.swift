@@ -17,7 +17,7 @@ public protocol ApiEnvironment {
 public protocol ApiRouter {
     associatedtype EnvironmentType: ApiEnvironment
     
-    var path: String { get }
+    var path: RoutePath { get }
     var queryItems: [URLQueryItem]? { get }
     var method: HTTPMethod { get }
     
@@ -39,7 +39,7 @@ public extension ApiRouter {
         components.scheme = environment.scheme.rawValue
         components.host = environment.host
         components.port = environment.port
-        components.path = path
+        components.path = path.pathValue
         components.queryItems = queryItems
         
         guard let url = components.url else {
@@ -51,8 +51,8 @@ public extension ApiRouter {
 }
 
 public extension ApiRouter where Self: RawRepresentable, Self.RawValue == String {
-    public var path: String {
-        return "/\(rawValue)"
+    public var path: RoutePath {
+        return .init(rawValue)
     }
 }
 
