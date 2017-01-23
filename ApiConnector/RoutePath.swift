@@ -24,6 +24,10 @@ public struct RoutePath {
     fileprivate let path: [RoutePathComponent]
     
     public init(_ path: RoutePathComponent...) {
+        self.init(path)
+    }
+    
+    public init(_ path: [RoutePathComponent]) {
         self.path = path
     }
 }
@@ -31,6 +35,12 @@ public struct RoutePath {
 extension RoutePath: RoutePathComponent {
     public var stringValue: String {
         return path.map({ $0.stringValue }).joined(separator: RoutePath.separator)
+    }
+}
+
+public extension RoutePath {
+    public static func + (lhs: RoutePath, rhs: RoutePath) -> RoutePath {
+        return RoutePath(lhs.path + rhs.path)
     }
 }
 
