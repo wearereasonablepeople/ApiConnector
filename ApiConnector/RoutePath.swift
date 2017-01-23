@@ -38,6 +38,12 @@ extension RoutePath: RoutePathComponent {
     }
 }
 
+extension RoutePath: ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: RoutePathComponent...) {
+        self.init(elements)
+    }
+}
+
 public extension RoutePath {
     public static func + (lhs: RoutePath, rhs: RoutePath) -> RoutePath {
         return RoutePath(lhs.path + rhs.path)
