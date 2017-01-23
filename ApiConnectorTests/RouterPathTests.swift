@@ -17,6 +17,7 @@ class RouterPathTests: XCTestCase {
         XCTAssertEqual(RoutePath("new", "api", "cards").pathValue, path)
         XCTAssertEqual(RoutePath(RoutePath("new", "api"), "cards").pathValue, path)
         XCTAssertEqual((RoutePath("new", "api") + ["cards"]).pathValue, path)
+        XCTAssertEqual(RoutePath("new", "api").with("cards").pathValue, path)
     }
     
 }
