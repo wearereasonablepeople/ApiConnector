@@ -30,6 +30,10 @@ public struct RoutePath {
     public init(_ path: [RoutePathComponent]) {
         self.path = path
     }
+    
+    public func with(_ path: RoutePathComponent...) -> RoutePath {
+        return RoutePath(self.path + path)
+    }
 }
 
 extension RoutePath: RoutePathComponent {
