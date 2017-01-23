@@ -32,11 +32,11 @@ enum Router: ApiRouter {
     case auth, me
     case posts(for: Date)
     
-    var path: String {
+    var path: RoutePath {
         switch self {
-        case .auth: return "/auth"
-        case .me: return "/me"
-        case .posts(_): return "/posts"
+        case .auth: return ["auth"]
+        case .me: return ["me"]
+        case .posts(_): return ["posts"]
         }
     }
     
