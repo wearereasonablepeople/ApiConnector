@@ -18,6 +18,7 @@ public protocol ApiRouter {
     associatedtype EnvironmentType: ApiEnvironment
     
     var path: RoutePath { get }
+    var defaultPath: RoutePath { get }
     var queryItems: [URLQueryItem]? { get }
     var method: HTTPMethod { get }
     
@@ -32,6 +33,7 @@ public extension ApiEnvironment {
 public extension ApiRouter {
     public var queryItems: [URLQueryItem]? { return nil }
     public var method: HTTPMethod { return .get }
+    public var defaultPath: RoutePath { return [] }
     
     public func url(for environment: EnvironmentType) -> URL {
         var components = URLComponents()
@@ -52,7 +54,7 @@ public extension ApiRouter {
 
 public extension ApiRouter where Self: RawRepresentable, Self.RawValue == String {
     public var path: RoutePath {
-        return .init(rawValue)
+        return defaultPath + .init(rawValue)
     }
 }
 
