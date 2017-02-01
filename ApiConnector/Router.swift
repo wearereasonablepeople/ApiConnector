@@ -8,12 +8,6 @@
 
 import Alamofire
 
-public protocol ApiEnvironment {
-    var host: String { get }
-    var scheme: Scheme { get }
-    var port: Int? { get }
-}
-
 public protocol ApiRouter {
     associatedtype EnvironmentType: ApiEnvironment
     
@@ -25,11 +19,6 @@ public protocol ApiRouter {
     func url(for environment: EnvironmentType) -> URL
 }
 
-public extension ApiEnvironment {
-    public var scheme: Scheme { return .http }
-    public var port: Int? { return nil }
-}
-
 public extension ApiRouter {
     public var query: Query? { return nil }
     public var method: HTTPMethod { return .get }
@@ -37,6 +26,7 @@ public extension ApiRouter {
     
     public func url(for environment: EnvironmentType) -> URL {
         var components = URLComponents()
+        let environment = environment.value
         
         components.scheme = environment.scheme.rawValue
         components.host = environment.host
@@ -55,11 +45,5 @@ public extension ApiRouter {
 public extension ApiRouter where Self: RawRepresentable, Self.RawValue == String {
     public var path: RoutePath {
         return .init(rawValue)
-    }
-}
-
-public extension ApiEnvironment where Self: RawRepresentable, Self.RawValue == String {
-    public var host: String {
-        return rawValue
     }
 }

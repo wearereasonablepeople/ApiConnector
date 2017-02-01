@@ -9,8 +9,14 @@
 import ApiConnector
 import SwiftyJSONModel
 
-enum Environment: String, ApiEnvironment {
-    case test = "test.com"
+enum Environment: ApiEnvironment {
+    case test
+    
+    var value: URLEnvironment {
+        switch self {
+        case .test: return .init(host: "test.com")
+        }
+    }
 }
 
 enum Router: String, ApiRouter {
