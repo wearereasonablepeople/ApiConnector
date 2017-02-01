@@ -40,10 +40,10 @@ enum Router: ApiRouter {
         }
     }
     
-    var queryItems: [URLQueryItem]? {
+    var query: Query? {
         switch self {
         case let .posts(for: date):
-            return [URLQueryItem(name: "date", value: date.convertToString)]
+            return Query(("date", date.convertToString), ("userId": "someId"))
         default:
             return nil
         }
@@ -73,7 +73,7 @@ The framework provides a convenient way for making requests to API with given Ro
 
 ```swift
 //Here is our Post Model
-struct Post: JSONModelType {
+struct Post: JSONObjectInitializable {
     enum PropertyKey: String {
         case title, description
     }
@@ -84,10 +84,6 @@ struct Post: JSONModelType {
     init(object: JSONObject<PropertyKey>) throws {
         title = try object.value(for: .title)
         description = try object.value(for: .description)
-    }
-    
-    var dictValue: [PropertyKey : JSONRepresentable] {
-        return [.title: title, .description: description]
     }
 }
 
