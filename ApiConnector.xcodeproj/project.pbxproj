@@ -25,6 +25,8 @@
 		CE2EDD131DC8E55700D2D7E7 /* TestConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */; };
 		CE2EDD161DC8EAEB00D2D7E7 /* TestConnectorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD151DC8EAEB00D2D7E7 /* TestConnectorResponse.swift */; };
 		CE2EDD1A1DC9E22200D2D7E7 /* TestConnectorResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD191DC9E22200D2D7E7 /* TestConnectorResponseTests.swift */; };
+		CE2FC5BA1E41F6C20072662F /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FC5B91E41F6C20072662F /* Query.swift */; };
+		CE2FC5BC1E41FB400072662F /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FC5BB1E41FB400072662F /* QueryTests.swift */; };
 		CE3919A11DD21929006D1DFB /* ResponseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3919A01DD21929006D1DFB /* ResponseProvider.swift */; };
 		CE81A35D1E326D9700317922 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A35C1E326D9700317922 /* Scheme.swift */; };
 		CE81A35F1E32753000317922 /* RoutePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A35E1E32753000317922 /* RoutePath.swift */; };
@@ -64,6 +66,8 @@
 		CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorTests.swift; sourceTree = "<group>"; };
 		CE2EDD151DC8EAEB00D2D7E7 /* TestConnectorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorResponse.swift; sourceTree = "<group>"; };
 		CE2EDD191DC9E22200D2D7E7 /* TestConnectorResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorResponseTests.swift; sourceTree = "<group>"; };
+		CE2FC5B91E41F6C20072662F /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		CE2FC5BB1E41FB400072662F /* QueryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
 		CE3919A01DD21929006D1DFB /* ResponseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseProvider.swift; sourceTree = "<group>"; };
 		CE81A35C1E326D9700317922 /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		CE81A35E1E32753000317922 /* RoutePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePath.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				CED9A7CA1DC89089005CE914 /* Router.swift */,
 				CE81A35C1E326D9700317922 /* Scheme.swift */,
 				CE81A35E1E32753000317922 /* RoutePath.swift */,
+				CE2FC5B91E41F6C20072662F /* Query.swift */,
 			);
 			name = Router;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				CED9A7CC1DC8920E005CE914 /* TestData.swift */,
 				CED9A7CE1DC89744005CE914 /* RouterTests.swift */,
 				CE81A3601E35FB3E00317922 /* RouterPathTests.swift */,
+				CE2FC5BB1E41FB400072662F /* QueryTests.swift */,
 				CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */,
 				CE2716861DCA238E00571670 /* RxNetworkConnectorTests.swift */,
 				CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */,
@@ -330,6 +336,7 @@
 				CE2EDD161DC8EAEB00D2D7E7 /* TestConnectorResponse.swift in Sources */,
 				CE27167F1DCA105400571670 /* AlamofireExtension.swift in Sources */,
 				CE3919A11DD21929006D1DFB /* ResponseProvider.swift in Sources */,
+				CE2FC5BA1E41F6C20072662F /* Query.swift in Sources */,
 				CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */,
 				CE81A35F1E32753000317922 /* RoutePath.swift in Sources */,
 				CE2EDCEC1DC8D4DB00D2D7E7 /* TestConnector.swift in Sources */,
@@ -344,6 +351,7 @@
 			files = (
 				CE2716811DCA11EB00571670 /* AlamofireDataRequestTests.swift in Sources */,
 				CE2EDD1A1DC9E22200D2D7E7 /* TestConnectorResponseTests.swift in Sources */,
+				CE2FC5BC1E41FB400072662F /* QueryTests.swift in Sources */,
 				CE2716921DCA379F00571670 /* JSONModelNetworkConnectorTests.swift in Sources */,
 				CED9A7CF1DC89744005CE914 /* RouterTests.swift in Sources */,
 				CE81A3611E35FB3E00317922 /* RouterPathTests.swift in Sources */,
