@@ -17,6 +17,14 @@ public struct URLEnvironment {
     public let host: String
     public let port: Int?
     
+    public static func localhost(_ scheme: Scheme, _ port: Int? = nil) -> URLEnvironment {
+        return URLEnvironment(scheme, "localhost", port)
+    }
+    
+    public static func localhost(_ port: Int? = nil) -> URLEnvironment {
+        return localhost(.http, port)
+    }
+    
     public init(_ scheme: Scheme, _ host: String, _ port: Int? = nil) {
         self.scheme = scheme
         self.host = host
