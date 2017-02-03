@@ -17,9 +17,13 @@ public struct URLEnvironment {
     public let host: String
     public let port: Int?
     
-    public init(_ scheme: Scheme = .http, host: String, _ port: Int? = nil) {
+    public init(_ scheme: Scheme, _ host: String, _ port: Int? = nil) {
         self.scheme = scheme
         self.host = host
         self.port = port
+    }
+    
+    public init(_ host: String, _ port: Int? = nil) {
+        self.init(.http, host, port)
     }
 }

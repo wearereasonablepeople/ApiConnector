@@ -14,7 +14,7 @@ enum Environment: ApiEnvironment {
     
     var value: URLEnvironment {
         switch self {
-        case .test: return .init(host: "test.com")
+        case .test: return .init("test.com")
         }
     }
 }
