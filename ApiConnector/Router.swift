@@ -19,7 +19,7 @@ public protocol ApiRouter {
     
     var path: RoutePath { get }
     var defaultPath: RoutePath { get }
-    var queryItems: [URLQueryItem]? { get }
+    var query: Query? { get }
     var method: HTTPMethod { get }
     
     func url(for environment: EnvironmentType) -> URL
@@ -31,7 +31,7 @@ public extension ApiEnvironment {
 }
 
 public extension ApiRouter {
-    public var queryItems: [URLQueryItem]? { return nil }
+    public var query: Query? { return nil }
     public var method: HTTPMethod { return .get }
     public var defaultPath: RoutePath { return [] }
     
@@ -42,7 +42,7 @@ public extension ApiRouter {
         components.host = environment.host
         components.port = environment.port
         components.path = defaultPath.with(path).pathValue
-        components.queryItems = queryItems
+        components.queryItems = query?.queryItems
         
         guard let url = components.url else {
             fatalError("URL components are not valid")
