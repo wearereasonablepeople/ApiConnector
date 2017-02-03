@@ -29,7 +29,7 @@ enum Environment: ApiEnvironment {
         switch self {
         case .localhost: return .localhost(8080)
         case .test: return .init("mytestserver.com")
-        case .pdocution: return .init(.https, "myproductionserver.com", 3000)
+        case .production: return .init(.https, "myproductionserver.com", 3000)
         }
     }
 }
