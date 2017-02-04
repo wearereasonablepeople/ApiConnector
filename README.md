@@ -20,10 +20,18 @@ Framework allows to create routers to describe the endpoints used for API connec
 import ApiConnector
 import Alamofire
 
-enum Environment: String, ApiEnvironment {
+enum Environment: ApiEnvironment {
     case localhost
-    case test = "mytestserver.com"
-    case production = "myproductionserver.com"
+    case test
+    case production
+    
+    var value: URLEnvironment {
+        switch self {
+        case .localhost: return .localhost(8080)
+        case .test: return .init("mytestserver.com")
+        case .production: return .init(.https, "myproductionserver.com", 3000)
+        }
+    }
 }
 
 enum Router: ApiRouter {
