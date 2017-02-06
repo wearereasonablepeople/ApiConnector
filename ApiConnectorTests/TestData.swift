@@ -29,6 +29,8 @@ enum Router {
 extension Router: ApiRouter {
     typealias EnvironmentType = Environment
     
+    var defaultPath: RoutePath { return ["api", "model"] }
+    
     var route: URLRoute {
         switch self {
         case .me: return .init(["me"])

@@ -12,6 +12,7 @@ public protocol ApiRouter {
     associatedtype EnvironmentType: ApiEnvironment
     
     var route: URLRoute { get }
+    var defaultPath: RoutePath { get }
     func url(for environment: EnvironmentType) -> URL
 }
 
