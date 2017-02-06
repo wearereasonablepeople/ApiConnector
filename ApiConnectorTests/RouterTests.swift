@@ -18,7 +18,7 @@ class RouterTests: XCTestCase {
     }
     
     func testRouterMethod() {
-        XCTAssertEqual(Router.me.method, .get)
+        XCTAssertEqual(Router.me.route.method, .get)
     }
     
 }

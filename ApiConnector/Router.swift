@@ -16,8 +16,6 @@ public protocol ApiRouter {
 }
 
 public extension ApiRouter {
-    public var query: Query? { return nil }
-    public var method: HTTPMethod { return .get }
     public var defaultPath: RoutePath { return [] }
     
     public func url(for environment: EnvironmentType) -> URL {

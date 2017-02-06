@@ -31,7 +31,7 @@ class ApiConnectionTests: XCTestCase {
     
     func testRequestCreation() {
         let request = TestApiConnection<SuccessProvider>(environment: .test).requestData(with: TestData.testBodyData, at: .me, headers: nil).request
-        var expectedRequest = try! URLRequest(url: Router.me.url(for: .test), method: Router.me.method, headers: nil)
+        var expectedRequest = try! URLRequest(url: Router.me.url(for: .test), method: Router.me.route.method, headers: nil)
         expectedRequest.httpBody = TestData.testBodyData
         
         XCTAssertEqual(request, expectedRequest)
