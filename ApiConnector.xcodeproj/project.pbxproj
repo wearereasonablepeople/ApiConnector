@@ -30,6 +30,7 @@
 		CE2FC5C01E422DC80072662F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FC5BF1E422DC80072662F /* Environment.swift */; };
 		CE3919A11DD21929006D1DFB /* ResponseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3919A01DD21929006D1DFB /* ResponseProvider.swift */; };
 		CE77A90E1E487EAC00CA26CA /* URLRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77A90D1E487EAC00CA26CA /* URLRoute.swift */; };
+		CE77A9101E488B4D00CA26CA /* URLRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77A90F1E488B4D00CA26CA /* URLRouteTests.swift */; };
 		CE81A35D1E326D9700317922 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A35C1E326D9700317922 /* Scheme.swift */; };
 		CE81A35F1E32753000317922 /* RoutePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A35E1E32753000317922 /* RoutePath.swift */; };
 		CE81A3611E35FB3E00317922 /* RouterPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A3601E35FB3E00317922 /* RouterPathTests.swift */; };
@@ -73,6 +74,7 @@
 		CE2FC5BF1E422DC80072662F /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		CE3919A01DD21929006D1DFB /* ResponseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseProvider.swift; sourceTree = "<group>"; };
 		CE77A90D1E487EAC00CA26CA /* URLRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRoute.swift; sourceTree = "<group>"; };
+		CE77A90F1E488B4D00CA26CA /* URLRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRouteTests.swift; sourceTree = "<group>"; };
 		CE81A35C1E326D9700317922 /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		CE81A35E1E32753000317922 /* RoutePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePath.swift; sourceTree = "<group>"; };
 		CE81A3601E35FB3E00317922 /* RouterPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterPathTests.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				CED9A7CC1DC8920E005CE914 /* TestData.swift */,
 				CED9A7CE1DC89744005CE914 /* RouterTests.swift */,
+				CE77A90F1E488B4D00CA26CA /* URLRouteTests.swift */,
 				CE81A3601E35FB3E00317922 /* RouterPathTests.swift */,
 				CE2FC5BB1E41FB400072662F /* QueryTests.swift */,
 				CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */,
@@ -358,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2716811DCA11EB00571670 /* AlamofireDataRequestTests.swift in Sources */,
+				CE77A9101E488B4D00CA26CA /* URLRouteTests.swift in Sources */,
 				CE2EDD1A1DC9E22200D2D7E7 /* TestConnectorResponseTests.swift in Sources */,
 				CE2FC5BC1E41FB400072662F /* QueryTests.swift in Sources */,
 				CE2716921DCA379F00571670 /* JSONModelNetworkConnectorTests.swift in Sources */,
