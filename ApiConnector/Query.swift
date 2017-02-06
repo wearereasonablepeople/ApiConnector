@@ -13,7 +13,7 @@ public protocol QueryItemValue {
 }
 
 public struct Query {
-    private let items: [(name: String, value: QueryItemValue?)]
+    fileprivate let items: [(name: String, value: QueryItemValue?)]
     
     public init(_ items: (name: String, value: QueryItemValue?)...) {
         self.init(items)
@@ -25,6 +25,22 @@ public struct Query {
     
     public var queryItems: [URLQueryItem] {
         return items.map({ URLQueryItem(name: $0.name, value: $0.value?.stringValue) })
+    }
+}
+
+extension Query: Equatable {
+    public static func == (lhs: Query, rhs: Query) -> Bool {
+        let lhs = lhs.items, rhs = rhs.items
+        guard lhs.count == rhs.count else { return false }
+        
+        for i in 0..<lhs.count {
+            let left = lhs[i], right = rhs[i]
+            if left.name != right.name || left.value?.stringValue != right.value?.stringValue {
+                return false
+            }
+        }
+        
+        return true
     }
 }
 
