@@ -8,14 +8,38 @@
 
 import Alamofire
 
+public struct URLRoute {
+    public let method: HTTPMethod
+    public let path: RoutePath
+    public let query: Query?
+    
+    public init(_ method: HTTPMethod, _ path: RoutePath, _ query: (name: String, value: QueryItemValue?)...) {
+        self.method = method
+        self.path = path
+        self.query = Query(query)
+    }
+    
+    public init(_ method: HTTPMethod, _ path: RoutePath) {
+        self.method = method
+        self.path = path
+        self.query = nil
+    }
+    
+    public init(_ path: RoutePath, _ query: (name: String, value: QueryItemValue?)...) {
+        self.method = .get
+        self.path = path
+        self.query = Query(query)
+    }
+    
+    public init(_ path: RoutePath) {
+        self.init(.get, path)
+    }
+}
+
 public protocol ApiRouter {
     associatedtype EnvironmentType: ApiEnvironment
     
-    var path: RoutePath { get }
-    var defaultPath: RoutePath { get }
-    var query: Query? { get }
-    var method: HTTPMethod { get }
-    
+    var route: URLRoute { get }
     func url(for environment: EnvironmentType) -> URL
 }
 
@@ -27,12 +51,13 @@ public extension ApiRouter {
     public func url(for environment: EnvironmentType) -> URL {
         var components = URLComponents()
         let environment = environment.value
+        let route = self.route
         
         components.scheme = environment.scheme.rawValue
         components.host = environment.host
         components.port = environment.port
-        components.path = defaultPath.with(path).pathValue
-        components.queryItems = query?.queryItems
+        components.path = defaultPath.with(route.path).pathValue
+        components.queryItems = route.query?.queryItems
         
         guard let url = components.url else {
             fatalError("URL components are not valid")
