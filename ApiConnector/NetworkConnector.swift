@@ -39,7 +39,7 @@ public extension ApiConnectionType {
         do {
             let requestHeaders = headers ?? defaultHeaders
             let url = endpoint.url(for: environment)
-            var request = try URLRequest(url: url, method: endpoint.method, headers: requestHeaders)
+            var request = try URLRequest(url: url, method: endpoint.route.method, headers: requestHeaders)
             
             request.httpBody = data
             

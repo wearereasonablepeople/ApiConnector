@@ -34,33 +34,20 @@ enum Environment: ApiEnvironment {
     }
 }
 
-enum Router: ApiRouter {
-    typealias EnvironmentType = Environment
-    
+enum Router {
     case auth, me
     case posts(for: Date)
-    
-    var path: RoutePath {
-        switch self {
-        case .auth: return ["auth"]
-        case .me: return ["me"]
-        case .posts(_): return ["posts"]
-        }
-    }
-    
-    var query: Query? {
-        switch self {
-        case let .posts(for: date):
-            return Query(("date", date.convertToString), ("userId": "someId"))
-        default:
-            return nil
-        }
-    }
+}
 
-    var method: HTTPMethod {
+extension Router: ApiRouter {
+    typealias EnvironmentType = Environment
+    
+    var route: URLRoute {
         switch self {
-        case .auth: return .post
-        default: return .get
+        case .me: return .init(["me"])
+        case .auth: return .init(.post, ["auth"])
+        case let .posts(for: date):
+            return .init(["posts"], ("date", date), ("userId", "someId"))
         }
     }
 }
@@ -70,7 +57,7 @@ And then we can get the url for specific `endpoint` like this:
 
 ```swift
 let url = Router.me.url(for: .test)
-print(url.absoluteString) //prints http://mytestserver.com:80/me
+print(url.absoluteString) //prints http://mytestserver.com/me
 ```
 
 ##API Connection

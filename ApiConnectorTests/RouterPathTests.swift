@@ -11,6 +11,11 @@ import ApiConnector
 
 class RouterPathTests: XCTestCase {
     
+    func testRouterPathEquatable() {
+        XCTAssertNotEqual(RoutePath("new", "api", "cards"), RoutePath("new", "api"))
+        XCTAssertEqual(RoutePath("new", "api", "cards"), RoutePath("new", "api", "cards"))
+    }
+    
     func testRouterPathArrayCreation() {
         let path = "/new/api/cards"
         

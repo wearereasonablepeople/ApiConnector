@@ -21,9 +21,22 @@ enum Environment: ApiEnvironment {
     }
 }
 
-enum Router: String, ApiRouter {
-    typealias EnvironmentType = Environment
+enum Router {
     case me, pictures
+    case posts(userId: String)
+}
+
+extension Router: ApiRouter {
+    typealias EnvironmentType = Environment
+    
+    var route: URLRoute {
+        switch self {
+        case .me: return .init(["me"])
+        case .pictures: return .init(.get, ["pictures"])
+        case let .posts(userId: userId):
+            return .init(["posts"], ("userId", userId))
+        }
+    }
 }
 
 struct TestData {

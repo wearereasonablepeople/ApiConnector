@@ -42,6 +42,12 @@ extension RoutePath: RoutePathComponent {
     }
 }
 
+extension RoutePath: Equatable {
+    public static func == (lhs: RoutePath, rhs: RoutePath) -> Bool {
+        return lhs.path.lazy.map({ $0.stringValue }) == rhs.path.lazy.map({ $0.stringValue })
+    }
+}
+
 extension RoutePath: ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: RoutePathComponent...) {
         self.init(elements)
