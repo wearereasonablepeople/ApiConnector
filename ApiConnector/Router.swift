@@ -8,34 +8,6 @@
 
 import Alamofire
 
-public struct URLRoute {
-    public let method: HTTPMethod
-    public let path: RoutePath
-    public let query: Query?
-    
-    public init(_ method: HTTPMethod, _ path: RoutePath, _ query: (name: String, value: QueryItemValue?)...) {
-        self.method = method
-        self.path = path
-        self.query = Query(query)
-    }
-    
-    public init(_ method: HTTPMethod, _ path: RoutePath) {
-        self.method = method
-        self.path = path
-        self.query = nil
-    }
-    
-    public init(_ path: RoutePath, _ query: (name: String, value: QueryItemValue?)...) {
-        self.method = .get
-        self.path = path
-        self.query = Query(query)
-    }
-    
-    public init(_ path: RoutePath) {
-        self.init(.get, path)
-    }
-}
-
 public protocol ApiRouter {
     associatedtype EnvironmentType: ApiEnvironment
     
