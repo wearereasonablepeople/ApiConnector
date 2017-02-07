@@ -54,11 +54,10 @@ public extension ApiConnectionType {
     }
     
     public func validate(request: RequestType) -> RequestType {
-        if let validation = defaultValidation {
-            return request.validate(validation)
-        } else {
+        guard let validation = defaultValidation else {
             return request.validate()
         }
+        return request.validate(validation)
     }
 }
 
