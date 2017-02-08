@@ -12,7 +12,7 @@ import ApiConnector
 class URLRouteTests: XCTestCase {
     
     func testUrlRouteEquatable() {
-        XCTAssertEqual(URLRoute(["myPath"], ("user", nil)), URLRoute(.get, ["myPath"], ("user", nil)))
+        XCTAssertEqual(URLRoute(["myPath"], ("user", nil)), URLRoute(["myPath"], ("user", nil)))
     }
     
 }

@@ -30,27 +30,28 @@ public extension DataRequestType {
 }
 
 public extension ApiConnectionType {
-    public func requestData(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> RequestType {
-        return requestData(with: model?.jsonValue, at: endpoint, headers: headers)
+    
+    public func requestData(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> RequestType {
+        return requestData(method: method, with: model?.jsonValue, at: endpoint, headers: headers)
     }
     
-    public func requestData(with json: JSON? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> RequestType {
-        return requestData(with: json.flatMap({ try? $0.rawData() }), at: endpoint, headers: headers)
+    public func requestData(method: HTTPMethod = .get, with json: JSON? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> RequestType {
+        return requestData(method: method, with: json.flatMap({ try? $0.rawData() }), at: endpoint, headers: headers)
     }
     
-    public func requestObservable<T: JSONInitializable>(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<T> {
-        return validate(request: requestData(with: model, at: endpoint, headers: headers)).modelObservable()
+    public func requestObservable<T: JSONInitializable>(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<T> {
+        return validate(request: requestData(method: method, with: model, at: endpoint, headers: headers)).modelObservable()
     }
     
-    public func requestObservable<T: JSONInitializable>(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<[T]> {
-        return validate(request: requestData(with: model, at: endpoint, headers: headers)).modelObservable()
+    public func requestObservable<T: JSONInitializable>(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<[T]> {
+        return validate(request: requestData(method: method, with: model, at: endpoint, headers: headers)).modelObservable()
     }
     
-    public func requestObservable(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<Void> {
-        return validate(request: requestData(with: model, at: endpoint, headers: headers)).observable()
+    public func requestObservable(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<Void> {
+        return validate(request: requestData(method: method, with: model, at: endpoint, headers: headers)).observable()
     }
     
-    public func requestObservable(with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<JSON> {
-        return validate(request: requestData(with: model, at: endpoint, headers: headers)).jsonObservable()
+    public func requestObservable(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType, headers: HTTPHeaders? = nil) -> Observable<JSON> {
+        return validate(request: requestData(method: method, with: model, at: endpoint, headers: headers)).jsonObservable()
     }
 }

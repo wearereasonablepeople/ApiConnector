@@ -26,8 +26,8 @@ public protocol ApiConnectionType {
     var defaultHeaders: HTTPHeaders? { get }
     var defaultValidation: Alamofire.DataRequest.Validation? { get }
     
-    func request(with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> URLRequest
-    func requestData(with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> RequestType
+    func request(method: HTTPMethod, with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> URLRequest
+    func requestData(method: HTTPMethod, with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> RequestType
     func validate(request: RequestType) -> RequestType
 }
 
@@ -35,11 +35,11 @@ public extension ApiConnectionType {
     public var defaultHeaders: HTTPHeaders? { return nil }
     public var defaultValidation: Alamofire.DataRequest.Validation? { return nil }
     
-    public func request(with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> URLRequest {
+    public func request(method: HTTPMethod, with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> URLRequest {
         do {
             let requestHeaders = headers ?? defaultHeaders
             let url = endpoint.url(for: environment)
-            var request = try URLRequest(url: url, method: endpoint.route.method, headers: requestHeaders)
+            var request = try URLRequest(url: url, method:method, headers: requestHeaders)
             
             request.httpBody = data
             
@@ -49,8 +49,8 @@ public extension ApiConnectionType {
         }
     }
     
-    public func requestData(with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> RequestType {
-        return RequestType.dataRequest(with: request(with: data, at: endpoint, headers: headers))
+    public func requestData(method: HTTPMethod = .get, with data: Data?, at endpoint: RouterType, headers: HTTPHeaders?) -> RequestType {
+        return RequestType.dataRequest(with: request(method: method, with: data, at: endpoint, headers: headers))
     }
     
     public func validate(request: RequestType) -> RequestType {

@@ -24,9 +24,4 @@ class RouterTests: XCTestCase {
         XCTAssertEqual(Router.posts(userId: "myId").url(for: .test).absoluteString, "http://test.com/api/model/posts?userId=myId")
         XCTAssertEqual(TestRouter.test.url(for: .test).absoluteString, "http://test.com/test")
     }
-    
-    func testRouterMethod() {
-        XCTAssertEqual(Router.me.route.method, .get)
-    }
-    
 }

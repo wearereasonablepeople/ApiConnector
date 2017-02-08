@@ -34,7 +34,7 @@ extension Router: ApiRouter {
     var route: URLRoute {
         switch self {
         case .me: return .init(["me"])
-        case .pictures: return .init(.get, ["pictures"])
+        case .pictures: return .init( ["pictures"])
         case let .posts(userId: userId):
             return .init(["posts"], ("userId", userId))
         }
