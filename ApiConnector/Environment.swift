@@ -34,4 +34,14 @@ public struct URLEnvironment {
     public init(_ host: String, _ port: Int? = nil) {
         self.init(.http, host, port)
     }
+    
+    public init(_ scheme: Scheme, _ ip: IP, _ port: Int? = nil) {
+        self.scheme = scheme
+        self.host = ip.stringValue
+        self.port = port
+    }
+    
+    public init(_ ip: IP, _ port: Int? = nil) {
+        self.init(.http, ip, port)
+    }
 }

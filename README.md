@@ -28,7 +28,7 @@ enum Environment: ApiEnvironment {
     var value: URLEnvironment {
         switch self {
         case .localhost: return .localhost(8080)
-        case .test: return .init("mytestserver.com")
+        case .test: return .init(IP(126, 251, 20, 32))
         case .production: return .init(.https, "myproductionserver.com", 3000)
         }
     }
@@ -57,7 +57,7 @@ And then we can get the url for specific `endpoint` like this:
 
 ```swift
 let url = Router.me.url(for: .test)
-print(url.absoluteString) //prints http://mytestserver.com/me
+print(url.absoluteString) //prints http://126.251.20.32/me
 ```
 
 ##API Connection

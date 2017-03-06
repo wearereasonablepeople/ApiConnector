@@ -12,11 +12,13 @@ import SwiftyJSONModel
 enum Environment: ApiEnvironment {
     case test
     case localhost
+    case staging
     
     var value: URLEnvironment {
         switch self {
         case .test: return .init("test.com")
         case .localhost: return .localhost(8080)
+        case .staging: return .init(IP(8,8,8,8), 3000)
         }
     }
 }
