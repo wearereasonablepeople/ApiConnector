@@ -9,16 +9,12 @@
 import Foundation
 
 public struct IP {
-    public let firstOctet: Int
-    public let secondOctet: Int
-    public let thirdOctet: Int
-    public let fourthOctet: Int
+    public let firstOctet: UInt8
+    public let secondOctet: UInt8
+    public let thirdOctet: UInt8
+    public let fourthOctet: UInt8
     
-    public init?(_ first: Int, _ second: Int, _ third: Int, _ fourth: Int) {
-        let range = 0...255
-        guard range ~= first, range ~= second, range ~= third, range ~= fourth else {
-            return nil
-        }
+    public init(_ first: UInt8, _ second: UInt8, _ third: UInt8, _ fourth: UInt8) {
         firstOctet = first
         secondOctet = second
         thirdOctet = third
