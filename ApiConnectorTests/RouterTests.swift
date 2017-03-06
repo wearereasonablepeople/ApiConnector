@@ -22,6 +22,7 @@ class RouterTests: XCTestCase {
         XCTAssertEqual(Router.pictures.url(for: .test).absoluteString, "http://test.com/api/model/pictures")
         XCTAssertEqual(Router.pictures.url(for: .localhost).absoluteString, "http://localhost:8080/api/model/pictures")
         XCTAssertEqual(Router.posts(userId: "myId").url(for: .test).absoluteString, "http://test.com/api/model/posts?userId=myId")
+        XCTAssertEqual(Router.me.url(for: .staging).absoluteString, "http://8.8.8.8:3000/api/model/me")
         XCTAssertEqual(TestRouter.test.url(for: .test).absoluteString, "http://test.com/test")
     }
 }
