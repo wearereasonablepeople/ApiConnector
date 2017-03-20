@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1D4C621E803B99001CCA8D /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D4C611E803B99001CCA8D /* SweetRouter.framework */; };
 		CE27167D1DC9FCE300571670 /* ApiConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */; };
 		CE27167F1DCA105400571670 /* AlamofireExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167E1DCA105400571670 /* AlamofireExtension.swift */; };
 		CE2716811DCA11EB00571670 /* AlamofireDataRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE1D4C611E803B99001CCA8D /* SweetRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SweetRouter.framework; path = Carthage/Build/iOS/SweetRouter.framework; sourceTree = "<group>"; };
 		CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConnectionTests.swift; sourceTree = "<group>"; };
 		CE27167E1DCA105400571670 /* AlamofireExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtension.swift; sourceTree = "<group>"; };
 		CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireDataRequestTests.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			files = (
 				CED9A7C91DC88E53005CE914 /* Alamofire.framework in Frameworks */,
 				CE2716831DCA1F6C00571670 /* RxSwift.framework in Frameworks */,
+				CE1D4C621E803B99001CCA8D /* SweetRouter.framework in Frameworks */,
 				CE27168B1DCA304800571670 /* SwiftyJSON.framework in Frameworks */,
 				CE27168C1DCA304800571670 /* SwiftyJSONModel.framework in Frameworks */,
 			);
@@ -225,6 +228,7 @@
 		CED9A7C71DC88E53005CE914 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D4C611E803B99001CCA8D /* SweetRouter.framework */,
 				CE2716891DCA304800571670 /* SwiftyJSON.framework */,
 				CE27168A1DCA304800571670 /* SwiftyJSONModel.framework */,
 				CE2716821DCA1F6C00571670 /* RxSwift.framework */,
