@@ -68,7 +68,7 @@ public struct NetworkConnector<T: DataRequestType, E: RouterType>: ApiConnection
     
     public let environment: R.Environment
     
-    public init(environment: R.Environment) {
+    public init(environment: R.Environment = R.default) {
         self.environment = environment
     }
 }
