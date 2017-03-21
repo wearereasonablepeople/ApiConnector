@@ -7,16 +7,11 @@
 //
 
 import Alamofire
+import RxSwift
 import SweetRouter
 
 public protocol DataRequestType {
-    static func dataRequest(with request: URLRequest) -> Self
-    
-    func validate() -> Self
-    func validate(_ validation: @escaping Alamofire.DataRequest.Validation) -> Self
-    func cancel()
-    
-    func responseData(completionHandler: @escaping (Data?, Error?) -> Void) -> Self
+    static func dataRequest(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response<Data>>
 }
 
 public protocol ApiConnectionType {
@@ -25,16 +20,15 @@ public protocol ApiConnectionType {
     
     var environment: R.Environment { get }
     var defaultHeaders: HTTPHeaders? { get }
-    var defaultValidation: Alamofire.DataRequest.Validation? { get }
+    var defaultValidation: DataRequest.Validation? { get }
     
     func request(method: HTTPMethod, with data: Data?, at endpoint: R.Route, headers: HTTPHeaders?) -> URLRequest
-    func requestData(method: HTTPMethod, with data: Data?, at endpoint: R.Route, headers: HTTPHeaders?) -> RequestType
-    func validate(request: RequestType) -> RequestType
+    func requestData(method: HTTPMethod, with data: Data?, at endpoint: R.Route, headers: HTTPHeaders?, _ validation: (DataRequest.Validation)?) -> Observable<Response<Data>>
 }
 
 public extension ApiConnectionType {
     public var defaultHeaders: HTTPHeaders? { return nil }
-    public var defaultValidation: Alamofire.DataRequest.Validation? { return nil }
+    public var defaultValidation: DataRequest.Validation? { return nil }
     
     public func request(method: HTTPMethod, with data: Data?, at endpoint: R.Route, headers: HTTPHeaders?) -> URLRequest {
         do {
@@ -50,15 +44,8 @@ public extension ApiConnectionType {
         }
     }
     
-    public func requestData(method: HTTPMethod = .get, with data: Data?, at endpoint: R.Route, headers: HTTPHeaders?) -> RequestType {
-        return RequestType.dataRequest(with: request(method: method, with: data, at: endpoint, headers: headers))
-    }
-    
-    public func validate(request: RequestType) -> RequestType {
-        guard let validation = defaultValidation else {
-            return request.validate()
-        }
-        return request.validate(validation)
+    public func requestData(method: HTTPMethod, with data: Data?, at endpoint: R.Route, headers: HTTPHeaders?, _ validation: (DataRequest.Validation)?) -> Observable<Response<Data>> {
+        return RequestType.dataRequest(with: request(method: method, with: data, at: endpoint, headers: headers), validation ?? defaultValidation)
     }
 }
 
