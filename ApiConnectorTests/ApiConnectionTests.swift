@@ -8,6 +8,7 @@
 
 import XCTest
 import Alamofire
+import SweetRouter
 @testable import ApiConnector
 
 fileprivate enum ValidationError: Error {
@@ -16,9 +17,9 @@ fileprivate enum ValidationError: Error {
 
 fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConnectionType {
     typealias RequestType = TestConnector<Provider>
-    typealias RouterType = Router
+    typealias R = Api
     
-    let environment: Environment = .test
+    let environment: R.Environment = .test
     
     var defaultValidation: Alamofire.DataRequest.Validation? {
         return { request, response, data in
@@ -31,7 +32,7 @@ class ApiConnectionTests: XCTestCase {
     
     func testRequestCreation() {
         let request = TestApiConnection<SuccessProvider>(environment: .test).requestData(method:.get, with: TestData.testBodyData, at: .me, headers: nil).request
-        var expectedRequest = try! URLRequest(url: Router.me.url(for: .test), method: .get, headers: nil)
+        var expectedRequest = try! URLRequest(url: Router<Api>(.test, at: .me).url, method: .get, headers: nil)
         expectedRequest.httpBody = TestData.testBodyData
         
         XCTAssertEqual(request, expectedRequest)

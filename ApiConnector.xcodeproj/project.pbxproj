@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1D4C621E803B99001CCA8D /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D4C611E803B99001CCA8D /* SweetRouter.framework */; };
+		CE1D4C631E803E5D001CCA8D /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D4C611E803B99001CCA8D /* SweetRouter.framework */; };
 		CE27167D1DC9FCE300571670 /* ApiConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */; };
 		CE27167F1DCA105400571670 /* AlamofireExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167E1DCA105400571670 /* AlamofireExtension.swift */; };
 		CE2716811DCA11EB00571670 /* AlamofireDataRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */; };
@@ -25,23 +27,11 @@
 		CE2EDD131DC8E55700D2D7E7 /* TestConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */; };
 		CE2EDD161DC8EAEB00D2D7E7 /* TestConnectorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD151DC8EAEB00D2D7E7 /* TestConnectorResponse.swift */; };
 		CE2EDD1A1DC9E22200D2D7E7 /* TestConnectorResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD191DC9E22200D2D7E7 /* TestConnectorResponseTests.swift */; };
-		CE2FC5BA1E41F6C20072662F /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FC5B91E41F6C20072662F /* Query.swift */; };
-		CE2FC5BC1E41FB400072662F /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FC5BB1E41FB400072662F /* QueryTests.swift */; };
-		CE2FC5C01E422DC80072662F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FC5BF1E422DC80072662F /* Environment.swift */; };
 		CE3919A11DD21929006D1DFB /* ResponseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3919A01DD21929006D1DFB /* ResponseProvider.swift */; };
-		CE77A90E1E487EAC00CA26CA /* URLRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77A90D1E487EAC00CA26CA /* URLRoute.swift */; };
-		CE77A9101E488B4D00CA26CA /* URLRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77A90F1E488B4D00CA26CA /* URLRouteTests.swift */; };
-		CE81A35D1E326D9700317922 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A35C1E326D9700317922 /* Scheme.swift */; };
-		CE81A35F1E32753000317922 /* RoutePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A35E1E32753000317922 /* RoutePath.swift */; };
-		CE81A3611E35FB3E00317922 /* RouterPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81A3601E35FB3E00317922 /* RouterPathTests.swift */; };
-		CEBD16F51E6878F8005FD5F7 /* IP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD16F41E6878F8005FD5F7 /* IP.swift */; };
-		CEBD16F71E687A17005FD5F7 /* IPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBD16F61E687A17005FD5F7 /* IPTests.swift */; };
 		CED9A7B51DC88D89005CE914 /* ApiConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */; };
 		CED9A7BC1DC88D89005CE914 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED9A7C91DC88E53005CE914 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7C81DC88E53005CE914 /* Alamofire.framework */; };
-		CED9A7CB1DC89089005CE914 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CA1DC89089005CE914 /* Router.swift */; };
 		CED9A7CD1DC8920E005CE914 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CC1DC8920E005CE914 /* TestData.swift */; };
-		CED9A7CF1DC89744005CE914 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CE1DC89744005CE914 /* RouterTests.swift */; };
 		CED9A7D01DC8A1AC005CE914 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7C81DC88E53005CE914 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE1D4C611E803B99001CCA8D /* SweetRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SweetRouter.framework; path = Carthage/Build/iOS/SweetRouter.framework; sourceTree = "<group>"; };
 		CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConnectionTests.swift; sourceTree = "<group>"; };
 		CE27167E1DCA105400571670 /* AlamofireExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtension.swift; sourceTree = "<group>"; };
 		CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireDataRequestTests.swift; sourceTree = "<group>"; };
@@ -71,26 +62,14 @@
 		CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorTests.swift; sourceTree = "<group>"; };
 		CE2EDD151DC8EAEB00D2D7E7 /* TestConnectorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorResponse.swift; sourceTree = "<group>"; };
 		CE2EDD191DC9E22200D2D7E7 /* TestConnectorResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorResponseTests.swift; sourceTree = "<group>"; };
-		CE2FC5B91E41F6C20072662F /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
-		CE2FC5BB1E41FB400072662F /* QueryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
-		CE2FC5BF1E422DC80072662F /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		CE3919A01DD21929006D1DFB /* ResponseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseProvider.swift; sourceTree = "<group>"; };
-		CE77A90D1E487EAC00CA26CA /* URLRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRoute.swift; sourceTree = "<group>"; };
-		CE77A90F1E488B4D00CA26CA /* URLRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRouteTests.swift; sourceTree = "<group>"; };
-		CE81A35C1E326D9700317922 /* Scheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
-		CE81A35E1E32753000317922 /* RoutePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePath.swift; sourceTree = "<group>"; };
-		CE81A3601E35FB3E00317922 /* RouterPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterPathTests.swift; sourceTree = "<group>"; };
-		CEBD16F41E6878F8005FD5F7 /* IP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IP.swift; sourceTree = "<group>"; };
-		CEBD16F61E687A17005FD5F7 /* IPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPTests.swift; sourceTree = "<group>"; };
 		CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ApiConnector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9A7AE1DC88D89005CE914 /* ApiConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiConnector.h; sourceTree = "<group>"; };
 		CED9A7AF1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED9A7B41DC88D89005CE914 /* ApiConnectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApiConnectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9A7BB1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED9A7C81DC88E53005CE914 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		CED9A7CA1DC89089005CE914 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CED9A7CC1DC8920E005CE914 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
-		CED9A7CE1DC89744005CE914 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +79,7 @@
 			files = (
 				CED9A7C91DC88E53005CE914 /* Alamofire.framework in Frameworks */,
 				CE2716831DCA1F6C00571670 /* RxSwift.framework in Frameworks */,
+				CE1D4C621E803B99001CCA8D /* SweetRouter.framework in Frameworks */,
 				CE27168B1DCA304800571670 /* SwiftyJSON.framework in Frameworks */,
 				CE27168C1DCA304800571670 /* SwiftyJSONModel.framework in Frameworks */,
 			);
@@ -112,6 +92,7 @@
 				CED9A7B51DC88D89005CE914 /* ApiConnector.framework in Frameworks */,
 				CED9A7D01DC8A1AC005CE914 /* Alamofire.framework in Frameworks */,
 				CE2716881DCA25A700571670 /* RxSwift.framework in Frameworks */,
+				CE1D4C631E803E5D001CCA8D /* SweetRouter.framework in Frameworks */,
 				CE27168D1DCA305300571670 /* SwiftyJSON.framework in Frameworks */,
 				CE27168E1DCA305300571670 /* SwiftyJSONModel.framework in Frameworks */,
 			);
@@ -120,20 +101,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE2716A71DCB2C5800571670 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				CE2FC5BF1E422DC80072662F /* Environment.swift */,
-				CED9A7CA1DC89089005CE914 /* Router.swift */,
-				CE77A90D1E487EAC00CA26CA /* URLRoute.swift */,
-				CE81A35C1E326D9700317922 /* Scheme.swift */,
-				CEBD16F41E6878F8005FD5F7 /* IP.swift */,
-				CE81A35E1E32753000317922 /* RoutePath.swift */,
-				CE2FC5B91E41F6C20072662F /* Query.swift */,
-			);
-			name = Router;
-			sourceTree = "<group>";
-		};
 		CE2716A81DCB2C6200571670 /* NetworkConnector */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				CED9A7AE1DC88D89005CE914 /* ApiConnector.h */,
-				CE2716A71DCB2C5800571670 /* Router */,
 				CE2716A81DCB2C6200571670 /* NetworkConnector */,
 				CE2EDD141DC8EA2A00D2D7E7 /* Connectors */,
 				CED9A7AF1DC88D89005CE914 /* Info.plist */,
@@ -206,11 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				CED9A7CC1DC8920E005CE914 /* TestData.swift */,
-				CED9A7CE1DC89744005CE914 /* RouterTests.swift */,
-				CE77A90F1E488B4D00CA26CA /* URLRouteTests.swift */,
-				CE81A3601E35FB3E00317922 /* RouterPathTests.swift */,
-				CEBD16F61E687A17005FD5F7 /* IPTests.swift */,
-				CE2FC5BB1E41FB400072662F /* QueryTests.swift */,
 				CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */,
 				CE2716861DCA238E00571670 /* RxNetworkConnectorTests.swift */,
 				CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */,
@@ -225,6 +186,7 @@
 		CED9A7C71DC88E53005CE914 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D4C611E803B99001CCA8D /* SweetRouter.framework */,
 				CE2716891DCA304800571670 /* SwiftyJSON.framework */,
 				CE27168A1DCA304800571670 /* SwiftyJSONModel.framework */,
 				CE2716821DCA1F6C00571670 /* RxSwift.framework */,
@@ -346,20 +308,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEBD16F51E6878F8005FD5F7 /* IP.swift in Sources */,
-				CE81A35D1E326D9700317922 /* Scheme.swift in Sources */,
-				CE2FC5C01E422DC80072662F /* Environment.swift in Sources */,
 				CE2716901DCA336B00571670 /* JSONModelNetworkConnector.swift in Sources */,
-				CE77A90E1E487EAC00CA26CA /* URLRoute.swift in Sources */,
 				CE2EDD161DC8EAEB00D2D7E7 /* TestConnectorResponse.swift in Sources */,
 				CE27167F1DCA105400571670 /* AlamofireExtension.swift in Sources */,
 				CE3919A11DD21929006D1DFB /* ResponseProvider.swift in Sources */,
-				CE2FC5BA1E41F6C20072662F /* Query.swift in Sources */,
 				CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */,
-				CE81A35F1E32753000317922 /* RoutePath.swift in Sources */,
 				CE2EDCEC1DC8D4DB00D2D7E7 /* TestConnector.swift in Sources */,
 				CE2716851DCA206900571670 /* RxNetworkConnector.swift in Sources */,
-				CED9A7CB1DC89089005CE914 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,14 +322,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEBD16F71E687A17005FD5F7 /* IPTests.swift in Sources */,
 				CE2716811DCA11EB00571670 /* AlamofireDataRequestTests.swift in Sources */,
-				CE77A9101E488B4D00CA26CA /* URLRouteTests.swift in Sources */,
 				CE2EDD1A1DC9E22200D2D7E7 /* TestConnectorResponseTests.swift in Sources */,
-				CE2FC5BC1E41FB400072662F /* QueryTests.swift in Sources */,
 				CE2716921DCA379F00571670 /* JSONModelNetworkConnectorTests.swift in Sources */,
-				CED9A7CF1DC89744005CE914 /* RouterTests.swift in Sources */,
-				CE81A3611E35FB3E00317922 /* RouterPathTests.swift in Sources */,
 				CED9A7CD1DC8920E005CE914 /* TestData.swift in Sources */,
 				CE27167D1DC9FCE300571670 /* ApiConnectionTests.swift in Sources */,
 				CE2EDD131DC8E55700D2D7E7 /* TestConnectorTests.swift in Sources */,

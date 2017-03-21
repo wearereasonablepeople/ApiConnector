@@ -7,40 +7,39 @@
 //
 
 import ApiConnector
+import SweetRouter
 import SwiftyJSONModel
 
-enum Environment: ApiEnvironment {
-    case test
-    case localhost
-    case staging
-    
-    var value: URLEnvironment {
-        switch self {
-        case .test: return .init("test.com")
-        case .localhost: return .localhost(8080)
-        case .staging: return .init(IP(8,8,8,8), 3000)
+struct Api: RouterType {
+    enum Environment: EnvironmentType {
+        case test
+        case localhost
+        case staging
+        
+        var value: URL.Environment {
+            switch self {
+            case .test: return .init("test.com")
+            case .localhost: return .localhost(8080)
+            case .staging: return .init(IP(8,8,8,8), 3000)
+            }
         }
     }
-}
-
-enum Router {
-    case me, pictures
-    case posts(userId: String)
-}
-
-extension Router: ApiRouter {
-    typealias EnvironmentType = Environment
     
-    var defaultPath: RoutePath { return ["api", "model"] }
-    
-    var route: URLRoute {
-        switch self {
-        case .me: return .init(["me"])
-        case .pictures: return .init( ["pictures"])
-        case let .posts(userId: userId):
-            return .init(["posts"], ("userId", userId))
+    enum Route: RouteType {
+        case me, pictures
+        case posts(userId: String)
+        
+        var route: URL.Route {
+            switch self {
+            case .me: return .init(path: ["me"])
+            case .pictures: return .init(path: ["pictures"])
+            case let .posts(userId: userId):
+                return .init(path: ["posts"], query: ("userId", userId))
+            }
         }
     }
+    
+    static let `default` = Environment.localhost
 }
 
 struct TestData {
@@ -61,7 +60,7 @@ struct SuccessProvider: ResponseProvider {
     }
 }
 
-typealias TestApiConnection<Provider: ResponseProvider> = NetworkConnector<TestConnector<Provider>, Router>
+typealias TestApiConnection<Provider: ResponseProvider> = NetworkConnector<TestConnector<Provider>, Api>
 
 struct Post {
     let title: String
