@@ -11,56 +11,10 @@ Framework for convenient Connection to Api.
 2. [API Connection](#api-connection)
 3. [Mocking Requests](#mocking-requests)
 
-##Router
-Framework allows to create routers to describe the endpoints used for API connection.
+## Router
+ApiConnector uses [SweetRouter](https://github.com/alickbass/SweetRouter) as a dependency to declare routes for the back-end
 
-**Example of Router:**
-
-```swift
-import ApiConnector
-import Alamofire
-
-enum Environment: ApiEnvironment {
-    case localhost
-    case test
-    case production
-    
-    var value: URLEnvironment {
-        switch self {
-        case .localhost: return .localhost(8080)
-        case .test: return .init(IP(126, 251, 20, 32))
-        case .production: return .init(.https, "myproductionserver.com", 3000)
-        }
-    }
-}
-
-enum Router {
-    case auth, me
-    case posts(for: Date)
-}
-
-extension Router: ApiRouter {
-    typealias EnvironmentType = Environment
-    
-    var route: URLRoute {
-        switch self {
-        case .me: return .init(["me"])
-        case .auth: return .init(.post, ["auth"])
-        case let .posts(for: date):
-            return .init(["posts"], ("date", date), ("userId", "someId"))
-        }
-    }
-}
-```
-
-And then we can get the url for specific `endpoint` like this:
-
-```swift
-let url = Router.me.url(for: .test)
-print(url.absoluteString) //prints http://126.251.20.32/me
-```
-
-##API Connection
+## API Connection
 
 The framework provides a convenient way for making requests to API with given Router. You can use the completion handler of the created requests but framework also provides observables that create `JSON` or models that that conform to [SwiftyJSONModel](https://github.com/alickbass/SwiftyJSONModel) protocols.
 
@@ -84,10 +38,10 @@ struct Post: JSONObjectInitializable {
 
 // And here is our ApiConnection Type
 class ApiConnection<Provider: DataRequestType>: ApiConnectionType {
-    typealias RouterType = Router
+    typealias R = Api
     typealias RequestType = Provider
     
-    let environment: Environment = .test
+    let environment: Api.Environment = .test
     
     func allPosts(for date: Date) -> Observable<[Post]> {
         return requestObservable(at: .posts(for: date))
@@ -105,14 +59,14 @@ let postsDisposable = Connection().allPosts(for: Date()).subscribe(onNext: { pos
 })
 ```
 
-###Default Network Connector
+### Default Network Connector
 
 If you don't really want to create your own `APIConnectionType` class, you can use the default `NetworkConnector` type for making requests
 
 **Example of getting posts with `NetworkConnector`:**
 
 ```swift
-typealias Connection = NetworkConnector<Alamofire.DataRequest, Router>
+typealias Connection = NetworkConnector<Alamofire.DataRequest, Api>
 
 let posts: Observable<[Post]> = Connection(environment: .test).requestObservable(at: .posts(for: Date()))
 let disposable = posts.subscribe(onNext: { posts in
@@ -122,7 +76,7 @@ let disposable = posts.subscribe(onNext: { posts in
 })
 ```
 
-##Mocking Requests
+## Mocking Requests
 The most powerfull feature of this framework is that it is really easy to mock requests for the purpose of `Unit Testing` without running any external processes and changing any code base.
 
 The reason why `ApiConnection<Provider: DataRequestType>` is generic is to allow plugging in mock `Connection Provider`. As we saw above, for the real requests we would use `Alamofire.DataRequest` as a `Provider` for `ApiConnection`. Alamofire would make the real requests to the real servers.
