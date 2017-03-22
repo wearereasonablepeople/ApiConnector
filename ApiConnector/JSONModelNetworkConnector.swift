@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SwiftyJSONModel
 
-extension ObservableType where E: ResponseType {
+public extension ObservableType where E: ResponseType {
     public func mapValue<T>(_ transform: @escaping (E.Value) throws -> T) -> Observable<Response<T>> {
         return map { try $0.map(transform) }
     }
@@ -21,16 +21,30 @@ extension ObservableType where E: ResponseType {
     }
 }
 
-extension ObservableType where E == Response<Data> {
-    public func toJSON() -> Observable<Response<JSON>> {
-        return mapValue { JSON(data: $0) }
+public extension ObservableType where E == Response<Data?> {
+    public func toJSON() -> Observable<JSON> {
+        return map { JSON(data: $0.value!) }
     }
     
-    public func toModel<T: JSONInitializable>() -> Observable<Response<T>> {
-        return toJSON().mapValue { try T(json: $0) }
+    public func toModel<T: JSONInitializable>() -> Observable<T> {
+        return toJSON().map { try T(json: $0) }
     }
     
-    public func toModel<T: JSONInitializable>() -> Observable<Response<[T]>> {
-        return toJSON().mapValue { try $0.arrayValue().map({ try T(json: $0) }) }
+    public func toModel<T: JSONInitializable>() -> Observable<[T]> {
+        return toJSON().map { try $0.arrayValue().map({ try T(json: $0) }) }
+    }
+    
+    public func toVoid() -> Observable<Void> {
+        return map({ _ in () })
+    }
+}
+
+public extension ApiConnectionType {
+    public func requestObservable(method: HTTPMethod = .get, with json: JSON?, at endpoint: R.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response<Data?>> {
+        return requestObservable(method: method, with: json.flatMap({ try? $0.rawData() }), at: endpoint, headers: headers, validation)
+    }
+    
+    public func requestObservable(method: HTTPMethod = .get, with model: JSONRepresentable?, at endpoint: R.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response<Data?>> {
+        return requestObservable(method: method, with: model?.jsonValue, at: endpoint, headers: headers, validation)
     }
 }
