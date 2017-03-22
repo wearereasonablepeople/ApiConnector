@@ -12,8 +12,8 @@ import SwiftyJSON
 import SwiftyJSONModel
 
 public extension ObservableType where E == DataResponse<Data> {
-    public func toData() -> Observable<Data?> {
-        return map { $0.value }
+    public func toData() -> Observable<Data> {
+        return map { $0.value! }
     }
     
     public func toJSON() -> Observable<JSON> {
