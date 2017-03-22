@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import RxSwift
 import SwiftyJSON
 import Alamofire
 import ApiConnector
@@ -15,8 +16,8 @@ class TestConnectorTests: XCTestCase {
     
     func testResponseProvider() {
         struct TestProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> TestConnectorResponse {
-                return .failure(TestsError.defaultError)
+            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
+                return .just(.failure(TestsError.defaultError))
             }
         }
         
@@ -34,8 +35,8 @@ class TestConnectorTests: XCTestCase {
     
     func testSuccessfulProviderResponse() {
         struct SuccessResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> TestConnectorResponse {
-                return successResponse(for: request, with: 200, data: TestData.testBodyData)
+            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
+                return .just(successResponse(for: request, with: 200, data: TestData.testBodyData))
             }
         }
         
@@ -53,8 +54,10 @@ class TestConnectorTests: XCTestCase {
     
     func testFailProviderResponse() {
         struct SuccessResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> TestConnectorResponse {
-                return successResponse(for: request, with: 401, data: TestData.testBodyData)
+            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
+                return Observable
+                    .just(successResponse(for: request, with: 401, data: TestData.testBodyData))
+                    .delay(2, scheduler: SerialDispatchQueueScheduler(qos: .userInitiated))
             }
         }
         
@@ -70,14 +73,14 @@ class TestConnectorTests: XCTestCase {
             responseExpectation.fulfill()
         })
         
-        waitForExpectations(timeout: 2.0)
+        waitForExpectations(timeout: 5.0)
         observable.dispose()
     }
     
     func testInvalidJSONResponse() {
         struct InvalidJSONResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> TestConnectorResponse {
-                return successResponse(for: request, with: 200, json: JSON(TestData.defaultPost))
+            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
+                return .just(successResponse(for: request, with: 200, json: JSON(TestData.defaultPost)))
             }
         }
         
