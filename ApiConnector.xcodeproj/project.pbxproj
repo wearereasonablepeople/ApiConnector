@@ -11,9 +11,7 @@
 		CE1D4C631E803E5D001CCA8D /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D4C611E803B99001CCA8D /* SweetRouter.framework */; };
 		CE27167D1DC9FCE300571670 /* ApiConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */; };
 		CE27167F1DCA105400571670 /* AlamofireExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167E1DCA105400571670 /* AlamofireExtension.swift */; };
-		CE2716811DCA11EB00571670 /* AlamofireDataRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */; };
 		CE2716831DCA1F6C00571670 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2716821DCA1F6C00571670 /* RxSwift.framework */; };
-		CE2716851DCA206900571670 /* RxNetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716841DCA206900571670 /* RxNetworkConnector.swift */; };
 		CE2716871DCA238E00571670 /* RxNetworkConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716861DCA238E00571670 /* RxNetworkConnectorTests.swift */; };
 		CE2716881DCA25A700571670 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2716821DCA1F6C00571670 /* RxSwift.framework */; };
 		CE27168B1DCA304800571670 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2716891DCA304800571670 /* SwiftyJSON.framework */; };
@@ -49,9 +47,7 @@
 		CE1D4C611E803B99001CCA8D /* SweetRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SweetRouter.framework; path = Carthage/Build/iOS/SweetRouter.framework; sourceTree = "<group>"; };
 		CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConnectionTests.swift; sourceTree = "<group>"; };
 		CE27167E1DCA105400571670 /* AlamofireExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtension.swift; sourceTree = "<group>"; };
-		CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireDataRequestTests.swift; sourceTree = "<group>"; };
 		CE2716821DCA1F6C00571670 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		CE2716841DCA206900571670 /* RxNetworkConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxNetworkConnector.swift; sourceTree = "<group>"; };
 		CE2716861DCA238E00571670 /* RxNetworkConnectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxNetworkConnectorTests.swift; sourceTree = "<group>"; };
 		CE2716891DCA304800571670 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CE27168A1DCA304800571670 /* SwiftyJSONModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSONModel.framework; path = Carthage/Build/iOS/SwiftyJSONModel.framework; sourceTree = "<group>"; };
@@ -105,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */,
-				CE2716841DCA206900571670 /* RxNetworkConnector.swift */,
 				CE27168F1DCA336B00571670 /* JSONModelNetworkConnector.swift */,
 			);
 			name = NetworkConnector;
@@ -174,7 +169,6 @@
 				CED9A7CC1DC8920E005CE914 /* TestData.swift */,
 				CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */,
 				CE2716861DCA238E00571670 /* RxNetworkConnectorTests.swift */,
-				CE2716801DCA11EB00571670 /* AlamofireDataRequestTests.swift */,
 				CE2716911DCA379F00571670 /* JSONModelNetworkConnectorTests.swift */,
 				CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */,
 				CE2EDD191DC9E22200D2D7E7 /* TestConnectorResponseTests.swift */,
@@ -314,7 +308,6 @@
 				CE3919A11DD21929006D1DFB /* ResponseProvider.swift in Sources */,
 				CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */,
 				CE2EDCEC1DC8D4DB00D2D7E7 /* TestConnector.swift in Sources */,
-				CE2716851DCA206900571670 /* RxNetworkConnector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +315,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2716811DCA11EB00571670 /* AlamofireDataRequestTests.swift in Sources */,
 				CE2EDD1A1DC9E22200D2D7E7 /* TestConnectorResponseTests.swift in Sources */,
 				CE2716921DCA379F00571670 /* JSONModelNetworkConnectorTests.swift in Sources */,
 				CED9A7CD1DC8920E005CE914 /* TestData.swift in Sources */,

@@ -46,7 +46,7 @@ struct TestData {
     static let url = URL(string: "https://google.com")!
     static let request = URLRequest(url: url)
     
-    static let testBodyData = "TestString".data(using: .utf8)
+    static let testBodyData = "TestString".data(using: .utf8)!
     static let defaultPost = Post(title: "testTitle", description: "TestDescription")
 }
 

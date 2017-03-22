@@ -9,7 +9,7 @@
 import Alamofire
 
 public enum TestConnectorResponse {
-    case success(URLRequest, HTTPURLResponse, Data?)
+    case success(URLRequest, HTTPURLResponse, Data)
     case failure(Error)
     
     public func validate(_ validation: DataRequest.Validation?) -> TestConnectorResponse {
@@ -22,12 +22,12 @@ public enum TestConnectorResponse {
         return .failure(error)
     }
     
-    public var completionValue: (Data?, Error?) {
+    public func toResponse() throws -> DataResponse<Data> {
         switch self {
-        case let .success(_, _, data):
-            return (data, nil)
+        case let .success(request, response, data):
+            return DataResponse(request: request, response: response, data: data, result: .success(data))
         case let .failure(error):
-            return (nil, error)
+            throw error
         }
     }
 }

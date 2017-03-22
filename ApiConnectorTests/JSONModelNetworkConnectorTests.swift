@@ -16,14 +16,14 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     
     struct PostResponseProvider: ResponseProvider {
         static func response(for request: URLRequest) -> TestConnectorResponse {
-            return successResponse(for: request, with: 200, data: request.httpBody)
+            return successResponse(for: request, with: 200, data: request.httpBody ?? Data())
         }
     }
     
     func testModelRequest() {
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let post = TestData.defaultPost
-        let postObservable: Observable<Post> = Connection(environment: .test).requestObservable(with: post, at: .pictures)
+        let postObservable: Observable<Post> = Connection().requestObservable(with: post, at: .pictures).toModel()
         let disposable = postObservable.subscribe(onNext: { newPost in
             XCTAssertEqual(post, newPost)
             postExpactation.fulfill()
@@ -36,7 +36,7 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     func testArrayOfModelsRequest() {
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let posts = [TestData.defaultPost]
-        let postObservable: Observable<[Post]> = Connection(environment: .test).requestObservable(with: posts.jsonRepresantable, at: .pictures)
+        let postObservable: Observable<[Post]> = Connection().requestObservable(with: posts.jsonRepresantable, at: .pictures).toModel()
         let disposable = postObservable.subscribe(onNext: { newPosts in
             XCTAssertEqual(posts, newPosts)
             postExpactation.fulfill()
@@ -49,7 +49,7 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     func testJSONObservable() {
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let post = TestData.defaultPost
-        let jsonObservable: Observable<JSON> = Connection(environment: .test).requestObservable(with: post, at: .pictures)
+        let jsonObservable: Observable<JSON> = Connection().requestObservable(with: post, at: .pictures).toJSON()
         let disposable = jsonObservable.subscribe(onNext: { postJSON in
             XCTAssertEqual(post.jsonValue, postJSON)
             postExpactation.fulfill()
@@ -61,7 +61,7 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     
     func testVoidObservable() {
         let successExpactation = expectation(description: "SuccessVoidExpactation")
-        let voidObservable: Observable<Void> = TestApiConnection<SuccessProvider>(environment: .test).requestObservable(at: .pictures)
+        let voidObservable = TestApiConnection<SuccessProvider>().requestObservable(at: .pictures).toVoid()
         let disposable = voidObservable.subscribe(onNext: {
             successExpactation.fulfill()
         })

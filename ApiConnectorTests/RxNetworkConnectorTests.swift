@@ -13,10 +13,13 @@ class RxNetworkConnectorTests: XCTestCase {
     
     func testApiObservableSuccess() {
         let successExpectation = expectation(description: "ApiObservableExpectation")
-        let observable = TestApiConnection<SuccessProvider>(environment: .test).requestData(with: nil as Data?, at: .me, headers: nil).responseObservable().subscribe(onNext: { data in
-            XCTAssertEqual(data, TestData.testBodyData)
-            successExpectation.fulfill()
-        })
+        let observable = TestApiConnection<SuccessProvider>(environment: .test)
+            .requestObservable(with: nil as Data?, at: .me)
+            .toData()
+            .subscribe(onNext: { data in
+                XCTAssertEqual(data, TestData.testBodyData)
+                successExpectation.fulfill()
+            })
         
         waitForExpectations(timeout: 2.0)
         observable.dispose()
@@ -24,12 +27,13 @@ class RxNetworkConnectorTests: XCTestCase {
     
     func testApiObservableFailure() {
         let successExpectation = expectation(description: "ApiObservableExpectation")
-        let observable = TestApiConnection<SuccessProvider>().requestData(with: nil as Data?, at: .me, headers: nil).validate({ _,_,_ in
-            .failure(TestsError.defaultError)
-        }).responseObservable().subscribe(onError: { error in
-            XCTAssertEqual(error as? TestsError, .defaultError)
-            successExpectation.fulfill()
-        })
+        let observable = TestApiConnection<SuccessProvider>()
+            .requestObservable(with: nil as Data?, at: .me, { _,_,_ in
+                .failure(TestsError.defaultError)
+            }).subscribe(onError: { error in
+                XCTAssertEqual(error as? TestsError, .defaultError)
+                successExpectation.fulfill()
+            })
         
         waitForExpectations(timeout: 2.0)
         observable.dispose()
