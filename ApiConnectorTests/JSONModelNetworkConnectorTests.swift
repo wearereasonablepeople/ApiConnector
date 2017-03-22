@@ -15,8 +15,8 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     typealias Connection = TestApiConnection<PostResponseProvider>
     
     struct PostResponseProvider: ResponseProvider {
-        static func response(for request: URLRequest) -> TestConnectorResponse {
-            return successResponse(for: request, with: 200, data: request.httpBody ?? Data())
+        static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
+            return .just(successResponse(for: request, with: 200, data: request.httpBody ?? Data()))
         }
     }
     

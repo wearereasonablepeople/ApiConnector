@@ -91,10 +91,10 @@ typealias TestConnection<T: ResponseProvider> = ApiConnection<TestConnector<T>>
 
 // This is our type that provides reponse for given request
 struct PostsResponseProvider: ResponseProvider {
-    static func response(for request: URLRequest) -> TestConnectorResponse {
+    static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
         let posts: [Post] = //Here we create mock list of posts
         
-        return successResponse(for: request, with: 200, jsonObject: posts.jsonRepresantable)
+        return .just(successResponse(for: request, with: 200, jsonObject: posts.jsonRepresantable))
     }
 }
 

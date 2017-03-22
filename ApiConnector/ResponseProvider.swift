@@ -6,11 +6,12 @@
 //  Copyright © 2016 WeAreReasonablePeople. All rights reserved.
 //
 
+import RxSwift
 import SwiftyJSON
 import SwiftyJSONModel
 
 public protocol ResponseProvider {
-    static func response(for request: URLRequest) -> TestConnectorResponse
+    static func response(for request: URLRequest) -> Observable<TestConnectorResponse>
     static func successResponse(for request: URLRequest, with code: Int, data: Data) -> TestConnectorResponse
 }
 
