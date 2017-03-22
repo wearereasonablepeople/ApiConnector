@@ -8,7 +8,14 @@
 
 import Foundation
 
-public struct Response<Value> {
+public protocol ResponseType {
+    associatedtype Value
+    
+    var value: Value { get }
+    func map<T>(_ transform: (Value) throws -> T) throws -> Response<T>
+}
+
+public struct Response<Value>: ResponseType {
     public let request: URLRequest
     public let response: URLResponse
     public let value: Value
