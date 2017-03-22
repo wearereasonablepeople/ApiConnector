@@ -74,4 +74,22 @@ class TestConnectorTests: XCTestCase {
         observable.dispose()
     }
     
+    func testInvalidJSONResponse() {
+        struct InvalidJSONResponseProvider: ResponseProvider {
+            static func response(for request: URLRequest) -> TestConnectorResponse {
+                return successResponse(for: request, with: 200, json: JSON(TestData.defaultPost))
+            }
+        }
+        
+        let connector = TestConnector<InvalidJSONResponseProvider>.requestObservable(with: TestData.request, nil).toData()
+        let responseExpectation = expectation(description: "SuccessMockResponse")
+        
+        let observable = connector.subscribe(onError: { error in
+            responseExpectation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 2.0)
+        observable.dispose()
+    }
+    
 }
