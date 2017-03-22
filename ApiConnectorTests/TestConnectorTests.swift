@@ -25,7 +25,7 @@ class TestConnectorTests: XCTestCase {
         
         if case let .success(resultRequest, response, data) = successResponse {
             XCTAssertEqual(resultRequest, TestData.request)
-            XCTAssertEqual(data.flatMap({ JSON(data: $0) }), TestData.defaultPost.jsonValue)
+            XCTAssertEqual(JSON(data: data), TestData.defaultPost.jsonValue)
             XCTAssertEqual(response.statusCode, code)
         } else {
             XCTFail()
@@ -39,7 +39,7 @@ class TestConnectorTests: XCTestCase {
             }
         }
         
-        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).toValue()
+        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).toData()
         let responseExpectation = expectation(description: "SuccessMockResponse")
 
         let observable = connector.subscribe(onNext: { data in
@@ -58,7 +58,7 @@ class TestConnectorTests: XCTestCase {
             }
         }
         
-        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).toValue()
+        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).toData()
         let responseExpectation = expectation(description: "SuccessMockResponse")
         
         let observable = connector.subscribe(onError: { error in

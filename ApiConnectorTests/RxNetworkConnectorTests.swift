@@ -15,7 +15,7 @@ class RxNetworkConnectorTests: XCTestCase {
         let successExpectation = expectation(description: "ApiObservableExpectation")
         let observable = TestApiConnection<SuccessProvider>(environment: .test)
             .requestObservable(with: nil as Data?, at: .me)
-            .toValue()
+            .toData()
             .subscribe(onNext: { data in
                 XCTAssertEqual(data, TestData.testBodyData)
                 successExpectation.fulfill()

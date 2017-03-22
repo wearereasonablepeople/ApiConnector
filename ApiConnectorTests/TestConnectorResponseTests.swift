@@ -29,11 +29,11 @@ class TestConnectorResponseTests: XCTestCase {
     
     func testSuccessfulResponseValidation() {
         let successResponse = self.response(with: 200)
-        let response = TestConnectorResponse.success(TestData.request, successResponse, nil)
+        let response = TestConnectorResponse.success(TestData.request, successResponse, Data())
         if case let .success(resultRequest, resultResponse, data) = response.validate(defaultValidation) {
             XCTAssertEqual(resultRequest, TestData.request)
             XCTAssertEqual(resultResponse, successResponse)
-            XCTAssertNil(data)
+            XCTAssertEqual(data, Data())
         } else {
             XCTFail()
         }
@@ -42,7 +42,7 @@ class TestConnectorResponseTests: XCTestCase {
     func testFailValidation() {
         let errorCode = 500
         let successResponse = self.response(with: errorCode)
-        let response = TestConnectorResponse.success(TestData.request, successResponse, nil)
+        let response = TestConnectorResponse.success(TestData.request, successResponse, Data())
         if case let .failure(error) = response.validate(defaultValidation) {
             if let error = error as? AFError, case let .responseValidationFailed(reason: reason) = error, case let .unacceptableStatusCode(code: code) = reason {
                 XCTAssertEqual(errorCode, code)
