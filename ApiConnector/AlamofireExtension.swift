@@ -9,10 +9,6 @@
 import Alamofire
 import RxSwift
 
-public enum ApiNetworkError: Error {
-    case noErrorNoData
-}
-
 extension Alamofire.DataRequest: DataRequestType {
     public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<DataResponse<Data>> {
         return Observable.create({ observer -> Disposable in
@@ -30,7 +26,7 @@ extension Alamofire.DataRequest: DataRequestType {
                 } else if response.request != nil && response.response != nil && response.data != nil {
                     observer.onNext(response)
                 } else {
-                    observer.onError(ApiNetworkError.noErrorNoData)
+                    observer.onError(AFError.responseSerializationFailed(reason: .inputDataNil))
                 }
             }
             
