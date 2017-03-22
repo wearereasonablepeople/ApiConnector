@@ -61,15 +61,19 @@ class TestConnectorResponseTests: XCTestCase {
         }
     }
     
-    func testCompletionValue() {
-        let successCompletion = TestConnectorResponse.success(TestData.request, response(with: 200), TestData.testBodyData).completionValue
+    func testToResponseValue() {
+        let response = self.response(with: 200)
+        let successResponse = try! TestConnectorResponse.success(TestData.request, response, TestData.testBodyData).toResponse()
         
-        XCTAssertEqual(successCompletion.0, TestData.testBodyData)
-        XCTAssertNil(successCompletion.1)
+        XCTAssertEqual(successResponse.value, TestData.testBodyData)
+        XCTAssertEqual(successResponse.request, TestData.request)
+        XCTAssertEqual(successResponse.response, response)
         
-        let errorCompletion = TestConnectorResponse.failure(CustomError.testError).completionValue
-        XCTAssertNil(errorCompletion.0)
-        XCTAssertEqual(errorCompletion.1 as? CustomError, .testError)
+        let errorResponse = TestConnectorResponse.failure(CustomError.testError)
+        
+        XCTAssertThrowsError(try errorResponse.toResponse()) { error in
+            XCTAssertEqual(error as? CustomError, .testError)
+        }
     }
     
     func response(with code: Int) -> HTTPURLResponse {

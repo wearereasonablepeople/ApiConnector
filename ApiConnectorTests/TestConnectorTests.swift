@@ -38,17 +38,17 @@ class TestConnectorTests: XCTestCase {
                 return successResponse(for: request, with: 200, data: TestData.testBodyData)
             }
         }
-
-        let connector = TestConnector<SuccessResponseProvider>.dataRequest(with: TestData.request)
+        
+        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).toValue()
         let responseExpectation = expectation(description: "SuccessMockResponse")
 
-        _ = connector.validate().responseData { data, error in
-            XCTAssertNil(error)
+        let observable = connector.subscribe(onNext: { data in
             XCTAssertEqual(data, TestData.testBodyData)
             responseExpectation.fulfill()
-        }
+        })
 
         waitForExpectations(timeout: 2.0)
+        observable.dispose()
     }
     
     func testFailProviderResponse() {
@@ -58,20 +58,20 @@ class TestConnectorTests: XCTestCase {
             }
         }
         
-        let connector = TestConnector<SuccessResponseProvider>.dataRequest(with: TestData.request)
+        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).toValue()
         let responseExpectation = expectation(description: "SuccessMockResponse")
         
-        _ = connector.validate().responseData { data, error in
+        let observable = connector.subscribe(onError: { error in
             if let error = error as? AFError, case let .responseValidationFailed(reason: reason) = error, case let .unacceptableStatusCode(code: code) = reason {
                 XCTAssertEqual(code, 401)
             } else {
                 XCTFail()
             }
-            XCTAssertNil(data)
             responseExpectation.fulfill()
-        }
+        })
         
         waitForExpectations(timeout: 2.0)
+        observable.dispose()
     }
     
 }
