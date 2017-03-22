@@ -44,7 +44,7 @@ public extension ApiConnectionType {
         }
     }
     
-    public func requestObservable(method: HTTPMethod = .get, with data: Data?, at endpoint: R.Route, headers: HTTPHeaders?, _ validation: (DataRequest.Validation)?) -> Observable<Response<Data?>> {
+    public func requestObservable(method: HTTPMethod = .get, with data: Data?, at endpoint: R.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response<Data?>> {
         return RequestType.requestObservable(with: request(method: method, with: data, at: endpoint, headers: headers), validation ?? defaultValidation)
     }
 }
