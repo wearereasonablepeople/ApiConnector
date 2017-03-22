@@ -23,7 +23,7 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     func testModelRequest() {
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let post = TestData.defaultPost
-        let postObservable: Observable<Post> = Connection().requestObservable(with: post, at: .pictures).toModel()
+        let postObservable: Observable<Post> = Connection().requestObservable(with: post, at: .pictures)
         let disposable = postObservable.subscribe(onNext: { newPost in
             XCTAssertEqual(post, newPost)
             postExpactation.fulfill()
@@ -36,7 +36,7 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     func testArrayOfModelsRequest() {
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let posts = [TestData.defaultPost]
-        let postObservable: Observable<[Post]> = Connection().requestObservable(with: posts.jsonRepresantable, at: .pictures).toModel()
+        let postObservable: Observable<[Post]> = Connection().requestObservable(with: posts.jsonRepresantable, at: .pictures)
         let disposable = postObservable.subscribe(onNext: { newPosts in
             XCTAssertEqual(posts, newPosts)
             postExpactation.fulfill()
@@ -49,7 +49,7 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     func testJSONObservable() {
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let post = TestData.defaultPost
-        let jsonObservable: Observable<JSON> = Connection().requestObservable(with: post, at: .pictures).toModel()
+        let jsonObservable: Observable<JSON> = Connection().requestObservable(with: post, at: .pictures)
         let disposable = jsonObservable.subscribe(onNext: { postJSON in
             XCTAssertEqual(post.jsonValue, postJSON)
             postExpactation.fulfill()
