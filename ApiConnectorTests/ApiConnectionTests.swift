@@ -31,7 +31,8 @@ fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConne
 class ApiConnectionTests: XCTestCase {
     
     func testRequestCreation() {
-        let request = TestApiConnection<SuccessProvider>(environment: .test).requestData(method:.get, with: TestData.testBodyData, at: .me, headers: nil).request
+        let request = TestApiConnection<SuccessProvider>(environment: .test)
+            .request(method:.get, with: TestData.testBodyData, at: .me, headers: nil)
         var expectedRequest = try! URLRequest(url: Router<Api>(.test, at: .me).url, method: .get, headers: nil)
         expectedRequest.httpBody = TestData.testBodyData
         
@@ -41,19 +42,19 @@ class ApiConnectionTests: XCTestCase {
     func testcustomRequestValidation() {
         let connector = TestValidationConnection<SuccessProvider>()
         let responseExpectation = expectation(description: "SuccessMockResponse")
-        let request = connector.requestData(with: nil as Data?, at: .me, headers: nil)
+        let request = connector.requestObservable(with: nil as Data?, at: .me, headers: nil)
         
-        _ = connector.validate(request: request).responseData { data, error in
+        let observable = request.subscribe(onError: { error in
             if let error = error as? ValidationError {
                 XCTAssertEqual(error, .invalidRequest)
             } else {
                 XCTFail()
             }
-            XCTAssertNil(data)
             responseExpectation.fulfill()
-        }
+        })
         
         waitForExpectations(timeout: 2.0)
+        observable.dispose()
     }
     
 }
