@@ -22,12 +22,12 @@ public enum TestConnectorResponse {
         return .failure(error)
     }
     
-    public var completionValue: (Data?, Error?) {
+    public func toResponse() throws -> Response<Data?> {
         switch self {
-        case let .success(_, _, data):
-            return (data, nil)
+        case let .success(request, response, data):
+            return Response(request: request, response: response, value: data)
         case let .failure(error):
-            return (nil, error)
+            throw error
         }
     }
 }
