@@ -14,7 +14,7 @@ public enum ApiNetworkError: Error {
 }
 
 extension Alamofire.DataRequest: DataRequestType {
-    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response<Data?>> {
+    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<DataResponse<Data>> {
         return Observable.create({ observer -> Disposable in
             var request = Alamofire.request(request)
             
@@ -24,17 +24,13 @@ extension Alamofire.DataRequest: DataRequestType {
                 request = request.validate()
             }
             
-            request.responseData() { responseValue in
-                if let request = responseValue.request, let response = responseValue.response {
-                    observer.onNext(
-                        Response(
-                            request: request,
-                            response: response,
-                            value: responseValue.data
-                        )
-                    )
+            request.responseData() { response in
+                if let error = response.error {
+                    observer.onError(error)
+                } else if response.request != nil && response.response != nil && response.data != nil {
+                    observer.onNext(response)
                 } else {
-                    observer.onError(responseValue.error ?? ApiNetworkError.noErrorNoData)
+                    observer.onError(ApiNetworkError.noErrorNoData)
                 }
             }
             
