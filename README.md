@@ -44,7 +44,7 @@ class ApiConnection<Provider: DataRequestType>: ApiConnectionType {
     let environment: Api.Environment = .test
     
     func allPosts(for date: Date) -> Observable<[Post]> {
-        return requestObservable(at: .posts(for: date)).toModel()
+        return requestObservable(at: .posts(for: date))
     }
 }
 
@@ -68,7 +68,7 @@ If you don't really want to create your own `APIConnectionType` class, you can u
 ```swift
 typealias Connection = NetworkConnector<Alamofire.DataRequest, Api>
 
-let posts: Observable<[Post]> = Connection().requestObservable(at: .posts(for: Date())).toModel()
+let posts: Observable<[Post]> = Connection().requestObservable(at: .posts(for: Date()))
 let disposable = posts.subscribe(onNext: { posts in
     print(posts)
 }, onError: { error in
