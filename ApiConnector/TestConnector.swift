@@ -14,7 +14,7 @@ public final class TestConnector<T: ResponseProvider>: DataRequestType {
         return Observable
             .just()
             .observeOn(SerialDispatchQueueScheduler(qos: .userInitiated))
-            .flatMap { Observable.just(T.response(for: request)) }
+            .flatMap { T.response(for: request) }
             .map { $0.validate(validation ?? defaultValidation) }
             .map { try $0.toResponse() }
             .observeOn(MainScheduler.instance)
