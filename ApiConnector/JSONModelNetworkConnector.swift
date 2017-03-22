@@ -11,47 +11,26 @@ import Alamofire
 import SwiftyJSON
 import SwiftyJSONModel
 
-public extension DataRequestType {
-    public func jsonObservable() -> Observable<JSON> {
-        return responseObservable().map({ JSON(data: $0) })
+extension ObservableType where E: ResponseType {
+    public func mapValue<T>(_ transform: @escaping (E.Value) throws -> T) -> Observable<Response<T>> {
+        return map { try $0.map(transform) }
     }
     
-    public func modelObservable<T: JSONInitializable>() -> Observable<T> {
-        return jsonObservable().map({ try T(json: $0) })
-    }
-    
-    public func modelObservable<T: JSONInitializable>() -> Observable<[T]> {
-        return jsonObservable().map({ try $0.arrayValue.map({ try T(json: $0) }) })
-    }
-    
-    public func observable() -> Observable<Void> {
-        return jsonObservable().map({ _ in () })
+    public func toValue() -> Observable<E.Value> {
+        return map { $0.value }
     }
 }
 
-public extension ApiConnectionType {
-    
-    public func requestData(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: R.Route, headers: HTTPHeaders? = nil) -> RequestType {
-        return requestData(method: method, with: model?.jsonValue, at: endpoint, headers: headers)
+extension ObservableType where E == Response<Data> {
+    public func toJSON() -> Observable<Response<JSON>> {
+        return mapValue { JSON(data: $0) }
     }
     
-    public func requestData(method: HTTPMethod = .get, with json: JSON? = nil, at endpoint: R.Route, headers: HTTPHeaders? = nil) -> RequestType {
-        return requestData(method: method, with: json.flatMap({ try? $0.rawData() }), at: endpoint, headers: headers)
+    public func toModel<T: JSONInitializable>() -> Observable<Response<T>> {
+        return toJSON().mapValue { try T(json: $0) }
     }
     
-    public func requestObservable<T: JSONInitializable>(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: R.Route, headers: HTTPHeaders? = nil) -> Observable<T> {
-        return validate(request: requestData(method: method, with: model, at: endpoint, headers: headers)).modelObservable()
-    }
-    
-    public func requestObservable<T: JSONInitializable>(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: R.Route, headers: HTTPHeaders? = nil) -> Observable<[T]> {
-        return validate(request: requestData(method: method, with: model, at: endpoint, headers: headers)).modelObservable()
-    }
-    
-    public func requestObservable(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: R.Route, headers: HTTPHeaders? = nil) -> Observable<Void> {
-        return validate(request: requestData(method: method, with: model, at: endpoint, headers: headers)).observable()
-    }
-    
-    public func requestObservable(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: R.Route, headers: HTTPHeaders? = nil) -> Observable<JSON> {
-        return validate(request: requestData(method: method, with: model, at: endpoint, headers: headers)).jsonObservable()
+    public func toModel<T: JSONInitializable>() -> Observable<Response<[T]>> {
+        return toJSON().mapValue { try $0.arrayValue().map({ try T(json: $0) }) }
     }
 }
