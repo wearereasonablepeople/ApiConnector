@@ -34,11 +34,7 @@ public extension ObservableType where E == DataResponse<Data> {
 }
 
 public extension ApiConnectionType {
-    public func requestObservable(method: HTTPMethod = .get, with json: JSON?, at endpoint: R.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<DataResponse<Data>> {
-        return requestObservable(method: method, with: json.flatMap({ try? $0.rawData() }), at: endpoint, headers: headers, validation)
-    }
-    
     public func requestObservable(method: HTTPMethod = .get, with model: JSONRepresentable?, at endpoint: R.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<DataResponse<Data>> {
-        return requestObservable(method: method, with: model?.jsonValue, at: endpoint, headers: headers, validation)
+        return requestObservable(method: method, with: model.flatMap({ try? $0.jsonValue.rawData() }), at: endpoint, headers: headers, validation)
     }
 }
