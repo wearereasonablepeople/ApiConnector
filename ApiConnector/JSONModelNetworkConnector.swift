@@ -34,11 +34,11 @@ public extension ApiConnectionType {
         return requestObservable(method: method, with: model.flatMap({ try? $0.jsonValue.rawData() }), at: endpoint, headers: headers, validation)
     }
     
-    public func requestObservable<T: JSONInitializable>(method: HTTPMethod = .get, with model: JSONRepresentable?, at endpoint: R.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<T> {
+    public func requestObservable<T: JSONInitializable>(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: R.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<T> {
         return requestObservable(method: method, with: model, at: endpoint, headers: headers, validation).toModel()
     }
     
-    public func requestObservable<T: JSONInitializable>(method: HTTPMethod = .get, with model: JSONRepresentable?, at endpoint: R.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<[T]> {
+    public func requestObservable<T: JSONInitializable>(method: HTTPMethod = .get, with model: JSONRepresentable? = nil, at endpoint: R.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<[T]> {
         return requestObservable(method: method, with: model, at: endpoint, headers: headers, validation).toModel()
     }
 }
