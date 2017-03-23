@@ -38,6 +38,24 @@ class JSONModelNetworkConnectorTests: XCTestCase {
         disposable.dispose()
     }
     
+    func testArrayModelRequestWithEmptyBody() {
+        struct PostResponseProvider: ResponseProvider {
+            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
+                return .just(successResponse(for: request, with: 200, jsonObject: [TestData.defaultPost].jsonRepresantable))
+            }
+        }
+        let postExpactation = expectation(description: "ModelRequestExpectation")
+        let posts = [TestData.defaultPost]
+        let postObservable: Observable<[Post]> = TestApiConnection<PostResponseProvider>().requestObservable(at: .pictures)
+        let disposable = postObservable.subscribe(onNext: { newPost in
+            XCTAssertEqual(posts, newPost)
+            postExpactation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 2)
+        disposable.dispose()
+    }
+    
     func testModelRequest() {
         let postExpactation = expectation(description: "ModelRequestExpectation")
         let post = TestData.defaultPost
