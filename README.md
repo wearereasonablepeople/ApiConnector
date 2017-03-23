@@ -41,8 +41,6 @@ class ApiConnection<Provider: DataRequestType>: ApiConnectionType {
     typealias R = Api
     typealias RequestType = Provider
     
-    let environment: Api.Environment = .test
-    
     func allPosts(for date: Date) -> Observable<[Post]> {
         return requestObservable(at: .posts(for: date))
     }
