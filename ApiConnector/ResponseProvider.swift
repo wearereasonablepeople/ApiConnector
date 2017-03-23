@@ -21,15 +21,11 @@ public extension ResponseProvider {
         return .success(request, httpResponse, data)
     }
     
-    public static func successResponse(for request: URLRequest, with code: Int, json: JSON) -> TestConnectorResponse {
+    public static func successResponse(for request: URLRequest, with code: Int, jsonObject: JSONRepresentable) -> TestConnectorResponse {
         do {
-            return successResponse(for: request, with: code, data: try json.rawData())
+            return successResponse(for: request, with: code, data: try jsonObject.jsonValue.rawData())
         } catch let error {
             return .failure(error)
         }
-    }
-    
-    public static func successResponse(for request: URLRequest, with code: Int, jsonObject: JSONRepresentable) -> TestConnectorResponse {
-        return successResponse(for: request, with: code, json: jsonObject.jsonValue)
     }
 }
