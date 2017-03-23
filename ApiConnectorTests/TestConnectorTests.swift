@@ -80,7 +80,7 @@ class TestConnectorTests: XCTestCase {
     func testInvalidJSONResponse() {
         struct InvalidJSONResponseProvider: ResponseProvider {
             static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
-                return .just(successResponse(for: request, with: 200, json: JSON(TestData.defaultPost)))
+                return .just(successResponse(for: request, with: 200, jsonObject: JSON(TestData.defaultPost)))
             }
         }
         
