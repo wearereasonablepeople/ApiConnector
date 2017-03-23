@@ -19,8 +19,6 @@ fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConne
     typealias RequestType = TestConnector<Provider>
     typealias R = Api
     
-    let environment: R.Environment = .test
-    
     var defaultValidation: Alamofire.DataRequest.Validation? {
         return { request, response, data in
             return .failure(ValidationError.invalidRequest)

@@ -27,6 +27,7 @@ public protocol ApiConnectionType {
 }
 
 public extension ApiConnectionType {
+    public var environment: R.Environment { return R.default }
     public var defaultHeaders: HTTPHeaders? { return nil }
     public var defaultValidation: DataRequest.Validation? { return nil }
     
