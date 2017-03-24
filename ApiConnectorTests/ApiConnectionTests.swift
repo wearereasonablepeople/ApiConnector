@@ -17,7 +17,7 @@ fileprivate enum ValidationError: Error {
 
 fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConnectionType {
     typealias RequestType = TestConnector<Provider>
-    typealias R = Api
+    typealias RouterType = Api
     
     var defaultValidation: Alamofire.DataRequest.Validation? {
         return { request, response, data in
