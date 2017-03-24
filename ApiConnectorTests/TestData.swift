@@ -11,7 +11,7 @@ import RxSwift
 import SweetRouter
 import SwiftyJSONModel
 
-struct Api: RouterType {
+struct Api: EndpointType {
     enum Environment: EnvironmentType {
         case test
         case localhost

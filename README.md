@@ -38,7 +38,7 @@ struct Post: JSONObjectInitializable {
 
 // And here is our ApiConnection Type
 class ApiConnection<Provider: DataRequestType>: ApiConnectionType {
-    typealias R = Api
+    typealias RouterType = Api
     typealias RequestType = Provider
     
     func allPosts(for date: Date) -> Observable<[Post]> {
