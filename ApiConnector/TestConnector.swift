@@ -15,21 +15,8 @@ public final class TestConnector<T: ResponseProvider>: DataRequestType {
             .just()
             .observeOn(SerialDispatchQueueScheduler(qos: .userInitiated))
             .flatMap { T.response(for: request) }
-            .map { $0.validate(validation ?? defaultValidation) }
+            .map { $0.validate(validation ?? Response.defaultValidation) }
             .map { try $0.toResponse() }
             .observeOn(MainScheduler.instance)
-    }
-    
-    static var defaultValidation: DataRequest.Validation {
-        return { request, response, data -> Request.ValidationResult in
-            let code = response.statusCode
-            switch code {
-            case 200...299:
-                return .success
-            default:
-                let error = AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: code))
-                return .failure(error)
-            }
-        }
     }
 }

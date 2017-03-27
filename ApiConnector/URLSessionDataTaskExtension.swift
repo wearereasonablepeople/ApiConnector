@@ -12,20 +12,8 @@ import RxSwift
 
 extension URLSessionDataTask: DataRequestType {
     public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<DataResponse<Data>> {
-        var defaultValidation: DataRequest.Validation {
-            return { request, response, data -> Request.ValidationResult in
-                let code = response.statusCode
-                switch code {
-                case 200...299:
-                    return .success
-                default:
-                    let error = AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: code))
-                    return .failure(error)
-                }
-            }
-        }
+        let validation = validation ?? Response.defaultValidation
         
-        let validation = validation ?? defaultValidation
         return Observable<DataResponse<Data>>.create({ observer -> Disposable in
             let config = URLSessionConfiguration.default
             let session = URLSession(configuration: config)
