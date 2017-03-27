@@ -56,8 +56,8 @@ enum TestsError: Error {
 }
 
 struct SuccessProvider: ResponseProvider {
-    static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
-        return .just(successResponse(for: request, with: 200, data: TestData.testBodyData))
+    static func response(for request: URLRequest) -> Observable<Response> {
+        return .just(Response(for: request, with: 200, data: TestData.testBodyData))
     }
 }
 
