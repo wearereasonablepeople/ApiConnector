@@ -26,15 +26,15 @@ public extension ObservableType where E == Response {
 }
 
 public extension ApiConnectionType {
-    public func requestObservable(method: HTTP.Method = .get, with model: JSONRepresentable?, at endpoint: RouterType.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response> {
+    public func requestObservable(method: HTTP.Method = .get, with model: JSONRepresentable?, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response> {
         return requestObservable(method: method, with: model.flatMap({ try? $0.jsonValue.rawData() }), at: endpoint, headers: headers, validation)
     }
     
-    public func requestObservable<T: JSONInitializable>(method: HTTP.Method = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<T> {
+    public func requestObservable<T: JSONInitializable>(method: HTTP.Method = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<T> {
         return requestObservable(method: method, with: model, at: endpoint, headers: headers, validation).toModel()
     }
     
-    public func requestObservable<T: JSONInitializable>(method: HTTP.Method = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<[T]> {
+    public func requestObservable<T: JSONInitializable>(method: HTTP.Method = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<[T]> {
         return requestObservable(method: method, with: model, at: endpoint, headers: headers, validation).toModel()
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7B320F1C1E85768A00E218A9 /* URLSessionDataTaskExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B320F1B1E85768A00E218A9 /* URLSessionDataTaskExtension.swift */; };
+		7BAEFEAA1E896C8300392370 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEFEA91E896C8300392370 /* HTTP.swift */; };
 		CE1D4C621E803B99001CCA8D /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D4C611E803B99001CCA8D /* SweetRouter.framework */; };
 		CE1D4C631E803E5D001CCA8D /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D4C611E803B99001CCA8D /* SweetRouter.framework */; };
 		CE27167D1DC9FCE300571670 /* ApiConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		7B320F1B1E85768A00E218A9 /* URLSessionDataTaskExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskExtension.swift; sourceTree = "<group>"; };
+		7BAEFEA91E896C8300392370 /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		CE1D4C611E803B99001CCA8D /* SweetRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SweetRouter.framework; path = Carthage/Build/iOS/SweetRouter.framework; sourceTree = "<group>"; };
 		CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConnectionTests.swift; sourceTree = "<group>"; };
 		CE27167E1DCA105400571670 /* AlamofireExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtension.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		CE2716A81DCB2C6200571670 /* NetworkConnector */ = {
 			isa = PBXGroup;
 			children = (
+				7BAEFEA91E896C8300392370 /* HTTP.swift */,
 				CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */,
 				CE27168F1DCA336B00571670 /* JSONModelNetworkConnector.swift */,
 				CEF42D6B1E89134B00A7FA79 /* Response.swift */,
@@ -304,6 +307,7 @@
 			files = (
 				CEF42D6C1E89134B00A7FA79 /* Response.swift in Sources */,
 				CE2716901DCA336B00571670 /* JSONModelNetworkConnector.swift in Sources */,
+				7BAEFEAA1E896C8300392370 /* HTTP.swift in Sources */,
 				7B320F1C1E85768A00E218A9 /* URLSessionDataTaskExtension.swift in Sources */,
 				CE27167F1DCA105400571670 /* AlamofireExtension.swift in Sources */,
 				CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */,
