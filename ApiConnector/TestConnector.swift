@@ -20,7 +20,7 @@ public final class TestConnector<T: ResponseProvider>: DataRequestType {
             .observeOn(MainScheduler.instance)
     }
     
-    private static var defaultValidation: DataRequest.Validation {
+    static var defaultValidation: DataRequest.Validation {
         return { request, response, data -> Request.ValidationResult in
             let code = response.statusCode
             switch code {
