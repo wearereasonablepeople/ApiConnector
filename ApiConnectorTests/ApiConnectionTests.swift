@@ -29,13 +29,17 @@ fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConne
 class ApiConnectionTests: XCTestCase {
     
     func testRequestCreation() {
-        let request = TestApiConnection<SuccessProvider>(environment: .test)
-            .request(method:.post, with: TestData.testBodyData, at: .me, headers: nil)
-        var expectedRequest = try! URLRequest(url: Router<Api>(.test, at: .me).url, method: .post, headers: nil)
-        expectedRequest.httpBody = TestData.testBodyData
+        let header: [HTTP.Header.Key: String] = [.accept: "application/json"]
+        let headerToString = HTTP.Header.toStringKeys(headers: header)
         
+        let request = TestApiConnection<SuccessProvider>(environment: .test)
+            .request(method:.post, with: TestData.testBodyData, at: .me, headers: header)
+        
+        var expectedRequest = try! URLRequest(url: Router<Api>(.test, at: .me).url, method: .post, headers: headerToString)
+        expectedRequest.httpBody = TestData.testBodyData
         XCTAssertEqual(request, expectedRequest)
         XCTAssertEqual(request.httpMethod, HTTP.Method.post.rawValue)
+        XCTAssertEqual(request.allHTTPHeaderFields?[HTTP.Header.Key.accept.rawValue], headerToString[HTTP.Header.Key.accept.rawValue])
     }
     
     func testcustomRequestValidation() {
