@@ -22,10 +22,10 @@ public enum TestConnectorResponse {
         return .failure(error)
     }
     
-    public func toResponse() throws -> DataResponse<Data> {
+    public func toResponse() throws -> Response {
         switch self {
         case let .success(request, response, data):
-            return DataResponse(request: request, response: response, data: data, result: .success(data))
+            return Response(for: request, response: response, data: data)
         case let .failure(error):
             throw error
         }

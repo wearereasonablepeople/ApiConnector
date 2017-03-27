@@ -65,7 +65,7 @@ class TestConnectorResponseTests: XCTestCase {
         let response = self.response(with: 200)
         let successResponse = try! TestConnectorResponse.success(TestData.request, response, TestData.testBodyData).toResponse()
         
-        XCTAssertEqual(successResponse.value, TestData.testBodyData)
+        XCTAssertEqual(successResponse.data, TestData.testBodyData)
         XCTAssertEqual(successResponse.request, TestData.request)
         XCTAssertEqual(successResponse.response, response)
         

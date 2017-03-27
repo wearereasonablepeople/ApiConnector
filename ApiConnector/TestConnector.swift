@@ -10,7 +10,7 @@ import Alamofire
 import RxSwift
 
 public final class TestConnector<T: ResponseProvider>: DataRequestType {
-    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<DataResponse<Data>> {
+    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response> {
         return Observable
             .just()
             .observeOn(SerialDispatchQueueScheduler(qos: .userInitiated))

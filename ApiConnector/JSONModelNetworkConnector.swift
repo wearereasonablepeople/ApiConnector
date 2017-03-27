@@ -11,17 +11,13 @@ import Alamofire
 import SwiftyJSON
 import SwiftyJSONModel
 
-public extension ObservableType where E == DataResponse<Data> {
-    public func toData() -> Observable<Data> {
-        return map { $0.value! }
-    }
-    
+public extension ObservableType where E == Response {
     public func toModel<T: JSONInitializable>() -> Observable<T> {
-        return toData().map { try T(json: JSON(data: $0)) }
+        return map { try T(json: JSON(data: $0.data)) }
     }
     
     public func toModel<T: JSONInitializable>() -> Observable<[T]> {
-        return toData().map { try JSON(data: $0).arrayValue().map({ try T(json: $0) }) }
+        return map { try JSON(data: $0.data).arrayValue().map({ try T(json: $0) }) }
     }
     
     public func toVoid() -> Observable<Void> {
@@ -30,7 +26,7 @@ public extension ObservableType where E == DataResponse<Data> {
 }
 
 public extension ApiConnectionType {
-    public func requestObservable(method: HTTP.Method = .get, with model: JSONRepresentable?, at endpoint: RouterType.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<DataResponse<Data>> {
+    public func requestObservable(method: HTTP.Method = .get, with model: JSONRepresentable?, at endpoint: RouterType.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response> {
         return requestObservable(method: method, with: model.flatMap({ try? $0.jsonValue.rawData() }), at: endpoint, headers: headers, validation)
     }
     
