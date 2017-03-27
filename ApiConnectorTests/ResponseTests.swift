@@ -26,9 +26,8 @@ class ResponseTests: XCTestCase {
     
     func testReponseJSONInitializable() {
         let json = TestData.defaultPost.jsonValue
-        let response = try! Response(for: TestData.request, with: 200, jsonObject: json)
         
-        XCTAssertEqual(response.data, try? json.rawData())
+        XCTAssertEqual(Response(for: TestData.request, with: 200, jsonObject: json).data, try? json.rawData())
     }
     
 }
