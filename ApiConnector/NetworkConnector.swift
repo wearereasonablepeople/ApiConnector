@@ -12,7 +12,14 @@ import SweetRouter
 
 public struct HTTP {
     public enum Method: String {
-        case options, get, head, post, put, delete, trace
+        case options = "OPTIONS"
+        case get = "GET"
+        case head = "HEAD"
+        case post = "POST"
+        case put = "PUT"
+        case delete = "DELETE"
+        case trace = "TRACE"
+        case connect = "CONNECT"
     }
 }
 
