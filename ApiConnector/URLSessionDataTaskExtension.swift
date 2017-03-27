@@ -12,7 +12,6 @@ import RxSwift
 
 extension URLSessionDataTask: DataRequestType {
     public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<DataResponse<Data>> {
-        
         return Observable.create({ observer -> Disposable in
             let config = URLSessionConfiguration.default
             let session = URLSession(configuration: config)
