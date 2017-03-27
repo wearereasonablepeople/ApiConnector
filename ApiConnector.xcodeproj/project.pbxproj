@@ -24,9 +24,7 @@
 		CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */; };
 		CE2EDCEC1DC8D4DB00D2D7E7 /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */; };
 		CE2EDD131DC8E55700D2D7E7 /* TestConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */; };
-		CE2EDD161DC8EAEB00D2D7E7 /* TestConnectorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD151DC8EAEB00D2D7E7 /* TestConnectorResponse.swift */; };
 		CE2EDD1A1DC9E22200D2D7E7 /* TestConnectorResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD191DC9E22200D2D7E7 /* TestConnectorResponseTests.swift */; };
-		CE3919A11DD21929006D1DFB /* ResponseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3919A01DD21929006D1DFB /* ResponseProvider.swift */; };
 		CED9A7B51DC88D89005CE914 /* ApiConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */; };
 		CED9A7BC1DC88D89005CE914 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED9A7C91DC88E53005CE914 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7C81DC88E53005CE914 /* Alamofire.framework */; };
@@ -60,9 +58,7 @@
 		CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConnector.swift; sourceTree = "<group>"; };
 		CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnector.swift; sourceTree = "<group>"; };
 		CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorTests.swift; sourceTree = "<group>"; };
-		CE2EDD151DC8EAEB00D2D7E7 /* TestConnectorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorResponse.swift; sourceTree = "<group>"; };
 		CE2EDD191DC9E22200D2D7E7 /* TestConnectorResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConnectorResponseTests.swift; sourceTree = "<group>"; };
-		CE3919A01DD21929006D1DFB /* ResponseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseProvider.swift; sourceTree = "<group>"; };
 		CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ApiConnector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9A7AE1DC88D89005CE914 /* ApiConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiConnector.h; sourceTree = "<group>"; };
 		CED9A7AF1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,8 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */,
-				CE2EDD151DC8EAEB00D2D7E7 /* TestConnectorResponse.swift */,
-				CE3919A01DD21929006D1DFB /* ResponseProvider.swift */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -314,9 +308,7 @@
 				CEF42D6C1E89134B00A7FA79 /* Response.swift in Sources */,
 				CE2716901DCA336B00571670 /* JSONModelNetworkConnector.swift in Sources */,
 				7B320F1C1E85768A00E218A9 /* URLSessionDataTaskExtension.swift in Sources */,
-				CE2EDD161DC8EAEB00D2D7E7 /* TestConnectorResponse.swift in Sources */,
 				CE27167F1DCA105400571670 /* AlamofireExtension.swift in Sources */,
-				CE3919A11DD21929006D1DFB /* ResponseProvider.swift in Sources */,
 				CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */,
 				CE2EDCEC1DC8D4DB00D2D7E7 /* TestConnector.swift in Sources */,
 			);
