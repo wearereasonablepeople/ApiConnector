@@ -26,8 +26,8 @@ public struct Response {
         self.init(for: request, response: response, data: data)
     }
     
-    public init(for request: URLRequest, with code: Int, jsonObject: JSONRepresentable) throws {
-        self.init(for: request, with: code, data: try jsonObject.jsonValue.rawData())
+    public init(for request: URLRequest, with code: Int, jsonObject: JSONRepresentable) {
+        self.init(for: request, with: code, data: try! jsonObject.jsonValue.rawData())
     }
     
     public func validate(_ validation: DataRequest.Validation) throws -> Response {

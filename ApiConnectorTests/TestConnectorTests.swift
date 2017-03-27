@@ -14,33 +14,14 @@ import ApiConnector
 
 class TestConnectorTests: XCTestCase {
     
-    func testResponseProvider() {
-        struct TestProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
-                return .just(.failure(TestsError.defaultError))
-            }
-        }
-        
-        let code = 200
-        let successResponse = TestProvider.successResponse(for: TestData.request, with: 200, jsonObject: TestData.defaultPost)
-        
-        if case let .success(resultRequest, response, data) = successResponse {
-            XCTAssertEqual(resultRequest, TestData.request)
-            XCTAssertEqual(JSON(data: data), TestData.defaultPost.jsonValue)
-            XCTAssertEqual(response.statusCode, code)
-        } else {
-            XCTFail()
-        }
-    }
-    
     func testSuccessfulProviderResponse() {
         struct SuccessResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
-                return .just(successResponse(for: request, with: 200, data: TestData.testBodyData))
+            static func response(for request: URLRequest) -> Observable<Response> {
+                return .just(Response(for: request, with: 200, data: TestData.testBodyData))
             }
         }
         
-        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).toData()
+        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).map { $0.data }
         let responseExpectation = expectation(description: "SuccessMockResponse")
 
         let observable = connector.subscribe(onNext: { data in
@@ -54,14 +35,14 @@ class TestConnectorTests: XCTestCase {
     
     func testFailProviderResponse() {
         struct SuccessResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
+            static func response(for request: URLRequest) -> Observable<Response> {
                 return Observable
-                    .just(successResponse(for: request, with: 401, data: TestData.testBodyData))
+                    .just(Response(for: request, with: 401, data: TestData.testBodyData))
                     .delay(2, scheduler: SerialDispatchQueueScheduler(qos: .userInitiated))
             }
         }
         
-        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).toData()
+        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).map { $0.data }
         let responseExpectation = expectation(description: "SuccessMockResponse")
         
         let observable = connector.subscribe(onError: { error in
@@ -74,24 +55,6 @@ class TestConnectorTests: XCTestCase {
         })
         
         waitForExpectations(timeout: 5.0)
-        observable.dispose()
-    }
-    
-    func testInvalidJSONResponse() {
-        struct InvalidJSONResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
-                return .just(successResponse(for: request, with: 200, jsonObject: JSON(TestData.defaultPost)))
-            }
-        }
-        
-        let connector = TestConnector<InvalidJSONResponseProvider>.requestObservable(with: TestData.request, nil).toData()
-        let responseExpectation = expectation(description: "SuccessMockResponse")
-        
-        let observable = connector.subscribe(onError: { error in
-            responseExpectation.fulfill()
-        })
-        
-        waitForExpectations(timeout: 2.0)
         observable.dispose()
     }
     

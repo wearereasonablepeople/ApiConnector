@@ -11,33 +11,30 @@ import Alamofire
 import RxSwift
 
 extension URLSessionDataTask: DataRequestType {
-    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<DataResponse<Data>> {
+    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response> {
         let validation = validation ?? Response.defaultValidation
         
-        return Observable<DataResponse<Data>>.create({ observer -> Disposable in
-            let config = URLSessionConfiguration.default
-            let session = URLSession(configuration: config)
-            
-            let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
-                if let error = error {
-                    observer.onError(error)
-                }
-                else if let data = data, let response = response as? HTTPURLResponse {
-                    observer.onNext(DataResponse(request: request, response: response, data: data, result:.success(data)))
-                } else {
-                    observer.onError(AFError.responseSerializationFailed(reason: .inputDataNil))
+        return Observable<Response>
+            .create({ observer -> Disposable in
+                let config = URLSessionConfiguration.default
+                let session = URLSession(configuration: config)
+                
+                let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+                    if let error = error {
+                        observer.onError(error)
+                    }
+                    else if let data = data, let response = response as? HTTPURLResponse {
+                        observer.onNext(Response(for: request, response: response, data: data))
+                    } else {
+                        observer.onError(AFError.responseSerializationFailed(reason: .inputDataNil))
+                    }
+                })
+                task.resume()
+                
+                return Disposables.create {
+                    task.cancel()
                 }
             })
-            task.resume()
-            
-            return Disposables.create {
-                task.cancel()
-            }
-        }).map({ reponse -> DataResponse<Data> in
-            switch validation(reponse.request, reponse.response!, reponse.value) {
-            case .success: return reponse
-            case .failure(let error): throw error
-            }
-        })
+            .map({ try $0.validate(validation) })
     }
 }

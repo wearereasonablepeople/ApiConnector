@@ -9,14 +9,17 @@
 import Alamofire
 import RxSwift
 
+public protocol ResponseProvider {
+    static func response(for request: URLRequest) -> Observable<Response>
+}
+
 public final class TestConnector<T: ResponseProvider>: DataRequestType {
-    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<DataResponse<Data>> {
+    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response> {
         return Observable
             .just()
             .observeOn(SerialDispatchQueueScheduler(qos: .userInitiated))
             .flatMap { T.response(for: request) }
-            .map { $0.validate(validation ?? Response.defaultValidation) }
-            .map { try $0.toResponse() }
+            .map { try $0.validate(validation ?? Response.defaultValidation) }
             .observeOn(MainScheduler.instance)
     }
 }

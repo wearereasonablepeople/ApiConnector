@@ -10,7 +10,7 @@ import Alamofire
 import RxSwift
 
 extension Alamofire.DataRequest: DataRequestType {
-    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<DataResponse<Data>> {
+    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response> {
         return Observable.create({ observer -> Disposable in
             var request = Alamofire.request(request)
             
@@ -23,8 +23,8 @@ extension Alamofire.DataRequest: DataRequestType {
             request.responseData() { response in
                 if let error = response.error {
                     observer.onError(error)
-                } else if response.request != nil && response.response != nil && response.data != nil {
-                    observer.onNext(response)
+                } else if let request = response.request, let data = response.data, let response = response.response {
+                    observer.onNext(Response(for: request, response: response, data: data))
                 } else {
                     observer.onError(AFError.responseSerializationFailed(reason: .inputDataNil))
                 }

@@ -24,7 +24,7 @@ public struct HTTP {
 }
 
 public protocol DataRequestType {
-    static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<DataResponse<Data>>
+    static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response>
 }
 
 public protocol ApiConnectionType {
@@ -36,7 +36,7 @@ public protocol ApiConnectionType {
     var defaultValidation: DataRequest.Validation? { get }
     
     func request(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTPHeaders?) -> URLRequest
-    func requestObservable(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTPHeaders?, _ validation: (DataRequest.Validation)?) -> Observable<DataResponse<Data>>
+    func requestObservable(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTPHeaders?, _ validation: (DataRequest.Validation)?) -> Observable<Response>
 }
 
 public extension ApiConnectionType {
@@ -52,7 +52,7 @@ public extension ApiConnectionType {
         return request
     }
     
-    public func requestObservable(method: HTTP.Method = .get, with data: Data? = nil, at endpoint: RouterType.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<DataResponse<Data>> {
+    public func requestObservable(method: HTTP.Method = .get, with data: Data? = nil, at endpoint: RouterType.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response> {
         return RequestType.requestObservable(with: request(method: method, with: data, at: endpoint, headers: headers), validation ?? defaultValidation)
     }
 }

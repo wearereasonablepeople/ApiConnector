@@ -15,15 +15,15 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     typealias Connection = TestApiConnection<PostResponseProvider>
     
     struct PostResponseProvider: ResponseProvider {
-        static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
-            return .just(successResponse(for: request, with: 200, data: request.httpBody ?? Data()))
+        static func response(for request: URLRequest) -> Observable<Response> {
+            return .just(Response(for: request, with: 200, data: request.httpBody ?? Data()))
         }
     }
     
     func testModelRequestWithEmptyBody() {
         struct PostResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
-                return .just(successResponse(for: request, with: 200, jsonObject: TestData.defaultPost))
+            static func response(for request: URLRequest) -> Observable<Response> {
+                return .just(Response(for: request, with: 200, jsonObject: TestData.defaultPost))
             }
         }
         let postExpactation = expectation(description: "ModelRequestExpectation")
@@ -40,8 +40,8 @@ class JSONModelNetworkConnectorTests: XCTestCase {
     
     func testArrayModelRequestWithEmptyBody() {
         struct PostResponseProvider: ResponseProvider {
-            static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
-                return .just(successResponse(for: request, with: 200, jsonObject: [TestData.defaultPost].jsonRepresantable))
+            static func response(for request: URLRequest) -> Observable<Response> {
+                return .just(Response(for: request, with: 200, jsonObject: [TestData.defaultPost].jsonRepresantable))
             }
         }
         let postExpactation = expectation(description: "ModelRequestExpectation")
