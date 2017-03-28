@@ -14,7 +14,7 @@ public protocol ResponseProvider {
 }
 
 public final class TestConnector<T: ResponseProvider>: DataRequestType {
-    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response> {
+    public static func requestObservable(with request: URLRequest) -> Observable<Response> {
         return Observable
             .just()
             .observeOn(SerialDispatchQueueScheduler(qos: .userInitiated))
