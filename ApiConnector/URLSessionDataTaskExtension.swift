@@ -11,9 +11,7 @@ import Alamofire
 import RxSwift
 
 extension URLSessionDataTask: DataRequestType {
-    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response> {
-        let validation = validation ?? Response.defaultValidation
-        
+    public static func requestObservable(with request: URLRequest) -> Observable<Response> {
         return Observable<Response>
             .create({ observer -> Disposable in
                 let config = URLSessionConfiguration.default
@@ -35,6 +33,6 @@ extension URLSessionDataTask: DataRequestType {
                     task.cancel()
                 }
             })
-            .map({ try $0.validate(validation) })
+            .map({ try $0.validate(Response.defaultValidation) })
     }
 }
