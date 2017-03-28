@@ -9,6 +9,8 @@
 import XCTest
 import Alamofire
 import SweetRouter
+import RxSwift
+
 @testable import ApiConnector
 
 fileprivate enum ValidationError: Error {
@@ -19,9 +21,9 @@ fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConne
     typealias RequestType = TestConnector<Provider>
     typealias RouterType = Api
     
-    var defaultValidation: Alamofire.DataRequest.Validation? {
-        return { request, response, data in
-            return .failure(ValidationError.invalidRequest)
+    var defaultValidation: Response.Validation {
+        return { response in
+            throw ValidationError.invalidRequest
         }
     }
 }
@@ -60,4 +62,28 @@ class ApiConnectionTests: XCTestCase {
         observable.dispose()
     }
     
+    func testValidationError() {
+        struct NotFoundProvider: ResponseProvider {
+            static func response(for request: URLRequest) -> Observable<Response> {
+                return Observable
+                    .just(Response(for: request, with: 400, data: Data()))
+                    .delay(2, scheduler: SerialDispatchQueueScheduler(qos: .userInitiated))
+            }
+        }
+        
+        let responseExpectation = expectation(description: "SuccessMockResponse")
+        let observable = TestApiConnection<NotFoundProvider>(environment: .test)
+            .requestObservable(at: .me)
+            .subscribe(onError: { error in
+                if let error = error as? AFError, case let .responseValidationFailed(reason: reason) = error, case let .unacceptableStatusCode(code: code) = reason {
+                    XCTAssertEqual(code, 400)
+                } else {
+                    XCTFail()
+                }
+                responseExpectation.fulfill()
+            })
+        
+        waitForExpectations(timeout: 5.0)
+        observable.dispose()
+    }
 }
