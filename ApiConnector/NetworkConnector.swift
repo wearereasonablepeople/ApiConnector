@@ -10,19 +10,6 @@ import Alamofire
 import RxSwift
 import SweetRouter
 
-public struct HTTP {
-    public enum Method: String {
-        case options = "OPTIONS"
-        case get = "GET"
-        case head = "HEAD"
-        case post = "POST"
-        case put = "PUT"
-        case delete = "DELETE"
-        case trace = "TRACE"
-        case connect = "CONNECT"
-    }
-}
-
 public protocol DataRequestType {
     static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response>
 }
@@ -32,27 +19,27 @@ public protocol ApiConnectionType {
     associatedtype RouterType: EndpointType
     
     var environment: RouterType.Environment { get }
-    var defaultHeaders: HTTPHeaders? { get }
+    var defaultHeaders: HTTP.Headers? { get }
     var defaultValidation: DataRequest.Validation? { get }
     
-    func request(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTPHeaders?) -> URLRequest
-    func requestObservable(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTPHeaders?, _ validation: (DataRequest.Validation)?) -> Observable<Response>
+    func request(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTP.Headers?) -> URLRequest
+    func requestObservable(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTP.Headers?, _ validation: (DataRequest.Validation)?) -> Observable<Response>
 }
 
 public extension ApiConnectionType {
     public var environment: RouterType.Environment { return RouterType.default }
-    public var defaultHeaders: HTTPHeaders? { return nil }
+    public var defaultHeaders: [HTTP.Header.Key: String]? { return nil }
     public var defaultValidation: DataRequest.Validation? { return nil }
     
-    public func request(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTPHeaders?) -> URLRequest {
+    public func request(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTP.Headers?) -> URLRequest {
         var request = URLRequest(url: Router<RouterType>(environment, at: endpoint).url)
         request.httpMethod = method.rawValue
-        request.allHTTPHeaderFields = headers ?? defaultHeaders
+        request.allHTTPHeaderFields = (headers ?? defaultHeaders).map { HTTP.Header.toStringKeys(headers: $0) }
         request.httpBody = data
         return request
     }
     
-    public func requestObservable(method: HTTP.Method = .get, with data: Data? = nil, at endpoint: RouterType.Route, headers: HTTPHeaders? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response> {
+    public func requestObservable(method: HTTP.Method = .get, with data: Data? = nil, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response> {
         return RequestType.requestObservable(with: request(method: method, with: data, at: endpoint, headers: headers), validation ?? defaultValidation)
     }
 }
