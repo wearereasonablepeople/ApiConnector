@@ -10,7 +10,7 @@ import XCTest
 import ApiConnector
 
 
-class HTTPTest: XCTestCase {
+class HTTPTests: XCTestCase {
     
     func testHTTPHashable() {
         XCTAssertEqual(HTTP.Header.Key.accept, "Accept")
@@ -30,6 +30,6 @@ class HTTPTest: XCTestCase {
     
     func testHTTPHeadersStringLiteral(){
         XCTAssertEqual(HTTP.Header.Key(unicodeScalarLiteral: "김").rawValue, "김")
-        XCTAssertEqual(HTTP.Header.Key(extendedGraphemeClusterLiteral: "22").rawValue, "\u{00032}\u{00032}")
+        XCTAssertEqual(HTTP.Header.Key(extendedGraphemeClusterLiteral: "\u{00032}\u{00032}").rawValue, "22")
     }
 }
