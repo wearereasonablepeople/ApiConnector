@@ -11,7 +11,7 @@ import RxSwift
 import SweetRouter
 
 public protocol DataRequestType {
-    static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response>
+    static func requestObservable(with request: URLRequest) -> Observable<Response>
 }
 
 public protocol ApiConnectionType {
@@ -40,7 +40,7 @@ public extension ApiConnectionType {
     }
     
     public func requestObservable(method: HTTP.Method = .get, with data: Data? = nil, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response> {
-        return RequestType.requestObservable(with: request(method: method, with: data, at: endpoint, headers: headers), validation ?? defaultValidation)
+        return RequestType.requestObservable(with: request(method: method, with: data, at: endpoint, headers: headers))
     }
 }
 
