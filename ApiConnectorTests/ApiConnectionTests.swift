@@ -29,7 +29,7 @@ fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConne
 class ApiConnectionTests: XCTestCase {
     
     func testRequestCreation() {
-        let header: [HTTP.Header.Key: String] = [.accept: "application/json"]
+        let header: HTTP.Headers = [.accept: "application/json"]
         let headerToString = HTTP.Header.toStringKeys(headers: header)
         
         let request = TestApiConnection<SuccessProvider>(environment: .test)
@@ -39,7 +39,7 @@ class ApiConnectionTests: XCTestCase {
         expectedRequest.httpBody = TestData.testBodyData
         XCTAssertEqual(request, expectedRequest)
         XCTAssertEqual(request.httpMethod, HTTP.Method.post.rawValue)
-        XCTAssertEqual(request.allHTTPHeaderFields?[HTTP.Header.Key.accept.rawValue], headerToString[HTTP.Header.Key.accept.rawValue])
+        XCTAssertEqual(request.allHTTPHeaderFields!, headerToString)
     }
     
     func testcustomRequestValidation() {
