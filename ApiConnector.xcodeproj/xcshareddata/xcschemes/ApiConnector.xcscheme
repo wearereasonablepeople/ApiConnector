@@ -38,6 +38,14 @@
                BlueprintName = "ApiConnectorTests"
                ReferencedContainer = "container:ApiConnector.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ApiConnectionTests/testcustomRequestValidation()">
+               </Test>
+               <Test
+                  Identifier = "RxNetworkConnectorTests/testApiObservableFailure()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

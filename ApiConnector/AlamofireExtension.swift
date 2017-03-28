@@ -10,15 +10,9 @@ import Alamofire
 import RxSwift
 
 extension Alamofire.DataRequest: DataRequestType {
-    public static func requestObservable(with request: URLRequest, _ validation: (DataRequest.Validation)?) -> Observable<Response> {
+    public static func requestObservable(with request: URLRequest) -> Observable<Response> {
         return Observable.create({ observer -> Disposable in
-            var request = Alamofire.request(request)
-            
-            if let validation = validation {
-                request = request.validate(validation)
-            } else {
-                request = request.validate()
-            }
+            let request = Alamofire.request(request).validate()
             
             request.responseData() { response in
                 if let error = response.error {
