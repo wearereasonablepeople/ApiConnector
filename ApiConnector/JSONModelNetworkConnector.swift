@@ -23,18 +23,22 @@ public extension ObservableType where E == Response {
     public func toVoid() -> Observable<Void> {
         return map({ _ in () })
     }
+    
+    public func validate(_ validation: @escaping Response.Validation) -> Observable<Response> {
+        return map { try validation($0) }
+    }
 }
 
 public extension ApiConnectionType {
-    public func requestObservable(method: HTTP.Method = .get, with model: JSONRepresentable?, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response> {
+    public func requestObservable(method: HTTP.Method = .get, with model: JSONRepresentable?, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: Response.Validation? = nil) -> Observable<Response> {
         return requestObservable(method: method, with: model.flatMap({ try? $0.jsonValue.rawData() }), at: endpoint, headers: headers, validation)
     }
     
-    public func requestObservable<T: JSONInitializable>(method: HTTP.Method = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<T> {
+    public func requestObservable<T: JSONInitializable>(method: HTTP.Method = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: Response.Validation? = nil) -> Observable<T> {
         return requestObservable(method: method, with: model, at: endpoint, headers: headers, validation).toModel()
     }
     
-    public func requestObservable<T: JSONInitializable>(method: HTTP.Method = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<[T]> {
+    public func requestObservable<T: JSONInitializable>(method: HTTP.Method = .get, with model: JSONRepresentable? = nil, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: Response.Validation? = nil) -> Observable<[T]> {
         return requestObservable(method: method, with: model, at: endpoint, headers: headers, validation).toModel()
     }
 }
