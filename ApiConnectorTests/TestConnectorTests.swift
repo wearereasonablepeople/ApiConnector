@@ -21,7 +21,7 @@ class TestConnectorTests: XCTestCase {
             }
         }
         
-        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).map { $0.data }
+        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request).map { $0.data }
         let responseExpectation = expectation(description: "SuccessMockResponse")
 
         let observable = connector.subscribe(onNext: { data in
@@ -42,7 +42,7 @@ class TestConnectorTests: XCTestCase {
             }
         }
         
-        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request, nil).map { $0.data }
+        let connector = TestConnector<SuccessResponseProvider>.requestObservable(with: TestData.request).map { $0.data }
         let responseExpectation = expectation(description: "SuccessMockResponse")
         
         let observable = connector.subscribe(onError: { error in
