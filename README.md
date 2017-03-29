@@ -51,7 +51,7 @@ class ApiConnection<Provider: DataRequestType>: ApiConnectionType {
 }
 
 //Convenient typealias to save space :)
-typealias Connection = ApiConnection<URLSessionDataTask.DataRequest>
+typealias Connection = ApiConnection<URLSessionDataTask>
 
 //The to get all posts
 let postsDisposable = Connection().allPosts(for: Date()).subscribe(onNext: { posts in
@@ -68,7 +68,7 @@ If you don't really want to create your own `APIConnectionType` class, you can u
 **Example of getting posts with `NetworkConnector`:**
 
 ```swift
-typealias Connection = NetworkConnector<URLSessionDataTask.DataRequest, Api>
+typealias Connection = NetworkConnector<URLSessionDataTask, Api>
 var headers : HTTP.Headers = [.accept: "application/json", .contentType: "charset=utf-8", .acceptLanguage: "en-US"]
 
 let posts: Observable<[Post]> = Connection().requestObservable(at: .posts(for: Date()), headers: headers)
@@ -82,7 +82,7 @@ let disposable = posts.subscribe(onNext: { posts in
 ## Mocking Requests
 The most powerfull feature of this framework is that it is really easy to mock requests for the purpose of `Unit Testing` without running any external processes and changing any code base.
 
-The reason why `ApiConnection<Provider: DataRequestType>` is generic is to allow plugging in mock `Connection Provider`. As we saw above, for the real requests we would use `URLSessionDataTask.DataRequest` as a `Provider` for `ApiConnection`. URLSessionDataTask would make the real requests to the real servers.
+The reason why `ApiConnection<Provider: DataRequestType>` is generic is to allow plugging in mock `Connection Provider`. As we saw above, for the real requests we would use `URLSessionDataTask` as a `Provider` for `ApiConnection`. URLSessftaTask would make the real requests to the real servers.
 
 For `Unit Test` requests, we can use provided by the Framework `TestConnector` provider type. The only thing it does, is asks you for `Response` for the given `Request` and returns it to the `APIConnectionType`.
 
