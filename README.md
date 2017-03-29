@@ -40,14 +40,18 @@ struct Post: JSONObjectInitializable {
 class ApiConnection<Provider: DataRequestType>: ApiConnectionType {
     typealias RouterType = Api
     typealias RequestType = Provider
-    
+
+    var defaultHeaders: HTTP.Headers? {
+        return [.accept: "application/json", .contentType: "charset=utf-8", .acceptLanguage: "en-US"]
+    } 
+
     func allPosts(for date: Date) -> Observable<[Post]> {
         return requestObservable(at: .posts(for: date))
     }
 }
 
 //Convenient typealias to save space :)
-typealias Connection = ApiConnection<Alamofire.DataRequest>
+typealias Connection = ApiConnection<URLSessionDataTask>
 
 //The to get all posts
 let postsDisposable = Connection().allPosts(for: Date()).subscribe(onNext: { posts in
@@ -64,7 +68,7 @@ If you don't really want to create your own `APIConnectionType` class, you can u
 **Example of getting posts with `NetworkConnector`:**
 
 ```swift
-typealias Connection = NetworkConnector<Alamofire.DataRequest, Api>
+typealias Connection = NetworkConnector<URLSessionDataTask, Api>
 
 let posts: Observable<[Post]> = Connection().requestObservable(at: .posts(for: Date()))
 let disposable = posts.subscribe(onNext: { posts in
@@ -77,7 +81,7 @@ let disposable = posts.subscribe(onNext: { posts in
 ## Mocking Requests
 The most powerfull feature of this framework is that it is really easy to mock requests for the purpose of `Unit Testing` without running any external processes and changing any code base.
 
-The reason why `ApiConnection<Provider: DataRequestType>` is generic is to allow plugging in mock `Connection Provider`. As we saw above, for the real requests we would use `Alamofire.DataRequest` as a `Provider` for `ApiConnection`. Alamofire would make the real requests to the real servers.
+The reason why `ApiConnection<Provider: DataRequestType>` is generic is to allow plugging in mock `Connection Provider`. As we saw above, for the real requests we would use `URLSessionDataTask` as a `Provider` for `ApiConnection`. URLSessftaTask would make the real requests to the real servers.
 
 For `Unit Test` requests, we can use provided by the Framework `TestConnector` provider type. The only thing it does, is asks you for `Response` for the given `Request` and returns it to the `APIConnectionType`.
 
