@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import RxSwift
 
 extension URLSessionDataTask: DataRequestType {
@@ -24,7 +23,7 @@ extension URLSessionDataTask: DataRequestType {
                     else if let data = data, let response = response as? HTTPURLResponse {
                         observer.onNext(Response(for: request, response: response, data: data))
                     } else {
-                        observer.onError(AFError.responseSerializationFailed(reason: .inputDataNil))
+                        observer.onError(APIConnectorError.noResponse)
                     }
                 })
                 task.resume()

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7B320F1C1E85768A00E218A9 /* URLSessionDataTaskExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B320F1B1E85768A00E218A9 /* URLSessionDataTaskExtension.swift */; };
+		7B4814461E8BB8C3007AC3F7 /* APIConnectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4814451E8BB8C3007AC3F7 /* APIConnectorError.swift */; };
+		7B4814481E8BB8E9007AC3F7 /* APIConnectorErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4814471E8BB8E9007AC3F7 /* APIConnectorErrorTests.swift */; };
 		7B8230DB1E89449800019EB1 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8230DA1E89449800019EB1 /* HTTP.swift */; };
 		7BF6BAEC1E8954D3007D1CD1 /* HTTPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6BAEB1E8954D3007D1CD1 /* HTTPTests.swift */; };
 		CE1D4C621E803B99001CCA8D /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1D4C611E803B99001CCA8D /* SweetRouter.framework */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		7B320F1B1E85768A00E218A9 /* URLSessionDataTaskExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskExtension.swift; sourceTree = "<group>"; };
+		7B4814451E8BB8C3007AC3F7 /* APIConnectorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConnectorError.swift; sourceTree = "<group>"; };
+		7B4814471E8BB8E9007AC3F7 /* APIConnectorErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConnectorErrorTests.swift; sourceTree = "<group>"; };
 		7B8230DA1E89449800019EB1 /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		7BF6BAEB1E8954D3007D1CD1 /* HTTPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTests.swift; sourceTree = "<group>"; };
 		CE1D4C611E803B99001CCA8D /* SweetRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SweetRouter.framework; path = Carthage/Build/iOS/SweetRouter.framework; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		CE2716A81DCB2C6200571670 /* NetworkConnector */ = {
 			isa = PBXGroup;
 			children = (
+				7B4814451E8BB8C3007AC3F7 /* APIConnectorError.swift */,
 				7B8230DA1E89449800019EB1 /* HTTP.swift */,
 				CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */,
 				CE27168F1DCA336B00571670 /* JSONModelNetworkConnector.swift */,
@@ -178,6 +183,7 @@
 				CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */,
 				CEF42D6D1E89164800A7FA79 /* ResponseTests.swift */,
 				7BF6BAEB1E8954D3007D1CD1 /* HTTPTests.swift */,
+				7B4814471E8BB8E9007AC3F7 /* APIConnectorErrorTests.swift */,
 				CED9A7BB1DC88D89005CE914 /* Info.plist */,
 			);
 			path = ApiConnectorTests;
@@ -309,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF42D6C1E89134B00A7FA79 /* Response.swift in Sources */,
+				7B4814461E8BB8C3007AC3F7 /* APIConnectorError.swift in Sources */,
 				7B8230DB1E89449800019EB1 /* HTTP.swift in Sources */,
 				CE2716901DCA336B00571670 /* JSONModelNetworkConnector.swift in Sources */,
 				7B320F1C1E85768A00E218A9 /* URLSessionDataTaskExtension.swift in Sources */,
@@ -324,6 +331,7 @@
 			files = (
 				7BF6BAEC1E8954D3007D1CD1 /* HTTPTests.swift in Sources */,
 				CE2716921DCA379F00571670 /* JSONModelNetworkConnectorTests.swift in Sources */,
+				7B4814481E8BB8E9007AC3F7 /* APIConnectorErrorTests.swift in Sources */,
 				CED9A7CD1DC8920E005CE914 /* TestData.swift in Sources */,
 				CEF42D6E1E89164800A7FA79 /* ResponseTests.swift in Sources */,
 				CE27167D1DC9FCE300571670 /* ApiConnectionTests.swift in Sources */,

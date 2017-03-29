@@ -6,7 +6,6 @@
 //  Copyright © 2016 WeAreReasonablePeople. All rights reserved.
 //
 
-import Alamofire
 import RxSwift
 import SweetRouter
 
@@ -36,7 +35,7 @@ public extension ApiConnectionType {
             case 200...299:
                 return response
             default:
-                throw AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: code))
+                throw APIConnectorError.unacceptableStatusCode(code)
             }
         }
     }

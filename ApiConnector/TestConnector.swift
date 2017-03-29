@@ -6,7 +6,6 @@
 //  Copyright © 2016 WeAreReasonablePeople. All rights reserved.
 //
 
-import Alamofire
 import RxSwift
 
 public protocol ResponseProvider {

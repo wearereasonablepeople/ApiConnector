@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Alamofire
 import ApiConnector
 
 class ResponseTests: XCTestCase {
