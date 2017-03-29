@@ -11,7 +11,7 @@ import ApiConnector
 
 class APIConnectorErrorTests: XCTestCase {
     
-    func testAPIConnectors() {
+    func testAPIConnectorErrorEquatable() {
         let noResponse = APIConnectorError.noResponse
         let invalidRequest = APIConnectorError.invalidRequest
         let unacceptableStatusCode = APIConnectorError.unacceptableStatusCode(400)
@@ -22,7 +22,7 @@ class APIConnectorErrorTests: XCTestCase {
         XCTAssertNotEqual(noResponse, invalidRequest)
     }
     
-    func testAPIConnectorsDescriptors()
+    func testAPIConnectorErrorDescriptors()
     {
         XCTAssertEqual(APIConnectorError.noResponse.description, "No response")
         XCTAssertEqual(APIConnectorError.unacceptableStatusCode(400).description, "Status unnacceptable with code: 400")
