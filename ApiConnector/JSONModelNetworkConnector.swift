@@ -7,7 +7,6 @@
 //
 
 import RxSwift
-import Alamofire
 import SwiftyJSON
 import SwiftyJSONModel
 
