@@ -27,7 +27,7 @@ public protocol ApiConnectionType {
 
 public extension ApiConnectionType {
     public var environment: RouterType.Environment { return RouterType.default }
-    public var defaultHeaders: [HTTP.Header.Key: String]? { return nil }
+    public var defaultHeaders: HTTP.Headers? { return nil }
     public var defaultValidation: Response.Validation {
         return { response -> Response in
             let code = response.response.statusCode
