@@ -30,12 +30,10 @@ extension APIConnectorError: CustomStringConvertible {
 extension APIConnectorError: Equatable {
     public static func == (lError: APIConnectorError, rError: APIConnectorError) -> Bool {
         switch (lError, rError) {
-        case (.noResponse, .noResponse):
+        case (.noResponse, .noResponse), (.invalidRequest, .invalidRequest):
             return true
         case (let .unacceptableStatusCode(code1), let .unacceptableStatusCode(code2)):
             return code1 == code2
-        case (.invalidRequest, .invalidRequest):
-            return true
         default:
             return false
         }
