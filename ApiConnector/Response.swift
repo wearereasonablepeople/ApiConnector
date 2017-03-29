@@ -8,9 +8,10 @@
 
 import Foundation
 import SwiftyJSONModel
-import Alamofire
 
 public struct Response {
+    public typealias Validation = (Response) throws -> Response
+    
     public let request: URLRequest
     public let response: HTTPURLResponse
     public let data: Data
@@ -28,23 +29,5 @@ public struct Response {
     
     public init(for request: URLRequest, with code: Int, jsonObject: JSONRepresentable) {
         self.init(for: request, with: code, data: try! jsonObject.jsonValue.rawData())
-    }
-    
-    public func validate(_ validation: DataRequest.Validation) throws -> Response {
-        switch validation(request, response, data) {
-        case .success: return self
-        case let .failure(error): throw error
-        }
-    }
-    
-    public static let defaultValidation: DataRequest.Validation = { request, response, data -> Request.ValidationResult in
-        let code = response.statusCode
-        switch code {
-        case 200...299:
-            return .success
-        default:
-            let error = AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: code))
-            return .failure(error)
-        }
     }
 }

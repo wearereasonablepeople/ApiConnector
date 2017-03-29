@@ -33,6 +33,5 @@ extension URLSessionDataTask: DataRequestType {
                     task.cancel()
                 }
             })
-            .map({ try $0.validate(Response.defaultValidation) })
     }
 }

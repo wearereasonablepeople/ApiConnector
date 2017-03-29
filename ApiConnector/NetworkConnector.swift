@@ -20,16 +20,26 @@ public protocol ApiConnectionType {
     
     var environment: RouterType.Environment { get }
     var defaultHeaders: HTTP.Headers? { get }
-    var defaultValidation: DataRequest.Validation? { get }
+    var defaultValidation: Response.Validation { get }
     
     func request(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTP.Headers?) -> URLRequest
-    func requestObservable(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTP.Headers?, _ validation: (DataRequest.Validation)?) -> Observable<Response>
+    func requestObservable(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTP.Headers?, _ validation: Response.Validation?) -> Observable<Response>
 }
 
 public extension ApiConnectionType {
     public var environment: RouterType.Environment { return RouterType.default }
     public var defaultHeaders: [HTTP.Header.Key: String]? { return nil }
-    public var defaultValidation: DataRequest.Validation? { return nil }
+    public var defaultValidation: Response.Validation {
+        return { response -> Response in
+            let code = response.response.statusCode
+            switch code {
+            case 200...299:
+                return response
+            default:
+                throw AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: code))
+            }
+        }
+    }
     
     public func request(method: HTTP.Method, with data: Data?, at endpoint: RouterType.Route, headers: HTTP.Headers?) -> URLRequest {
         var request = URLRequest(url: Router<RouterType>(environment, at: endpoint).url)
@@ -39,8 +49,8 @@ public extension ApiConnectionType {
         return request
     }
     
-    public func requestObservable(method: HTTP.Method = .get, with data: Data? = nil, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: (DataRequest.Validation)? = nil) -> Observable<Response> {
-        return RequestType.requestObservable(with: request(method: method, with: data, at: endpoint, headers: headers))
+    public func requestObservable(method: HTTP.Method = .get, with data: Data? = nil, at endpoint: RouterType.Route, headers: HTTP.Headers? = nil, _ validation: Response.Validation? = nil) -> Observable<Response> {
+        return RequestType.requestObservable(with: request(method: method, with: data, at: endpoint, headers: headers)).validate(validation ?? defaultValidation)
     }
 }
 
