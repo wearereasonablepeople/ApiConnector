@@ -18,7 +18,7 @@ fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConne
     
     var defaultValidation: Response.Validation {
         return { response in
-            throw APIConnectorError.InvalidRequest
+            throw APIConnectorError.invalidRequest
         }
     }
 }
@@ -46,7 +46,7 @@ class ApiConnectionTests: XCTestCase {
         
         let observable = request.subscribe(onError: { error in
             if let error = error as? APIConnectorError {
-                XCTAssertEqual(error, APIConnectorError.InvalidRequest)
+                XCTAssertEqual(error, APIConnectorError.invalidRequest)
             } else {
                 XCTFail()
             }
@@ -70,7 +70,7 @@ class ApiConnectionTests: XCTestCase {
         let observable = TestApiConnection<NotFoundProvider>(environment: .test)
             .requestObservable(at: .me)
             .subscribe(onError: { error in
-                if let error = error as? APIConnectorError, case let .UnacceptableStatusCode(code) = error {
+                if let error = error as? APIConnectorError, case let .unacceptableStatusCode(code) = error {
                     XCTAssertEqual(code, 400)
                 } else {
                     XCTFail()

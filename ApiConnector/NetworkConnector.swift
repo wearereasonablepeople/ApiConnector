@@ -35,7 +35,7 @@ public extension ApiConnectionType {
             case 200...299:
                 return response
             default:
-                throw APIConnectorError.UnacceptableStatusCode(code)
+                throw APIConnectorError.unacceptableStatusCode(code)
             }
         }
     }

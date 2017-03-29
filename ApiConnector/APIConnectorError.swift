@@ -9,19 +9,19 @@
 import Foundation
 
 public enum APIConnectorError: Error {
-    case NoResponse
-    case InvalidRequest
-    case UnacceptableStatusCode(Int)
+    case noResponse
+    case invalidRequest
+    case unacceptableStatusCode(Int)
 }
 
 extension APIConnectorError: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .NoResponse:
+        case .noResponse:
             return "No response"
-        case .InvalidRequest:
+        case .invalidRequest:
             return "Invalid request"
-        case .UnacceptableStatusCode(let code):
+        case .unacceptableStatusCode(let code):
             return "Status unnacceptable with code: \(code)"
         }
     }
@@ -30,11 +30,11 @@ extension APIConnectorError: CustomStringConvertible {
 extension APIConnectorError: Equatable {
     public static func == (lError: APIConnectorError, rError: APIConnectorError) -> Bool {
         switch (lError, rError) {
-        case (.NoResponse, .NoResponse):
+        case (.noResponse, .noResponse):
             return true
-        case (let .UnacceptableStatusCode(code1), let .UnacceptableStatusCode(code2)):
+        case (let .unacceptableStatusCode(code1), let .unacceptableStatusCode(code2)):
             return code1 == code2
-        case (.InvalidRequest, .InvalidRequest):
+        case (.invalidRequest, .invalidRequest):
             return true
         default:
             return false
