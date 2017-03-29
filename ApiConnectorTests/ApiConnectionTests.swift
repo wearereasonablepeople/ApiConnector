@@ -7,15 +7,10 @@
 //
 
 import XCTest
-import Alamofire
 import SweetRouter
 import RxSwift
 
 @testable import ApiConnector
-
-fileprivate enum ValidationError: Error {
-    case invalidRequest
-}
 
 fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConnectionType {
     typealias RequestType = TestConnector<Provider>
@@ -23,7 +18,7 @@ fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConne
     
     var defaultValidation: Response.Validation {
         return { response in
-            throw ValidationError.invalidRequest
+            throw APIConnectorError.InvalidRequest
         }
     }
 }
@@ -50,8 +45,8 @@ class ApiConnectionTests: XCTestCase {
         let request = connector.requestObservable(with: nil as Data?, at: .me, headers: nil)
         
         let observable = request.subscribe(onError: { error in
-            if let error = error as? ValidationError {
-                XCTAssertEqual(error, .invalidRequest)
+            if let error = error as? APIConnectorError {
+                XCTAssertEqual(error, APIConnectorError.InvalidRequest)
             } else {
                 XCTFail()
             }
@@ -75,7 +70,7 @@ class ApiConnectionTests: XCTestCase {
         let observable = TestApiConnection<NotFoundProvider>(environment: .test)
             .requestObservable(at: .me)
             .subscribe(onError: { error in
-                if let error = error as? AFError, case let .responseValidationFailed(reason: reason) = error, case let .unacceptableStatusCode(code: code) = reason {
+                if let error = error as? APIConnectorError, case let .UnacceptableStatusCode(code) = error {
                     XCTAssertEqual(code, 400)
                 } else {
                     XCTFail()

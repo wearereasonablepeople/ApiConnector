@@ -9,7 +9,6 @@
 import XCTest
 import RxSwift
 import SwiftyJSON
-import Alamofire
 import ApiConnector
 
 class TestConnectorTests: XCTestCase {
