@@ -31,6 +31,6 @@ extension URLSessionDataTask: DataRequestType {
                 return Disposables.create {
                     task.cancel()
                 }
-            })
+            }).observeOn(MainScheduler.instance)
     }
 }
