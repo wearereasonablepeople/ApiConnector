@@ -32,10 +32,10 @@ struct Api: EndpointType {
         
         var route: URL.Route {
             switch self {
-            case .me: return .init(path: ["me"])
-            case .pictures: return .init(path: ["pictures"])
+            case .me: return .init(at: "me")
+            case .pictures: return .init(at: "pictures")
             case let .posts(userId: userId):
-                return .init(path: ["posts"], query: ("userId", userId))
+                return URL.Route(at: "posts").query(("userId", userId))
             }
         }
     }
