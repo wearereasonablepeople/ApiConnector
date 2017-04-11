@@ -96,4 +96,5 @@ public extension HTTP.Header.Value {
     public static let applicationZip  = HTTP.Header.Value("application/zip")
     public static let languageEnUS = HTTP.Header.Value("en-US")
     public static let charsetUtf8 = HTTP.Header.Value("charset=utf-8")
+    public static let noCache = HTTP.Header.Value("no-cache, no-store, must-revalidate")
 }
