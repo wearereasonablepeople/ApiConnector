@@ -8,6 +8,38 @@
 
 import Foundation
 
+public protocol HTTPHeaderType: RawRepresentable, ExpressibleByStringLiteral, Hashable {
+    init(rawValue: String)
+    init(_ rawValue: String)
+    var rawValue: String { get }
+}
+
+public extension HTTPHeaderType {
+    public init(_ rawValue: String) {
+        self.init(rawValue: rawValue)
+    }
+    
+    public init(stringLiteral value: String) {
+        self.init(rawValue: value)
+    }
+    
+    public init(extendedGraphemeClusterLiteral value: String){
+        self.init(stringLiteral: value)
+    }
+    
+    public init(unicodeScalarLiteral value: String) {
+        self.init(stringLiteral: value)
+    }
+    
+    public var hashValue: Int {
+        return rawValue.hashValue
+    }
+    
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.rawValue == rhs.rawValue
+    }
+}
+
 public struct HTTP {
     public typealias Headers = [Header.Key: Header.Value?]
     
@@ -23,27 +55,19 @@ public struct HTTP {
     }
     
     public struct Header {
-        public struct Key : RawRepresentable {
+        public struct Key : HTTPHeaderType {
             public let rawValue: String
             
             public init(rawValue: String) {
                 self.rawValue = rawValue
-            }
-            
-            public init(_ rawValue: String) {
-                self.init(rawValue: rawValue)
             }
         }
         
-        public struct Value : RawRepresentable {
+        public struct Value : HTTPHeaderType {
             public let rawValue: String
             
             public init(rawValue: String) {
                 self.rawValue = rawValue
-            }
-            
-            public init(_ rawValue: String) {
-                self.init(rawValue: rawValue)
             }
         }
         
@@ -65,60 +89,11 @@ public extension HTTP.Header.Key {
     public static let contentType  = HTTP.Header.Key("Content-Type")
 }
 
-extension HTTP.Header.Key : ExpressibleByStringLiteral {
-    public init(stringLiteral value: String) {
-        self.init(value)
-    }
-    
-    public init(extendedGraphemeClusterLiteral value: String){
-        self.init(stringLiteral: value)
-    }
-    
-    public init(unicodeScalarLiteral value: String) {
-        self.init(stringLiteral: value)
-    }
-}
-
-extension HTTP.Header.Key: Hashable {
-    public var hashValue: Int {
-        return rawValue.hashValue
-    }
-    
-    public static func == (lhs: HTTP.Header.Key, rhs: HTTP.Header.Key) -> Bool {
-        return lhs.rawValue == rhs.rawValue
-    }
-}
-
 public extension HTTP.Header.Value {
     public static let applicationJson: HTTP.Header.Value = "application/json"
     public static let applicationJavascript = HTTP.Header.Value("application/javascript")
     public static let applicationXml = HTTP.Header.Value("application/xml")
     public static let applicationZip  = HTTP.Header.Value("application/zip")
-    public static let language_en_EN = HTTP.Header.Value("en-US")
-    public static let charset_utf_8 = HTTP.Header.Value("charset=utf-8")
+    public static let languageEnUS = HTTP.Header.Value("en-US")
+    public static let charsetUtf8 = HTTP.Header.Value("charset=utf-8")
 }
-
-extension HTTP.Header.Value : ExpressibleByStringLiteral {
-    public init(stringLiteral value: String) {
-        self.init(value)
-    }
-    
-    public init(extendedGraphemeClusterLiteral value: String){
-        self.init(stringLiteral: value)
-    }
-    
-    public init(unicodeScalarLiteral value: String) {
-        self.init(stringLiteral: value)
-    }
-}
-
-extension HTTP.Header.Value: Hashable {
-    public var hashValue: Int {
-        return rawValue.hashValue
-    }
-    
-    public static func == (lhs: HTTP.Header.Value, rhs: HTTP.Header.Value) -> Bool {
-        return lhs.rawValue == rhs.rawValue
-    }
-}
-
