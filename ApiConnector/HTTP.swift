@@ -9,7 +9,7 @@
 import Foundation
 
 public struct HTTP {
-    public typealias Headers = [Header.Key: String]
+    public typealias Headers = [Header.Key: Header.Value]
     
     public enum Method: String {
         case options = "OPTIONS"
@@ -35,10 +35,22 @@ public struct HTTP {
             }
         }
         
-        public static func toStringKeys(headers: [Key : String]) -> [String : String] {
+        public struct Value : RawRepresentable {
+            public let rawValue: String
+            
+            public init(rawValue: String) {
+                self.rawValue = rawValue
+            }
+            
+            public init(_ rawValue: String) {
+                self.init(rawValue: rawValue)
+            }
+        }
+        
+        public static func toStringKeys(headers: [Key : Value]) -> [String : String] {
             var result = [String : String]()
             for (key, value) in headers {
-                result[key.rawValue] = value
+                result[key.rawValue] = value.rawValue
             }
             return result
         }
@@ -76,3 +88,37 @@ extension HTTP.Header.Key: Hashable {
         return lhs.rawValue == rhs.rawValue
     }
 }
+
+public extension HTTP.Header.Value {
+    public static let applicationJson: HTTP.Header.Value = "application/json"
+    public static let applicationJavascript = HTTP.Header.Value("application/javascript")
+    public static let applicationXml = HTTP.Header.Value("application/xml")
+    public static let applicationZip  = HTTP.Header.Value("application/zip")
+    public static let language_en_EN = HTTP.Header.Value("en-US")
+    public static let charset_utf_8 = HTTP.Header.Value("charset=utf-8")
+}
+
+extension HTTP.Header.Value : ExpressibleByStringLiteral {
+    public init(stringLiteral value: String) {
+        self.init(value)
+    }
+    
+    public init(extendedGraphemeClusterLiteral value: String){
+        self.init(stringLiteral: value)
+    }
+    
+    public init(unicodeScalarLiteral value: String) {
+        self.init(stringLiteral: value)
+    }
+}
+
+extension HTTP.Header.Value: Hashable {
+    public var hashValue: Int {
+        return rawValue.hashValue
+    }
+    
+    public static func == (lhs: HTTP.Header.Value, rhs: HTTP.Header.Value) -> Bool {
+        return lhs.rawValue == rhs.rawValue
+    }
+}
+
