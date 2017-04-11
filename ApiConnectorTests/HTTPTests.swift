@@ -26,17 +26,15 @@ class HTTPTests: XCTestCase {
     
     func testHTTPToString() {
         let headers: HTTP.Headers = [.accept: .applicationJson,
-                                     .acceptLanguage: .language_en_EN,
+                                     .acceptLanguage: .languageEnUS,
                                      .contentType: nil]
         let result = [HTTP.Header.Key.accept.rawValue: HTTP.Header.Value.applicationJson.rawValue,
-                      HTTP.Header.Key.acceptLanguage.rawValue: HTTP.Header.Value.language_en_EN.rawValue]
+                      HTTP.Header.Key.acceptLanguage.rawValue: HTTP.Header.Value.languageEnUS.rawValue]
          XCTAssertEqual(result, HTTP.Header.toStringKeys(headers: headers))
     }
     
     func testHTTPHeadersStringLiteral(){
         XCTAssertEqual(HTTP.Header.Key(unicodeScalarLiteral: "김").rawValue, "김")
         XCTAssertEqual(HTTP.Header.Key(extendedGraphemeClusterLiteral: "\u{00032}\u{00032}").rawValue, "22")
-        XCTAssertEqual(HTTP.Header.Value(unicodeScalarLiteral: "김").rawValue, "김")
-        XCTAssertEqual(HTTP.Header.Value(extendedGraphemeClusterLiteral: "\u{00032}\u{00032}").rawValue, "22")
     }
 }
