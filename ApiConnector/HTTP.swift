@@ -9,7 +9,7 @@
 import Foundation
 
 public struct HTTP {
-    public typealias Headers = [Header.Key: Header.Value]
+    public typealias Headers = [Header.Key: Header.Value?]
     
     public enum Method: String {
         case options = "OPTIONS"
@@ -47,10 +47,10 @@ public struct HTTP {
             }
         }
         
-        public static func toStringKeys(headers: [Key : Value]) -> [String : String] {
+        public static func toStringKeys(headers: Headers) -> [String : String] {
             var result = [String : String]()
             for (key, value) in headers {
-                result[key.rawValue] = value.rawValue
+                result[key.rawValue] = value?.rawValue
             }
             return result
         }
