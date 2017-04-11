@@ -27,10 +27,9 @@ class HTTPTests: XCTestCase {
     func testHTTPToString() {
         let headers: HTTP.Headers = [.accept: .applicationJson,
                                      .acceptLanguage: .language_en_EN,
-                                     .contentType: .charset_utf_8]
+                                     .contentType: nil]
         let result = [HTTP.Header.Key.accept.rawValue: HTTP.Header.Value.applicationJson.rawValue,
-                      HTTP.Header.Key.acceptLanguage.rawValue: HTTP.Header.Value.language_en_EN.rawValue,
-                      HTTP.Header.Key.contentType.rawValue: HTTP.Header.Value.charset_utf_8.rawValue]
+                      HTTP.Header.Key.acceptLanguage.rawValue: HTTP.Header.Value.language_en_EN.rawValue]
          XCTAssertEqual(result, HTTP.Header.toStringKeys(headers: headers))
     }
     
