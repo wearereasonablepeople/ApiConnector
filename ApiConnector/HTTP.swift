@@ -91,7 +91,6 @@ public extension HTTP.Header.Key {
     public static let authorization = HTTP.Header.Key("Authorization")
     public static let cacheControl  = HTTP.Header.Key("Cache-Control")
     public static let contentType  = HTTP.Header.Key("Content-Type")
-    public static let token  = HTTP.Header.Key("Token")
 }
 
 public extension HTTP.Header.Value {
