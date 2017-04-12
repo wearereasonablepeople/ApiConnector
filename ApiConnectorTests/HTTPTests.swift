@@ -29,10 +29,10 @@ class HTTPTests: XCTestCase {
         let headers: HTTP.Headers = [.accept: .applicationJson,
                                      .acceptLanguage: .languageEnUS,
                                      .contentType: nil,
-                                     .token: .optionalValue(token)]
+                                     .authorization: .optionalValue(token)]
         let result = [HTTP.Header.Key.accept.rawValue: HTTP.Header.Value.applicationJson.rawValue,
                       HTTP.Header.Key.acceptLanguage.rawValue: HTTP.Header.Value.languageEnUS.rawValue,
-                      HTTP.Header.Key.token.rawValue: token!]
+                      HTTP.Header.Key.authorization.rawValue: token!]
         
         
         XCTAssertEqual(result, HTTP.Header.toStringKeys(headers: headers))
