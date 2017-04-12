@@ -42,7 +42,7 @@ class ApiConnection<Provider: DataRequestType>: ApiConnectionType {
     typealias RequestType = Provider
 
     var defaultHeaders: HTTP.Headers? {
-        return [.accept: "application/json", .contentType: "charset=utf-8", .acceptLanguage: "en-US"]
+        return [.accept: .applicationJson, .contentType: .charsetUtf8, .acceptLanguage: .languageEnUS]
     } 
 
     func allPosts(for date: Date) -> Observable<[Post]> {
@@ -93,10 +93,10 @@ typealias TestConnection<T: ResponseProvider> = ApiConnection<TestConnector<T>>
 
 // This is our type that provides reponse for given request
 struct PostsResponseProvider: ResponseProvider {
-    static func response(for request: URLRequest) -> Observable<TestConnectorResponse> {
+    static func response(for request: URLRequest) -> Observable<Response> {
         let posts: [Post] = //Here we create mock list of posts
         
-        return .just(successResponse(for: request, with: 200, jsonObject: posts.jsonRepresantable))
+        return .just(Response(for: request, with: 200, jsonObject: posts.jsonRepresantable))
     }
 }
 
