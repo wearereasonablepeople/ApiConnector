@@ -26,7 +26,7 @@ fileprivate class TestValidationConnection<Provider: ResponseProvider>: ApiConne
 class ApiConnectionTests: XCTestCase {
     
     func testRequestCreation() {
-        let header: HTTP.Headers = [.accept: "application/json"]
+        let header: HTTP.Headers = [.accept: .applicationJson]
         let headerToString = HTTP.Header.toStringKeys(headers: header)
         
         let request = TestApiConnection<SuccessProvider>(environment: .test)
