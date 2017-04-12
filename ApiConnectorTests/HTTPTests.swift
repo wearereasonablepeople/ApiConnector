@@ -12,19 +12,24 @@ import ApiConnector
 
 class HTTPTests: XCTestCase {
     
-    func testHTTPHashable() {
+    func testHTTKeyPHashable() {
         XCTAssertEqual(HTTP.Header.Key.accept, "Accept")
         XCTAssertNotEqual(HTTP.Header.Key.accept, "Accept-Language")
         XCTAssertEqual(HTTP.Header.Key.accept.hashValue, HTTP.Header.Key("Accept").hashValue)
     }
     
+    func testHTTPValueHashable() {
+        XCTAssertEqual(HTTP.Header.Value.applicationJson, "application/json")
+        XCTAssertNotEqual(HTTP.Header.Value.applicationJson, "application/javascript")
+        XCTAssertEqual(HTTP.Header.Value.applicationJson.hashValue, HTTP.Header.Value("application/json").hashValue)
+    }
+    
     func testHTTPToString() {
-        let headers: HTTP.Headers = [.accept: "application/json" ,
-                                     .acceptLanguage: "en-US",
-                                     .contentType: "charset=utf-8"]
-        let result = [HTTP.Header.Key.accept.rawValue: "application/json" ,
-                      HTTP.Header.Key.acceptLanguage.rawValue: "en-US",
-                      HTTP.Header.Key.contentType.rawValue: "charset=utf-8"]
+        let headers: HTTP.Headers = [.accept: .applicationJson,
+                                     .acceptLanguage: .languageEnUS,
+                                     .contentType: nil]
+        let result = [HTTP.Header.Key.accept.rawValue: HTTP.Header.Value.applicationJson.rawValue,
+                      HTTP.Header.Key.acceptLanguage.rawValue: HTTP.Header.Value.languageEnUS.rawValue]
          XCTAssertEqual(result, HTTP.Header.toStringKeys(headers: headers))
     }
     
