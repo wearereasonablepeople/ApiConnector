@@ -69,6 +69,10 @@ public struct HTTP {
             public init(rawValue: String) {
                 self.rawValue = rawValue
             }
+            
+            public static func optionalValue(_ rawValue: String?) -> HTTP.Header.Value? {
+                return rawValue.map { HTTP.Header.Value($0) }
+            }
         }
         
         public static func toStringKeys(headers: Headers) -> [String : String] {

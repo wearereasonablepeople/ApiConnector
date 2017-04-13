@@ -25,12 +25,17 @@ class HTTPTests: XCTestCase {
     }
     
     func testHTTPToString() {
+        let token : String? = "tokenValue"
         let headers: HTTP.Headers = [.accept: .applicationJson,
                                      .acceptLanguage: .languageEnUS,
-                                     .contentType: nil]
+                                     .contentType: nil,
+                                     .authorization: .optionalValue(token)]
         let result = [HTTP.Header.Key.accept.rawValue: HTTP.Header.Value.applicationJson.rawValue,
-                      HTTP.Header.Key.acceptLanguage.rawValue: HTTP.Header.Value.languageEnUS.rawValue]
-         XCTAssertEqual(result, HTTP.Header.toStringKeys(headers: headers))
+                      HTTP.Header.Key.acceptLanguage.rawValue: HTTP.Header.Value.languageEnUS.rawValue,
+                      HTTP.Header.Key.authorization.rawValue: token!]
+        
+        
+        XCTAssertEqual(result, HTTP.Header.toStringKeys(headers: headers))
     }
     
     func testHTTPHeadersStringLiteral(){
