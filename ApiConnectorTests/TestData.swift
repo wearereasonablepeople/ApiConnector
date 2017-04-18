@@ -40,7 +40,7 @@ struct Api: EndpointType {
         }
     }
     
-    static let `default` = Environment.localhost
+    static let current = Environment.localhost
 }
 
 struct TestData {

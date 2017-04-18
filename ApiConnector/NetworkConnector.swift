@@ -26,7 +26,7 @@ public protocol ApiConnectionType {
 }
 
 public extension ApiConnectionType {
-    public var environment: RouterType.Environment { return RouterType.default }
+    public var environment: RouterType.Environment { return RouterType.current }
     public var defaultHeaders: HTTP.Headers? { return nil }
     public var defaultValidation: Response.Validation {
         return { response -> Response in
@@ -59,7 +59,7 @@ public struct NetworkConnector<T: DataRequestType, E: EndpointType>: ApiConnecti
     
     public let environment: RouterType.Environment
     
-    public init(environment: RouterType.Environment = RouterType.default) {
+    public init(environment: RouterType.Environment = RouterType.current) {
         self.environment = environment
     }
 }
