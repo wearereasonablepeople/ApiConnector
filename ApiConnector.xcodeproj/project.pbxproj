@@ -66,7 +66,6 @@
 		CED9A7AF1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED9A7B41DC88D89005CE914 /* ApiConnectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApiConnectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9A7BB1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CED9A7C81DC88E53005CE914 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		CED9A7CC1DC8920E005CE914 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		CEF42D6B1E89134B00A7FA79 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		CEF42D6D1E89164800A7FA79 /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
@@ -189,7 +188,6 @@
 				CE2716891DCA304800571670 /* SwiftyJSON.framework */,
 				CE27168A1DCA304800571670 /* SwiftyJSONModel.framework */,
 				CE2716821DCA1F6C00571670 /* RxSwift.framework */,
-				CED9A7C81DC88E53005CE914 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
