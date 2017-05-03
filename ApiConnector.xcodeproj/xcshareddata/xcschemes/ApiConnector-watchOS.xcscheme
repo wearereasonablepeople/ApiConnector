@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE3715B21EB9E37E00590480"
-               BuildableName = "ApiConnector-watchOS.framework"
+               BuildableName = "ApiConnector.framework"
                BlueprintName = "ApiConnector-watchOS"
                ReferencedContainer = "container:ApiConnector.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE3715B21EB9E37E00590480"
-            BuildableName = "ApiConnector-watchOS.framework"
+            BuildableName = "ApiConnector.framework"
             BlueprintName = "ApiConnector-watchOS"
             ReferencedContainer = "container:ApiConnector.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE3715B21EB9E37E00590480"
-            BuildableName = "ApiConnector-watchOS.framework"
+            BuildableName = "ApiConnector.framework"
             BlueprintName = "ApiConnector-watchOS"
             ReferencedContainer = "container:ApiConnector.xcodeproj">
          </BuildableReference>
