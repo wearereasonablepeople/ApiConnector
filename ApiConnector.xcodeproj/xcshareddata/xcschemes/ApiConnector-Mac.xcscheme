@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE37153F1EB9DE6000590480"
-               BuildableName = "ApiConnector.framework"
-               BlueprintName = "ApiConnector-tvOS"
+               BlueprintIdentifier = "CE37157A1EB9E20100590480"
+               BuildableName = "ApiConnector-Mac.framework"
+               BlueprintName = "ApiConnector-Mac"
                ReferencedContainer = "container:ApiConnector.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE3715471EB9DE6000590480"
-               BuildableName = "ApiConnector-tvOSTests.xctest"
-               BlueprintName = "ApiConnector-tvOSTests"
+               BlueprintIdentifier = "CE3715821EB9E20100590480"
+               BuildableName = "ApiConnector-MacTests.xctest"
+               BlueprintName = "ApiConnector-MacTests"
                ReferencedContainer = "container:ApiConnector.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,9 +43,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE37153F1EB9DE6000590480"
-            BuildableName = "ApiConnector.framework"
-            BlueprintName = "ApiConnector-tvOS"
+            BlueprintIdentifier = "CE37157A1EB9E20100590480"
+            BuildableName = "ApiConnector-Mac.framework"
+            BlueprintName = "ApiConnector-Mac"
             ReferencedContainer = "container:ApiConnector.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE37153F1EB9DE6000590480"
-            BuildableName = "ApiConnector.framework"
-            BlueprintName = "ApiConnector-tvOS"
+            BlueprintIdentifier = "CE37157A1EB9E20100590480"
+            BuildableName = "ApiConnector-Mac.framework"
+            BlueprintName = "ApiConnector-Mac"
             ReferencedContainer = "container:ApiConnector.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -83,9 +83,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE37153F1EB9DE6000590480"
-            BuildableName = "ApiConnector.framework"
-            BlueprintName = "ApiConnector-tvOS"
+            BlueprintIdentifier = "CE37157A1EB9E20100590480"
+            BuildableName = "ApiConnector-Mac.framework"
+            BlueprintName = "ApiConnector-Mac"
             ReferencedContainer = "container:ApiConnector.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

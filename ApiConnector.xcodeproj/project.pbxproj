@@ -52,6 +52,31 @@
 		CE3715731EB9E06100590480 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF42D6D1E89164800A7FA79 /* ResponseTests.swift */; };
 		CE3715741EB9E06100590480 /* HTTPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6BAEB1E8954D3007D1CD1 /* HTTPTests.swift */; };
 		CE3715751EB9E06100590480 /* APIConnectorErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4814471E8BB8E9007AC3F7 /* APIConnectorErrorTests.swift */; };
+		CE3715841EB9E20100590480 /* ApiConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE37157B1EB9E20100590480 /* ApiConnector.framework */; };
+		CE3715961EB9E25F00590480 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715921EB9E25F00590480 /* RxSwift.framework */; };
+		CE3715971EB9E25F00590480 /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715931EB9E25F00590480 /* SweetRouter.framework */; };
+		CE3715981EB9E25F00590480 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715941EB9E25F00590480 /* SwiftyJSON.framework */; };
+		CE3715991EB9E25F00590480 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715951EB9E25F00590480 /* SwiftyJSONModel.framework */; };
+		CE37159A1EB9E26E00590480 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE37159B1EB9E27400590480 /* APIConnectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4814451E8BB8C3007AC3F7 /* APIConnectorError.swift */; };
+		CE37159C1EB9E27400590480 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8230DA1E89449800019EB1 /* HTTP.swift */; };
+		CE37159D1EB9E27400590480 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */; };
+		CE37159E1EB9E27400590480 /* JSONModelNetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27168F1DCA336B00571670 /* JSONModelNetworkConnector.swift */; };
+		CE37159F1EB9E27400590480 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF42D6B1E89134B00A7FA79 /* Response.swift */; };
+		CE3715A01EB9E27700590480 /* URLSessionDataTaskExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B320F1B1E85768A00E218A9 /* URLSessionDataTaskExtension.swift */; };
+		CE3715A11EB9E27900590480 /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */; };
+		CE3715A21EB9E2F100590480 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715921EB9E25F00590480 /* RxSwift.framework */; };
+		CE3715A31EB9E2F100590480 /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715931EB9E25F00590480 /* SweetRouter.framework */; };
+		CE3715A41EB9E2F100590480 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715941EB9E25F00590480 /* SwiftyJSON.framework */; };
+		CE3715A51EB9E2F100590480 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715951EB9E25F00590480 /* SwiftyJSONModel.framework */; };
+		CE3715A61EB9E2FA00590480 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CC1DC8920E005CE914 /* TestData.swift */; };
+		CE3715A71EB9E2FA00590480 /* ApiConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */; };
+		CE3715A81EB9E2FA00590480 /* RxNetworkConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716861DCA238E00571670 /* RxNetworkConnectorTests.swift */; };
+		CE3715A91EB9E2FA00590480 /* JSONModelNetworkConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716911DCA379F00571670 /* JSONModelNetworkConnectorTests.swift */; };
+		CE3715AA1EB9E2FA00590480 /* TestConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDD121DC8E55700D2D7E7 /* TestConnectorTests.swift */; };
+		CE3715AB1EB9E2FA00590480 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF42D6D1E89164800A7FA79 /* ResponseTests.swift */; };
+		CE3715AC1EB9E2FA00590480 /* HTTPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6BAEB1E8954D3007D1CD1 /* HTTPTests.swift */; };
+		CE3715AD1EB9E2FA00590480 /* APIConnectorErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4814471E8BB8E9007AC3F7 /* APIConnectorErrorTests.swift */; };
 		CED9A7B51DC88D89005CE914 /* ApiConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */; };
 		CED9A7BC1DC88D89005CE914 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED9A7CD1DC8920E005CE914 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CC1DC8920E005CE914 /* TestData.swift */; };
@@ -66,6 +91,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = CE37153F1EB9DE6000590480;
 			remoteInfo = "ApiConnector-tvOS";
+		};
+		CE3715851EB9E20100590480 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CED9A7A21DC88D88005CE914 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE37157A1EB9E20100590480;
+			remoteInfo = "ApiConnector-Mac";
 		};
 		CED9A7B61DC88D89005CE914 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -99,6 +131,12 @@
 		CE3715631EB9DFD600590480 /* SweetRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SweetRouter.framework; path = Carthage/Build/tvOS/SweetRouter.framework; sourceTree = "<group>"; };
 		CE3715641EB9DFD600590480 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/tvOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CE3715651EB9DFD600590480 /* SwiftyJSONModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSONModel.framework; path = Carthage/Build/tvOS/SwiftyJSONModel.framework; sourceTree = "<group>"; };
+		CE37157B1EB9E20100590480 /* ApiConnector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ApiConnector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE3715831EB9E20100590480 /* ApiConnector-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ApiConnector-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE3715921EB9E25F00590480 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
+		CE3715931EB9E25F00590480 /* SweetRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SweetRouter.framework; path = Carthage/Build/Mac/SweetRouter.framework; sourceTree = "<group>"; };
+		CE3715941EB9E25F00590480 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
+		CE3715951EB9E25F00590480 /* SwiftyJSONModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSONModel.framework; path = Carthage/Build/Mac/SwiftyJSONModel.framework; sourceTree = "<group>"; };
 		CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ApiConnector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9A7AE1DC88D89005CE914 /* ApiConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiConnector.h; sourceTree = "<group>"; };
 		CED9A7AF1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +168,29 @@
 				CE37156B1EB9E01D00590480 /* SweetRouter.framework in Frameworks */,
 				CE37156C1EB9E01D00590480 /* SwiftyJSON.framework in Frameworks */,
 				CE37156D1EB9E01D00590480 /* SwiftyJSONModel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3715771EB9E20100590480 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE3715961EB9E25F00590480 /* RxSwift.framework in Frameworks */,
+				CE3715971EB9E25F00590480 /* SweetRouter.framework in Frameworks */,
+				CE3715981EB9E25F00590480 /* SwiftyJSON.framework in Frameworks */,
+				CE3715991EB9E25F00590480 /* SwiftyJSONModel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3715801EB9E20100590480 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE3715841EB9E20100590480 /* ApiConnector.framework in Frameworks */,
+				CE3715A21EB9E2F100590480 /* RxSwift.framework in Frameworks */,
+				CE3715A31EB9E2F100590480 /* SweetRouter.framework in Frameworks */,
+				CE3715A41EB9E2F100590480 /* SwiftyJSON.framework in Frameworks */,
+				CE3715A51EB9E2F100590480 /* SwiftyJSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +274,8 @@
 				CED9A7B41DC88D89005CE914 /* ApiConnectorTests.xctest */,
 				CE3715401EB9DE6000590480 /* ApiConnector.framework */,
 				CE3715481EB9DE6000590480 /* ApiConnector-tvOSTests.xctest */,
+				CE37157B1EB9E20100590480 /* ApiConnector.framework */,
+				CE3715831EB9E20100590480 /* ApiConnector-MacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,6 +310,10 @@
 		CED9A7C71DC88E53005CE914 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE3715921EB9E25F00590480 /* RxSwift.framework */,
+				CE3715931EB9E25F00590480 /* SweetRouter.framework */,
+				CE3715941EB9E25F00590480 /* SwiftyJSON.framework */,
+				CE3715951EB9E25F00590480 /* SwiftyJSONModel.framework */,
 				CE3715621EB9DFD600590480 /* RxSwift.framework */,
 				CE3715631EB9DFD600590480 /* SweetRouter.framework */,
 				CE3715641EB9DFD600590480 /* SwiftyJSON.framework */,
@@ -267,6 +334,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE3715571EB9DE7300590480 /* ApiConnector.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3715781EB9E20100590480 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE37159A1EB9E26E00590480 /* ApiConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +390,42 @@
 			name = "ApiConnector-tvOSTests";
 			productName = "ApiConnector-tvOSTests";
 			productReference = CE3715481EB9DE6000590480 /* ApiConnector-tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CE37157A1EB9E20100590480 /* ApiConnector-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE37158C1EB9E20100590480 /* Build configuration list for PBXNativeTarget "ApiConnector-Mac" */;
+			buildPhases = (
+				CE3715761EB9E20100590480 /* Sources */,
+				CE3715771EB9E20100590480 /* Frameworks */,
+				CE3715781EB9E20100590480 /* Headers */,
+				CE3715791EB9E20100590480 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ApiConnector-Mac";
+			productName = "ApiConnector-Mac";
+			productReference = CE37157B1EB9E20100590480 /* ApiConnector.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CE3715821EB9E20100590480 /* ApiConnector-MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE37158F1EB9E20100590480 /* Build configuration list for PBXNativeTarget "ApiConnector-MacTests" */;
+			buildPhases = (
+				CE37157F1EB9E20100590480 /* Sources */,
+				CE3715801EB9E20100590480 /* Frameworks */,
+				CE3715811EB9E20100590480 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE3715861EB9E20100590480 /* PBXTargetDependency */,
+			);
+			name = "ApiConnector-MacTests";
+			productName = "ApiConnector-MacTests";
+			productReference = CE3715831EB9E20100590480 /* ApiConnector-MacTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		CED9A7AA1DC88D88005CE914 /* ApiConnector */ = {
@@ -373,6 +484,16 @@
 						DevelopmentTeam = VLLVL72AJ4;
 						ProvisioningStyle = Automatic;
 					};
+					CE37157A1EB9E20100590480 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = VLLVL72AJ4;
+						ProvisioningStyle = Automatic;
+					};
+					CE3715821EB9E20100590480 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = VLLVL72AJ4;
+						ProvisioningStyle = Automatic;
+					};
 					CED9A7AA1DC88D88005CE914 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = VLLVL72AJ4;
@@ -402,6 +523,8 @@
 				CED9A7B31DC88D89005CE914 /* ApiConnectorTests */,
 				CE37153F1EB9DE6000590480 /* ApiConnector-tvOS */,
 				CE3715471EB9DE6000590480 /* ApiConnector-tvOSTests */,
+				CE37157A1EB9E20100590480 /* ApiConnector-Mac */,
+				CE3715821EB9E20100590480 /* ApiConnector-MacTests */,
 			);
 		};
 /* End PBXProject section */
@@ -415,6 +538,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CE3715461EB9DE6000590480 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3715791EB9E20100590480 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3715811EB9E20100590480 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -467,6 +604,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE3715761EB9E20100590480 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE37159D1EB9E27400590480 /* NetworkConnector.swift in Sources */,
+				CE3715A01EB9E27700590480 /* URLSessionDataTaskExtension.swift in Sources */,
+				CE37159B1EB9E27400590480 /* APIConnectorError.swift in Sources */,
+				CE37159E1EB9E27400590480 /* JSONModelNetworkConnector.swift in Sources */,
+				CE37159C1EB9E27400590480 /* HTTP.swift in Sources */,
+				CE37159F1EB9E27400590480 /* Response.swift in Sources */,
+				CE3715A11EB9E27900590480 /* TestConnector.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE37157F1EB9E20100590480 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE3715AC1EB9E2FA00590480 /* HTTPTests.swift in Sources */,
+				CE3715AD1EB9E2FA00590480 /* APIConnectorErrorTests.swift in Sources */,
+				CE3715A71EB9E2FA00590480 /* ApiConnectionTests.swift in Sources */,
+				CE3715A61EB9E2FA00590480 /* TestData.swift in Sources */,
+				CE3715A91EB9E2FA00590480 /* JSONModelNetworkConnectorTests.swift in Sources */,
+				CE3715AA1EB9E2FA00590480 /* TestConnectorTests.swift in Sources */,
+				CE3715AB1EB9E2FA00590480 /* ResponseTests.swift in Sources */,
+				CE3715A81EB9E2FA00590480 /* RxNetworkConnectorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CED9A7A61DC88D88005CE914 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -503,6 +669,11 @@
 			isa = PBXTargetDependency;
 			target = CE37153F1EB9DE6000590480 /* ApiConnector-tvOS */;
 			targetProxy = CE37154A1EB9DE6000590480 /* PBXContainerItemProxy */;
+		};
+		CE3715861EB9E20100590480 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE37157A1EB9E20100590480 /* ApiConnector-Mac */;
+			targetProxy = CE3715851EB9E20100590480 /* PBXContainerItemProxy */;
 		};
 		CED9A7B71DC88D89005CE914 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -605,6 +776,108 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		CE37158D1EB9E20100590480 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VLLVL72AJ4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ApiConnector/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wearereasonablepeople.ApiConnector;
+				PRODUCT_NAME = ApiConnector;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CE37158E1EB9E20100590480 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VLLVL72AJ4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ApiConnector/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wearereasonablepeople.ApiConnector;
+				PRODUCT_NAME = ApiConnector;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		CE3715901EB9E20100590480 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = VLLVL72AJ4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = ApiConnectorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(PROJECT_DIR)/Carthage/Build/Mac";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wearereasonablepeople.ApiConnector-MacTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CE3715911EB9E20100590480 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = VLLVL72AJ4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = ApiConnectorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(PROJECT_DIR)/Carthage/Build/Mac";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wearereasonablepeople.ApiConnector-MacTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -812,6 +1085,22 @@
 			buildConfigurations = (
 				CE3715551EB9DE6000590480 /* Debug */,
 				CE3715561EB9DE6000590480 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CE37158C1EB9E20100590480 /* Build configuration list for PBXNativeTarget "ApiConnector-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE37158D1EB9E20100590480 /* Debug */,
+				CE37158E1EB9E20100590480 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CE37158F1EB9E20100590480 /* Build configuration list for PBXNativeTarget "ApiConnector-MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE3715901EB9E20100590480 /* Debug */,
+				CE3715911EB9E20100590480 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
