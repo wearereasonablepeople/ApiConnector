@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ApiConnector-tvOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>ApiConnector.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>CE37153F1EB9DE6000590480</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CE3715471EB9DE6000590480</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CED9A7AA1DC88D88005CE914</key>
 		<dict>
 			<key>primary</key>
