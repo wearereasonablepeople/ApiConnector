@@ -6,7 +6,7 @@
 //  Copyright © 2016 WeAreReasonablePeople. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for ApiConnector.
 FOUNDATION_EXPORT double ApiConnectorVersionNumber;
