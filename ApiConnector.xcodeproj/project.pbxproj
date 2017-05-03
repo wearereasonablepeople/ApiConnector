@@ -77,6 +77,18 @@
 		CE3715AB1EB9E2FA00590480 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF42D6D1E89164800A7FA79 /* ResponseTests.swift */; };
 		CE3715AC1EB9E2FA00590480 /* HTTPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6BAEB1E8954D3007D1CD1 /* HTTPTests.swift */; };
 		CE3715AD1EB9E2FA00590480 /* APIConnectorErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4814471E8BB8E9007AC3F7 /* APIConnectorErrorTests.swift */; };
+		CE3715BF1EB9E41800590480 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715BB1EB9E41800590480 /* RxSwift.framework */; };
+		CE3715C01EB9E41800590480 /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715BC1EB9E41800590480 /* SweetRouter.framework */; };
+		CE3715C11EB9E41800590480 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715BD1EB9E41800590480 /* SwiftyJSON.framework */; };
+		CE3715C21EB9E41800590480 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715BE1EB9E41800590480 /* SwiftyJSONModel.framework */; };
+		CE3715C31EB9E41C00590480 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE3715C41EB9E42200590480 /* APIConnectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4814451E8BB8C3007AC3F7 /* APIConnectorError.swift */; };
+		CE3715C51EB9E42200590480 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8230DA1E89449800019EB1 /* HTTP.swift */; };
+		CE3715C61EB9E42200590480 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */; };
+		CE3715C71EB9E42200590480 /* JSONModelNetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27168F1DCA336B00571670 /* JSONModelNetworkConnector.swift */; };
+		CE3715C81EB9E42200590480 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF42D6B1E89134B00A7FA79 /* Response.swift */; };
+		CE3715C91EB9E42400590480 /* URLSessionDataTaskExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B320F1B1E85768A00E218A9 /* URLSessionDataTaskExtension.swift */; };
+		CE3715CA1EB9E42700590480 /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */; };
 		CED9A7B51DC88D89005CE914 /* ApiConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */; };
 		CED9A7BC1DC88D89005CE914 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED9A7CD1DC8920E005CE914 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CC1DC8920E005CE914 /* TestData.swift */; };
@@ -137,6 +149,11 @@
 		CE3715931EB9E25F00590480 /* SweetRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SweetRouter.framework; path = Carthage/Build/Mac/SweetRouter.framework; sourceTree = "<group>"; };
 		CE3715941EB9E25F00590480 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CE3715951EB9E25F00590480 /* SwiftyJSONModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSONModel.framework; path = Carthage/Build/Mac/SwiftyJSONModel.framework; sourceTree = "<group>"; };
+		CE3715B31EB9E37E00590480 /* ApiConnector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ApiConnector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE3715BB1EB9E41800590480 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/watchOS/RxSwift.framework; sourceTree = "<group>"; };
+		CE3715BC1EB9E41800590480 /* SweetRouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SweetRouter.framework; path = Carthage/Build/watchOS/SweetRouter.framework; sourceTree = "<group>"; };
+		CE3715BD1EB9E41800590480 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/watchOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		CE3715BE1EB9E41800590480 /* SwiftyJSONModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSONModel.framework; path = Carthage/Build/watchOS/SwiftyJSONModel.framework; sourceTree = "<group>"; };
 		CED9A7AB1DC88D89005CE914 /* ApiConnector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ApiConnector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9A7AE1DC88D89005CE914 /* ApiConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiConnector.h; sourceTree = "<group>"; };
 		CED9A7AF1DC88D89005CE914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,6 +208,17 @@
 				CE3715A31EB9E2F100590480 /* SweetRouter.framework in Frameworks */,
 				CE3715A41EB9E2F100590480 /* SwiftyJSON.framework in Frameworks */,
 				CE3715A51EB9E2F100590480 /* SwiftyJSONModel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3715AF1EB9E37E00590480 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE3715BF1EB9E41800590480 /* RxSwift.framework in Frameworks */,
+				CE3715C01EB9E41800590480 /* SweetRouter.framework in Frameworks */,
+				CE3715C11EB9E41800590480 /* SwiftyJSON.framework in Frameworks */,
+				CE3715C21EB9E41800590480 /* SwiftyJSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +304,7 @@
 				CE3715481EB9DE6000590480 /* ApiConnector-tvOSTests.xctest */,
 				CE37157B1EB9E20100590480 /* ApiConnector.framework */,
 				CE3715831EB9E20100590480 /* ApiConnector-MacTests.xctest */,
+				CE3715B31EB9E37E00590480 /* ApiConnector.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -310,6 +339,10 @@
 		CED9A7C71DC88E53005CE914 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE3715BB1EB9E41800590480 /* RxSwift.framework */,
+				CE3715BC1EB9E41800590480 /* SweetRouter.framework */,
+				CE3715BD1EB9E41800590480 /* SwiftyJSON.framework */,
+				CE3715BE1EB9E41800590480 /* SwiftyJSONModel.framework */,
 				CE3715921EB9E25F00590480 /* RxSwift.framework */,
 				CE3715931EB9E25F00590480 /* SweetRouter.framework */,
 				CE3715941EB9E25F00590480 /* SwiftyJSON.framework */,
@@ -342,6 +375,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE37159A1EB9E26E00590480 /* ApiConnector.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3715B01EB9E37E00590480 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE3715C31EB9E41C00590480 /* ApiConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +469,24 @@
 			productReference = CE3715831EB9E20100590480 /* ApiConnector-MacTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		CE3715B21EB9E37E00590480 /* ApiConnector-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE3715B81EB9E37F00590480 /* Build configuration list for PBXNativeTarget "ApiConnector-watchOS" */;
+			buildPhases = (
+				CE3715AE1EB9E37E00590480 /* Sources */,
+				CE3715AF1EB9E37E00590480 /* Frameworks */,
+				CE3715B01EB9E37E00590480 /* Headers */,
+				CE3715B11EB9E37E00590480 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ApiConnector-watchOS";
+			productName = "ApiConnector-watchOS";
+			productReference = CE3715B31EB9E37E00590480 /* ApiConnector.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		CED9A7AA1DC88D88005CE914 /* ApiConnector */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CED9A7BF1DC88D89005CE914 /* Build configuration list for PBXNativeTarget "ApiConnector" */;
@@ -494,6 +553,11 @@
 						DevelopmentTeam = VLLVL72AJ4;
 						ProvisioningStyle = Automatic;
 					};
+					CE3715B21EB9E37E00590480 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = VLLVL72AJ4;
+						ProvisioningStyle = Automatic;
+					};
 					CED9A7AA1DC88D88005CE914 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = VLLVL72AJ4;
@@ -525,6 +589,7 @@
 				CE3715471EB9DE6000590480 /* ApiConnector-tvOSTests */,
 				CE37157A1EB9E20100590480 /* ApiConnector-Mac */,
 				CE3715821EB9E20100590480 /* ApiConnector-MacTests */,
+				CE3715B21EB9E37E00590480 /* ApiConnector-watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -552,6 +617,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CE3715811EB9E20100590480 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3715B11EB9E37E00590480 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -630,6 +702,20 @@
 				CE3715AA1EB9E2FA00590480 /* TestConnectorTests.swift in Sources */,
 				CE3715AB1EB9E2FA00590480 /* ResponseTests.swift in Sources */,
 				CE3715A81EB9E2FA00590480 /* RxNetworkConnectorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE3715AE1EB9E37E00590480 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE3715C61EB9E42200590480 /* NetworkConnector.swift in Sources */,
+				CE3715C91EB9E42400590480 /* URLSessionDataTaskExtension.swift in Sources */,
+				CE3715C41EB9E42200590480 /* APIConnectorError.swift in Sources */,
+				CE3715C71EB9E42200590480 /* JSONModelNetworkConnector.swift in Sources */,
+				CE3715C51EB9E42200590480 /* HTTP.swift in Sources */,
+				CE3715C81EB9E42200590480 /* Response.swift in Sources */,
+				CE3715CA1EB9E42700590480 /* TestConnector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,6 +967,62 @@
 			};
 			name = Release;
 		};
+		CE3715B91EB9E37F00590480 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VLLVL72AJ4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				INFOPLIST_FILE = ApiConnector/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wearereasonablepeople.ApiConnector;
+				PRODUCT_NAME = ApiConnector;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		CE3715BA1EB9E37F00590480 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VLLVL72AJ4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				INFOPLIST_FILE = ApiConnector/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wearereasonablepeople.ApiConnector;
+				PRODUCT_NAME = ApiConnector;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
 		CED9A7BD1DC88D89005CE914 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1101,6 +1243,14 @@
 			buildConfigurations = (
 				CE3715901EB9E20100590480 /* Debug */,
 				CE3715911EB9E20100590480 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CE3715B81EB9E37F00590480 /* Build configuration list for PBXNativeTarget "ApiConnector-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE3715B91EB9E37F00590480 /* Debug */,
+				CE3715BA1EB9E37F00590480 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
