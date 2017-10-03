@@ -15,9 +15,9 @@ public protocol ResponseProvider {
 public final class TestConnector<T: ResponseProvider>: DataRequestType {
     public static func requestObservable(with request: URLRequest) -> Observable<Response> {
         return Observable
-            .just()
+            .just(1)
             .observeOn(SerialDispatchQueueScheduler(qos: .userInitiated))
-            .flatMap { T.response(for: request) }
+            .flatMap { _ in T.response(for: request) }
             .observeOn(MainScheduler.instance)
     }
 }

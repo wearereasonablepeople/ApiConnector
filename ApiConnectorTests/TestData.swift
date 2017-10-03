@@ -17,7 +17,7 @@ struct Api: EndpointType {
         case localhost
         case staging
         
-        var value: URL.Environment {
+        var value: URL.Env {
             switch self {
             case .test: return .init("test.com")
             case .localhost: return .localhost(8080)
