@@ -5,21 +5,12 @@ cache:
   directories:
   - Carthage
 
-before_install:
-  - brew update
-  - brew outdated carthage || brew upgrade carthage
-
-script:
-  - open -a "simulator" --args -CurrentDeviceUDID 57E7D476-3A98-4107-A64D-98CA0EA13EC0
-  - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector  -destination 'platform=iOS Simulator,OS=10.3,id=57E7D476-3A98-4107-A64D-98CA0EA13EC0'
-
 matrix:
   include:
     - before_install:
         - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-builds
       script:
-        - open -a "simulator" --args -CurrentDeviceUDID 99F4F45C-3B72-4473-A6C5-3FD81EF3C25D
-        - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector -destination 'platform=iOS Simulator,OS=10.3,id=99F4F45C-3B72-4473-A6C5-3FD81EF3C25D'
+				- xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector -destination 'platform=iOS Simulator,OS=11.0,name=iPhone 8 Plus'
       env: CACHE_NAME=IOS
 
     - before_install:
