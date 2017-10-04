@@ -9,10 +9,6 @@ before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
 
-script:
-  - open -b com.apple.iphonesimulator
-  - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector  -destination 'platform=iOS Simulator,OS=11.0,name=iPhone 8 Plus'
-
 matrix:
   include:
     - before_install:
