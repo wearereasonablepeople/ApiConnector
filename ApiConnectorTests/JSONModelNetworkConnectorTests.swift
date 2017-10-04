@@ -105,5 +105,17 @@ class JSONModelNetworkConnectorTests: XCTestCase {
         disposable.dispose()
     }
     
-}
+    func testFailModelEncodeOnRequest() {
+        let successExpactation = expectation(description: "Error triggered encoding model.")
+        let expectedError = TestsError.defaultError
+        let testModel = TestData.testModel
+        let modelObservable: Observable<Response> = Connection().requestObservable(method: .post, with: testModel, at: .pictures)
+        let disposable = modelObservable.subscribe(onError: { error in
+            XCTAssertEqual(expectedError, error as? TestsError)
+            successExpactation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 2)
+        disposable.dispose()
+    }}
 

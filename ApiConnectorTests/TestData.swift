@@ -48,6 +48,7 @@ struct TestData {
     
     static let testBodyData = "TestString".data(using: .utf8)!
     static let defaultPost = Post(title: "testTitle", description: "TestDescription")
+    static let testModel = Model(name: "testModel")
 }
 
 enum TestsError: Error {
@@ -70,4 +71,18 @@ struct Post: Codable {
 extension Post: Equatable {}
 func == (lhs: Post, rhs: Post) -> Bool {
     return lhs.title == rhs.title && lhs.description == rhs.description
+}
+
+struct Model: Encodable {
+    let name: String
+    
+    public func encode(to encoder: Encoder) throws {
+        throw TestsError.defaultError
+    }
+}
+
+extension Model: Equatable {
+    static func == (lhs: Model, rhs:Model) -> Bool {
+        return lhs.name == rhs.name
+    }
 }
