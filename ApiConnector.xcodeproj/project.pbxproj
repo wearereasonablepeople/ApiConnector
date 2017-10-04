@@ -18,10 +18,6 @@
 		CE2716831DCA1F6C00571670 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2716821DCA1F6C00571670 /* RxSwift.framework */; };
 		CE2716871DCA238E00571670 /* RxNetworkConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716861DCA238E00571670 /* RxNetworkConnectorTests.swift */; };
 		CE2716881DCA25A700571670 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2716821DCA1F6C00571670 /* RxSwift.framework */; };
-		CE27168B1DCA304800571670 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2716891DCA304800571670 /* SwiftyJSON.framework */; };
-		CE27168C1DCA304800571670 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27168A1DCA304800571670 /* SwiftyJSONModel.framework */; };
-		CE27168D1DCA305300571670 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2716891DCA304800571670 /* SwiftyJSON.framework */; };
-		CE27168E1DCA305300571670 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE27168A1DCA304800571670 /* SwiftyJSONModel.framework */; };
 		CE2716901DCA336B00571670 /* JSONModelNetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27168F1DCA336B00571670 /* JSONModelNetworkConnector.swift */; };
 		CE2716921DCA379F00571670 /* JSONModelNetworkConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716911DCA379F00571670 /* JSONModelNetworkConnectorTests.swift */; };
 		CE2EDCEA1DC8C75A00D2D7E7 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCE91DC8C75A00D2D7E7 /* NetworkConnector.swift */; };
@@ -38,12 +34,8 @@
 		CE3715611EB9DF5A00590480 /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */; };
 		CE3715661EB9DFD600590480 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715621EB9DFD600590480 /* RxSwift.framework */; };
 		CE3715671EB9DFD600590480 /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715631EB9DFD600590480 /* SweetRouter.framework */; };
-		CE3715681EB9DFD600590480 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715641EB9DFD600590480 /* SwiftyJSON.framework */; };
-		CE3715691EB9DFD600590480 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715651EB9DFD600590480 /* SwiftyJSONModel.framework */; };
 		CE37156A1EB9E01D00590480 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715621EB9DFD600590480 /* RxSwift.framework */; };
 		CE37156B1EB9E01D00590480 /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715631EB9DFD600590480 /* SweetRouter.framework */; };
-		CE37156C1EB9E01D00590480 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715641EB9DFD600590480 /* SwiftyJSON.framework */; };
-		CE37156D1EB9E01D00590480 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715651EB9DFD600590480 /* SwiftyJSONModel.framework */; };
 		CE37156E1EB9E06100590480 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CC1DC8920E005CE914 /* TestData.swift */; };
 		CE37156F1EB9E06100590480 /* ApiConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */; };
 		CE3715701EB9E06100590480 /* RxNetworkConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716861DCA238E00571670 /* RxNetworkConnectorTests.swift */; };
@@ -55,8 +47,6 @@
 		CE3715841EB9E20100590480 /* ApiConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE37157B1EB9E20100590480 /* ApiConnector.framework */; };
 		CE3715961EB9E25F00590480 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715921EB9E25F00590480 /* RxSwift.framework */; };
 		CE3715971EB9E25F00590480 /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715931EB9E25F00590480 /* SweetRouter.framework */; };
-		CE3715981EB9E25F00590480 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715941EB9E25F00590480 /* SwiftyJSON.framework */; };
-		CE3715991EB9E25F00590480 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715951EB9E25F00590480 /* SwiftyJSONModel.framework */; };
 		CE37159A1EB9E26E00590480 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE37159B1EB9E27400590480 /* APIConnectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4814451E8BB8C3007AC3F7 /* APIConnectorError.swift */; };
 		CE37159C1EB9E27400590480 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8230DA1E89449800019EB1 /* HTTP.swift */; };
@@ -67,8 +57,6 @@
 		CE3715A11EB9E27900590480 /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EDCEB1DC8D4DB00D2D7E7 /* TestConnector.swift */; };
 		CE3715A21EB9E2F100590480 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715921EB9E25F00590480 /* RxSwift.framework */; };
 		CE3715A31EB9E2F100590480 /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715931EB9E25F00590480 /* SweetRouter.framework */; };
-		CE3715A41EB9E2F100590480 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715941EB9E25F00590480 /* SwiftyJSON.framework */; };
-		CE3715A51EB9E2F100590480 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715951EB9E25F00590480 /* SwiftyJSONModel.framework */; };
 		CE3715A61EB9E2FA00590480 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9A7CC1DC8920E005CE914 /* TestData.swift */; };
 		CE3715A71EB9E2FA00590480 /* ApiConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27167C1DC9FCE300571670 /* ApiConnectionTests.swift */; };
 		CE3715A81EB9E2FA00590480 /* RxNetworkConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2716861DCA238E00571670 /* RxNetworkConnectorTests.swift */; };
@@ -79,8 +67,6 @@
 		CE3715AD1EB9E2FA00590480 /* APIConnectorErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4814471E8BB8E9007AC3F7 /* APIConnectorErrorTests.swift */; };
 		CE3715BF1EB9E41800590480 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715BB1EB9E41800590480 /* RxSwift.framework */; };
 		CE3715C01EB9E41800590480 /* SweetRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715BC1EB9E41800590480 /* SweetRouter.framework */; };
-		CE3715C11EB9E41800590480 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715BD1EB9E41800590480 /* SwiftyJSON.framework */; };
-		CE3715C21EB9E41800590480 /* SwiftyJSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3715BE1EB9E41800590480 /* SwiftyJSONModel.framework */; };
 		CE3715C31EB9E41C00590480 /* ApiConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9A7AE1DC88D89005CE914 /* ApiConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE3715C41EB9E42200590480 /* APIConnectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4814451E8BB8C3007AC3F7 /* APIConnectorError.swift */; };
 		CE3715C51EB9E42200590480 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8230DA1E89449800019EB1 /* HTTP.swift */; };
@@ -171,8 +157,6 @@
 			files = (
 				CE3715661EB9DFD600590480 /* RxSwift.framework in Frameworks */,
 				CE3715671EB9DFD600590480 /* SweetRouter.framework in Frameworks */,
-				CE3715681EB9DFD600590480 /* SwiftyJSON.framework in Frameworks */,
-				CE3715691EB9DFD600590480 /* SwiftyJSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,8 +167,6 @@
 				CE3715491EB9DE6000590480 /* ApiConnector.framework in Frameworks */,
 				CE37156A1EB9E01D00590480 /* RxSwift.framework in Frameworks */,
 				CE37156B1EB9E01D00590480 /* SweetRouter.framework in Frameworks */,
-				CE37156C1EB9E01D00590480 /* SwiftyJSON.framework in Frameworks */,
-				CE37156D1EB9E01D00590480 /* SwiftyJSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,8 +176,6 @@
 			files = (
 				CE3715961EB9E25F00590480 /* RxSwift.framework in Frameworks */,
 				CE3715971EB9E25F00590480 /* SweetRouter.framework in Frameworks */,
-				CE3715981EB9E25F00590480 /* SwiftyJSON.framework in Frameworks */,
-				CE3715991EB9E25F00590480 /* SwiftyJSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,8 +186,6 @@
 				CE3715841EB9E20100590480 /* ApiConnector.framework in Frameworks */,
 				CE3715A21EB9E2F100590480 /* RxSwift.framework in Frameworks */,
 				CE3715A31EB9E2F100590480 /* SweetRouter.framework in Frameworks */,
-				CE3715A41EB9E2F100590480 /* SwiftyJSON.framework in Frameworks */,
-				CE3715A51EB9E2F100590480 /* SwiftyJSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,8 +195,6 @@
 			files = (
 				CE3715BF1EB9E41800590480 /* RxSwift.framework in Frameworks */,
 				CE3715C01EB9E41800590480 /* SweetRouter.framework in Frameworks */,
-				CE3715C11EB9E41800590480 /* SwiftyJSON.framework in Frameworks */,
-				CE3715C21EB9E41800590480 /* SwiftyJSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,8 +204,6 @@
 			files = (
 				CE2716831DCA1F6C00571670 /* RxSwift.framework in Frameworks */,
 				CE1D4C621E803B99001CCA8D /* SweetRouter.framework in Frameworks */,
-				CE27168B1DCA304800571670 /* SwiftyJSON.framework in Frameworks */,
-				CE27168C1DCA304800571670 /* SwiftyJSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +214,6 @@
 				CED9A7B51DC88D89005CE914 /* ApiConnector.framework in Frameworks */,
 				CE2716881DCA25A700571670 /* RxSwift.framework in Frameworks */,
 				CE1D4C631E803E5D001CCA8D /* SweetRouter.framework in Frameworks */,
-				CE27168D1DCA305300571670 /* SwiftyJSON.framework in Frameworks */,
-				CE27168E1DCA305300571670 /* SwiftyJSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
