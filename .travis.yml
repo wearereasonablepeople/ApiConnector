@@ -9,35 +9,22 @@ before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
 
-matrix:
-  include:
-    - before_install:
-        - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-builds
-      script:
-        - open -b com.apple.iphonesimulator
-        - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector -destination 'platform=iOS Simulator,OS=11.0,name=iPhone 8 Plus'
-      env: CACHE_NAME=IOS
+env:
+  - DESTINATION="platform=iOS Simulator,OS=11.0,name=iPhone 8 Plus" PLATFORM="iOS"     ACTION="test"  CACHE_NAME="IOS"
+  - DESTINATION="arch=x86_64"                                       PLATFORM="macOS"   ACTION="test"  CACHE_NAME="MAC"
+  - DESTINATION="OS=10.2,name=Apple TV 1080p"                       PLATFORM="tvOS"    ACTION="test"  CACHE_NAME="TV_OS"
+  - DESTINATION="OS=4,name=Apple Watch - 38mm"                      PLATFORM="watchOS" ACTION="build" CACHE_NAME="WATCH_OS"
 
-    - before_install:
-        - carthage bootstrap --verbose --no-use-binaries --platform tvOS --cache-builds
-      script:
-        - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector-tvOS -destination 'platform=tvOS Simulator,OS=10.2,name=Apple TV 1080p'
-      env: CACHE_NAME=TV_OS
+install:
+  - test -f Cartfile* && carthage bootstrap --verbose --no-use-binaries --platform $PLATFORM --cache-builds
 
-    - before_install:
-        - carthage bootstrap --verbose --no-use-binaries --platform Mac --cache-builds
-      script:
-        - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector-Mac
-      env: CACHE_NAME=MAC
-
-    - before_install:
-        - carthage bootstrap --verbose --no-use-binaries --platform watchOS --cache-builds
-      script:
-        - xcodebuild clean build -project ApiConnector.xcodeproj -scheme ApiConnector-watchOS
-      env: CACHE_NAME=WATCH_OS
+script:
+  - set -o pipefail && xcodebuild -project ApiConnector.xcodeproj -scheme ApiConnector -destination "$DESTINATION" $ACTION | xcpretty
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - if [ $TEST == "test" ]; then
+      - bash <(curl -s https://codecov.io/bash)
+    fi
 
 notifications:
   email: true
