@@ -8,7 +8,6 @@
 
 import XCTest
 import RxSwift
-import SwiftyJSON
 import ApiConnector
 
 class TestConnectorTests: XCTestCase {

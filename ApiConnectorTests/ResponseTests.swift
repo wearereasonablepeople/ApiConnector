@@ -12,9 +12,8 @@ import ApiConnector
 class ResponseTests: XCTestCase {
     
     func testReponseJSONInitializable() {
-        let json = TestData.defaultPost.jsonValue
-        
-        XCTAssertEqual(Response(for: TestData.request, with: 200, jsonObject: json).data, try? json.rawData())
+        let jsonObject = TestData.defaultPost
+        XCTAssertEqual(Response(for: TestData.request, with: 200, jsonObject: jsonObject).data, try! JSONEncoder().encode(TestData.defaultPost))
     }
     
 }

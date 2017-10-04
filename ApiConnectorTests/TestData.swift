@@ -9,7 +9,6 @@
 import ApiConnector
 import RxSwift
 import SweetRouter
-import SwiftyJSONModel
 
 struct Api: EndpointType {
     enum Environment: EnvironmentType {
@@ -63,24 +62,9 @@ struct SuccessProvider: ResponseProvider {
 
 typealias TestApiConnection<Provider: ResponseProvider> = NetworkConnector<TestConnector<Provider>, Api>
 
-struct Post {
+struct Post: Codable {
     let title: String
     let description: String
-}
-
-extension Post: JSONModelType {
-    enum PropertyKey: String {
-        case title, description
-    }
-    
-    init(object: JSONObject<PropertyKey>) throws {
-        title = try object.value(for: .title)
-        description = try object.value(for: .description)
-    }
-    
-    var dictValue: [PropertyKey : JSONRepresentable?] {
-        return [.title: title, .description: description]
-    }
 }
 
 extension Post: Equatable {}
