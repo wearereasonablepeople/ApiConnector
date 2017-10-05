@@ -10,21 +10,25 @@ before_install:
   - brew outdated carthage || brew upgrade carthage
 
 env:
-  - DESTINATION="platform=iOS Simulator,OS=11.0,name=iPhone 8 Plus" PLATFORM="iOS"     ACTION="test"  CACHE_NAME="IOS"
-  - DESTINATION="arch=x86_64"                                       PLATFORM="macOS"   ACTION="test"  CACHE_NAME="MAC"
-  - DESTINATION="OS=10.2,name=Apple TV 1080p"                       PLATFORM="tvOS"    ACTION="test"  CACHE_NAME="TV_OS"
-  - DESTINATION="OS=4,name=Apple Watch - 38mm"                      PLATFORM="watchOS" ACTION="build" CACHE_NAME="WATCH_OS"
+  global:
+    - PROJECT="ApiConnector.xcodeproj"
+  matrix:
+  - ACTION='build test'  PLATFORM=iOS     SCHEME='ApiConnector'         CACHE_NAME=IOS      DESTINATION='platform=iOS Simulator,OS=11.0,name=iPhone 8 Plus'
+  - ACTION='build test'  PLATFORM=tvOS    SCHEME='ApiConnector-tvOS'    CACHE_NAME=TV_OS    DESTINATION='platform=tvOS Simulator,OS=10.2,name=Apple TV 1080p'
+  - ACTION='build test'  PLATFORM=macOS   SCHEME='ApiConnector-Mac'     CACHE_NAME=MAC      DESTINATION='platform=OS X'
+  - ACTION='build' PLATFORM=watchOS SCHEME='ApiConnector-watchOS' CACHE_NAME=WATCH_OS DESTINATION='platform=watchOS Simulator,name=Apple Watch - 38mm'
 
 install:
-  - test -f Cartfile* && carthage bootstrap --verbose --no-use-binaries --platform $PLATFORM --cache-builds
+  - carthage bootstrap --no-use-binaries --platform $PLATFORM --cache-builds
+
+before_script:
+  - set -o pipefail
 
 script:
-  - set -o pipefail && xcodebuild -project ApiConnector.xcodeproj -scheme ApiConnector -destination "$DESTINATION" $ACTION | xcpretty
-
+  - xcodebuild clean $ACTION -project "$PROJECT" -scheme "$SCHEME" -destination "$DESTINATION" | xcpretty -c;
+    
 after_success:
-  - if [ $TEST == "test" ]; then
-      - bash <(curl -s https://codecov.io/bash)
-    fi
+  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email: true
