@@ -16,24 +16,15 @@ ApiConnector uses [SweetRouter](https://github.com/alickbass/SweetRouter) as a d
 
 ## API Connection
 
-The framework provides a convenient way for making requests to API with given Router. You can use the completion handler of the created requests but framework also provides observables that create `JSON` or models that that conform to [SwiftyJSONModel](https://github.com/alickbass/SwiftyJSONModel) protocols.
+The framework provides a convenient way for making requests to API with given Router. You can use the completion handler of the created requests but framework also provides observables that create `JSON` or models that conforms to Codable protocol.
 
 **Example of possible ApiConnector:**
 
 ```swift
 //Here is our Post Model
-struct Post: JSONObjectInitializable {
-    enum PropertyKey: String {
-        case title, description
-    }
-    
+struct Post: Codable {
     let title: String
     let description: String
-    
-    init(object: JSONObject<PropertyKey>) throws {
-        title = try object.value(for: .title)
-        description = try object.value(for: .description)
-    }
 }
 
 // And here is our ApiConnection Type
@@ -96,7 +87,7 @@ struct PostsResponseProvider: ResponseProvider {
     static func response(for request: URLRequest) -> Observable<Response> {
         let posts: [Post] = //Here we create mock list of posts
         
-        return .just(Response(for: request, with: 200, jsonObject: posts.jsonRepresantable))
+        return .just(Response(for: request, with: 200, jsonObject: posts))
     }
 }
 
