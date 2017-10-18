@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSONModel
 
 public struct Response {
     public typealias Validation = (Response) throws -> Response
@@ -27,7 +26,7 @@ public struct Response {
         self.init(for: request, response: response, data: data)
     }
     
-    public init(for request: URLRequest, with code: Int, jsonObject: JSONRepresentable) {
-        self.init(for: request, with: code, data: try! jsonObject.jsonValue.rawData())
+    public init<T: Encodable>(for request: URLRequest, with code: Int, jsonObject: T) {
+        self.init(for: request, with: code, data: try! JSONEncoder().encode(jsonObject))
     }
 }

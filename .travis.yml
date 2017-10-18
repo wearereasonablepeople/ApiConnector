@@ -9,37 +9,24 @@ before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
 
+env:
+  global:
+    - PROJECT="ApiConnector.xcodeproj"
+  matrix:
+  - ACTION='build test'  PLATFORM=iOS     SCHEME='ApiConnector'         CACHE_NAME=IOS      DESTINATION='platform=iOS Simulator,OS=11.0,name=iPhone 8 Plus'
+  - ACTION='build test'  PLATFORM=tvOS    SCHEME='ApiConnector-tvOS'    CACHE_NAME=TV_OS    DESTINATION='platform=tvOS Simulator,OS=10.2,name=Apple TV 1080p'
+  - ACTION='build test'  PLATFORM=macOS   SCHEME='ApiConnector-Mac'     CACHE_NAME=MAC      DESTINATION='platform=OS X'
+  - ACTION='build' PLATFORM=watchOS SCHEME='ApiConnector-watchOS' CACHE_NAME=WATCH_OS DESTINATION='platform=watchOS Simulator,name=Apple Watch - 38mm'
+
+install:
+  - carthage bootstrap --no-use-binaries --platform $PLATFORM --cache-builds
+
+before_script:
+  - set -o pipefail
+
 script:
-  - open -b com.apple.iphonesimulator
-  - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector  -destination 'platform=iOS Simulator,OS=11.0,name=iPhone 8 Plus'
-
-matrix:
-  include:
-    - before_install:
-        - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-builds
-      script:
-        - open -b com.apple.iphonesimulator
-        - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector -destination 'platform=iOS Simulator,OS=11.0,name=iPhone 8 Plus'
-      env: CACHE_NAME=IOS
-
-    - before_install:
-        - carthage bootstrap --verbose --no-use-binaries --platform tvOS --cache-builds
-      script:
-        - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector-tvOS -destination 'platform=tvOS Simulator,OS=10.2,name=Apple TV 1080p'
-      env: CACHE_NAME=TV_OS
-
-    - before_install:
-        - carthage bootstrap --verbose --no-use-binaries --platform Mac --cache-builds
-      script:
-        - xcodebuild clean build test -project ApiConnector.xcodeproj -scheme ApiConnector-Mac
-      env: CACHE_NAME=MAC
-
-    - before_install:
-        - carthage bootstrap --verbose --no-use-binaries --platform watchOS --cache-builds
-      script:
-        - xcodebuild clean build -project ApiConnector.xcodeproj -scheme ApiConnector-watchOS
-      env: CACHE_NAME=WATCH_OS
-
+  - xcodebuild clean $ACTION -project "$PROJECT" -scheme "$SCHEME" -destination "$DESTINATION" | xcpretty -c;
+    
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 

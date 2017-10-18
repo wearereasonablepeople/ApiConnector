@@ -9,7 +9,6 @@
 import ApiConnector
 import RxSwift
 import SweetRouter
-import SwiftyJSONModel
 
 struct Api: EndpointType {
     enum Environment: EnvironmentType {
@@ -49,6 +48,7 @@ struct TestData {
     
     static let testBodyData = "TestString".data(using: .utf8)!
     static let defaultPost = Post(title: "testTitle", description: "TestDescription")
+    static let testModel = Model(name: "testModel")
 }
 
 enum TestsError: Error {
@@ -63,27 +63,26 @@ struct SuccessProvider: ResponseProvider {
 
 typealias TestApiConnection<Provider: ResponseProvider> = NetworkConnector<TestConnector<Provider>, Api>
 
-struct Post {
+struct Post: Codable {
     let title: String
     let description: String
-}
-
-extension Post: JSONModelType {
-    enum PropertyKey: String {
-        case title, description
-    }
-    
-    init(object: JSONObject<PropertyKey>) throws {
-        title = try object.value(for: .title)
-        description = try object.value(for: .description)
-    }
-    
-    var dictValue: [PropertyKey : JSONRepresentable?] {
-        return [.title: title, .description: description]
-    }
 }
 
 extension Post: Equatable {}
 func == (lhs: Post, rhs: Post) -> Bool {
     return lhs.title == rhs.title && lhs.description == rhs.description
+}
+
+struct Model: Encodable {
+    let name: String
+    
+    public func encode(to encoder: Encoder) throws {
+        throw TestsError.defaultError
+    }
+}
+
+extension Model: Equatable {
+    static func == (lhs: Model, rhs:Model) -> Bool {
+        return lhs.name == rhs.name
+    }
 }
