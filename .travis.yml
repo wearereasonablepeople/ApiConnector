@@ -26,9 +26,6 @@ before_script:
 
 script:
   - xcodebuild clean $ACTION -project "$PROJECT" -scheme "$SCHEME" -destination "$DESTINATION" | xcpretty -c;
-    
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email: true
